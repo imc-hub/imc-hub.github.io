@@ -15,7 +15,9 @@
       "Bash(volta --version)",
       "Bash(fnm --version)",
       "Bash(n --version)",
-      "Bash(git add *)"
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(GITHUB_PAGES=true REPO_NAME=imc-website npm run build)"
     ]
   },
   "disabledMcpjsonServers": [
