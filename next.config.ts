@@ -1,6 +1,5 @@
 import type { NextConfig } from "next";
 
-const isGitHubPages = process.env.GITHUB_PAGES === "true";
 const repoName = process.env.REPO_NAME || "";
 
 const nextConfig: NextConfig = {
@@ -8,7 +7,7 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
-  ...(isGitHubPages && repoName
+  ...(repoName && repoName !== "imc-hub.github.io" && !repoName.endsWith(".github.io")
     ? {
         basePath: `/${repoName}`,
         assetPrefix: `/${repoName}/`,

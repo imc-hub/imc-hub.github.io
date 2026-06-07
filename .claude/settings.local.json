@@ -17,7 +17,11 @@
       "Bash(n --version)",
       "Bash(git add *)",
       "Bash(git commit *)",
-      "Bash(GITHUB_PAGES=true REPO_NAME=imc-website npm run build)"
+      "Bash(GITHUB_PAGES=true REPO_NAME=imc-website npm run build)",
+      "Bash(git push *)",
+      "Bash(git config *)",
+      "Bash(git remote *)",
+      "Bash(gh auth *)"
     ]
   },
   "disabledMcpjsonServers": [
