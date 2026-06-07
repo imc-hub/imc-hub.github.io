@@ -1,10 +1,24 @@
 {
-  "disabledMcpjsonServers": [
-    "pentester-mcp"
-  ],
   "permissions": {
     "allow": [
-      "Bash(npx create-next-app@latest . --typescript --tailwind --eslint --app --src-dir --import-alias \"@/*\" --use-npm --yes)"
+      "Bash(npx create-next-app@latest . --typescript --tailwind --eslint --app --src-dir --import-alias \"@/*\" --use-npm --yes)",
+      "Read(//usr/local/**)",
+      "Read(//home/user/**)",
+      "Bash(nvm --version)",
+      "Bash(corepack enable *)",
+      "Bash(corepack prepare *)",
+      "Bash(npx shadcn@latest init -d)",
+      "Bash(npx shadcn@latest add button card input textarea label -y)",
+      "Bash(npm run *)",
+      "Bash(npx tsc *)",
+      "Bash(npx --version)",
+      "Bash(volta --version)",
+      "Bash(fnm --version)",
+      "Bash(n --version)",
+      "Bash(git add *)"
     ]
-  }
+  },
+  "disabledMcpjsonServers": [
+    "pentester-mcp"
+  ]
 }
