@@ -17,9 +17,6 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -36,13 +33,9 @@ jobs:
         run: npx next build
         env:
           GITHUB_PAGES: "true"
-          REPO_NAME: ${{ github.event.repository.name }}
 
       - name: Add .nojekyll
         run: touch out/.nojekyll
-
-      - name: List output files
-        run: ls -la out/
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

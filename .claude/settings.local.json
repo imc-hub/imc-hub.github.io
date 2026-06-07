@@ -21,7 +21,9 @@
       "Bash(git push *)",
       "Bash(git config *)",
       "Bash(git remote *)",
-      "Bash(gh auth *)"
+      "Bash(gh auth *)",
+      "Bash(GITHUB_PAGES=true REPO_NAME=imc-hub.github.io npx next build)",
+      "Bash(env)"
     ]
   },
   "disabledMcpjsonServers": [
