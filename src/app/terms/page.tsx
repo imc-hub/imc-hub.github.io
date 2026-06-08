@@ -127,8 +127,8 @@ const sections = [
     title: "13. Contact Information",
     content: [
       "For questions about these Terms, please contact us:",
-      "Email: legal@imc.com",
-      "Mailing Address: IMC Inc., Attn: Legal Department, San Francisco, CA, United States",
+      "Email: legal@imc-hub.com",
+      "Mailing Address: IMC Inc., Attn: Legal Department, Giza, CA, Egypt",
     ],
   },
 ];

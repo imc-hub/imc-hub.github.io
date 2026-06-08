@@ -1,6 +1,13 @@
 import type { Metadata } from "next";
 import { PageLayout } from "@/components/layout/page-layout";
-import { Mail, MapPin, MessageSquare, Building2, Users, HelpCircle } from "lucide-react";
+import {
+  Mail,
+  MapPin,
+  MessageSquare,
+  Building2,
+  Users,
+  HelpCircle,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -17,21 +24,21 @@ const contactMethods = [
     icon: Mail,
     title: "Email Us",
     description: "For general inquiries and support",
-    detail: "hello@imc.com",
-    action: "mailto:hello@imc.com",
+    detail: "hello@imc-hub.com",
+    action: "mailto:hello@imc-hub.com",
   },
   {
     icon: Building2,
     title: "Sales & Partnerships",
     description: "Corporate training and institutional partnerships",
-    detail: "sales@imc.com",
-    action: "mailto:sales@imc.com",
+    detail: "sales@imc-hub.com",
+    action: "mailto:sales@imc-hub.com",
   },
   {
     icon: MapPin,
     title: "Office",
     description: "Visit us by appointment",
-    detail: "San Francisco, CA",
+    detail: "Cairo, EG",
     action: null,
   },
 ];
@@ -222,12 +229,12 @@ export default function ContactPage() {
                 className="w-full bg-imc-teal text-white hover:bg-imc-teal-dark"
                 asChild
               >
-                <a href="mailto:hello@imc.com">Send Message</a>
+                <a href="mailto:hello@imc-hub.com">Send Message</a>
               </Button>
 
               <p className="text-center text-xs text-muted-foreground">
                 We typically respond within 24 hours. For urgent matters, email
-                us directly at hello@imc.com.
+                us directly at hello@imc-hub.com.
               </p>
             </div>
           </div>

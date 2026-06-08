@@ -4,22 +4,22 @@ const testimonials = [
   {
     quote:
       "IMC transformed my approach to business. The simulator gave me confidence I never got from textbooks. I walked into my first job ready to contribute from day one.",
-    name: "Sarah Chen",
-    role: "Data Analyst at TechCorp",
+    name: "Emad Anas",
+    role: "Data Analyst",
     segment: "University Student",
   },
   {
     quote:
       "After 15 years in marketing, I needed to pivot to tech. IMC's structured tracks and real project experience made the transition possible in under 6 months.",
-    name: "Marcus Johnson",
-    role: "Product Manager at StartupXYZ",
+    name: "Mohamed Saad",
+    role: "Product Manager",
     segment: "Career Changer",
   },
   {
     quote:
       "We rolled out IMC to 200+ employees. Engagement is 4x higher than our previous L&D platform, and we can actually measure skill improvement.",
-    name: "Elena Rodriguez",
-    role: "Head of L&D, GlobalCorp",
+    name: "Ahmed Sabry",
+    role: "Head of L&D",
     segment: "HR Department",
   },
 ];

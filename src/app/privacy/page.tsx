@@ -53,7 +53,7 @@ const sections = [
     content: [
       "We retain your personal information for as long as your account is active or as needed to provide the Service. Specific retention periods:",
       "Account Data: Retained while your account is active. Upon deletion request, data is anonymized within 30 days. Assessment Results: Retained for the lifetime of your account to track progress over time. Simulation Data: Retained for the lifetime of your account for leaderboard and certification purposes. Usage Logs: Retained for 12 months for security and analytics, then anonymized. Payment Records: Retained for 7 years as required by financial regulations.",
-      "You may request deletion of your account and associated data at any time by contacting privacy@imc.com or using the account deletion feature in your settings.",
+      "You may request deletion of your account and associated data at any time by contacting privacy@imc-hub.com or using the account deletion feature in your settings.",
     ],
   },
   {
@@ -71,7 +71,7 @@ const sections = [
     content: [
       "Depending on your jurisdiction, you may have the following rights regarding your personal data:",
       "Right of Access: You can request a copy of the personal data we hold about you. Right to Rectification: You can request correction of inaccurate or incomplete data. Right to Erasure: You can request deletion of your personal data, subject to legal retention requirements. Right to Restriction: You can request that we limit the processing of your data in certain circumstances. Right to Data Portability: You can request your data in a structured, machine-readable format. Right to Object: You can object to processing based on legitimate interests or for direct marketing purposes. Right to Withdraw Consent: Where processing is based on consent, you can withdraw consent at any time.",
-      "To exercise any of these rights, contact us at privacy@imc.com. We will respond within 30 days (or within the timeframe required by applicable law). We may need to verify your identity before processing your request.",
+      "To exercise any of these rights, contact us at privacy@imc-hub.com. We will respond within 30 days (or within the timeframe required by applicable law). We may need to verify your identity before processing your request.",
     ],
   },
   {
@@ -112,9 +112,9 @@ const sections = [
     title: "12. Contact Us",
     content: [
       "If you have questions about this Privacy Policy or wish to exercise your data rights, please contact us:",
-      "Email: privacy@imc.com",
-      "Data Protection Officer: dpo@imc.com",
-      "Mailing Address: IMC Inc., Attn: Privacy Team, San Francisco, CA, United States",
+      "Email: privacy@imc-hub.com",
+      "Data Protection Officer: dpo@imc-hub.com",
+      "Mailing Address: IMC Inc., Attn: Privacy Team, Giza, CA, Egypt",
       "If you are not satisfied with our response, you have the right to lodge a complaint with your local data protection authority.",
     ],
   },
