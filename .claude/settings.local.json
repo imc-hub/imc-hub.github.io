@@ -23,7 +23,20 @@
       "Bash(git remote *)",
       "Bash(gh auth *)",
       "Bash(GITHUB_PAGES=true REPO_NAME=imc-hub.github.io npx next build)",
-      "Bash(env)"
+      "Bash(env)",
+      "Bash(pkill -f \"python3 -m http.server 8080\")",
+      "Bash(nohup python3 -m http.server 8080)",
+      "Bash(npx --yes serve --version)",
+      "Bash(pkill -f \"python3 -m http.server\")",
+      "Bash(pkill -f \"node.*serve\")",
+      "Bash(pkill -f \"node server.js\")",
+      "Bash(fuser -k 8080/tcp)",
+      "Bash(nohup node serve.mjs)",
+      "WebFetch(domain:www.octri-egypt.com)",
+      "WebFetch(domain:rxchallenger.github.io)",
+      "Bash(npx next *)",
+      "mcp__plugin_semgrep_semgrep__semgrep_scan",
+      "Bash(npm audit *)"
     ]
   },
   "disabledMcpjsonServers": [

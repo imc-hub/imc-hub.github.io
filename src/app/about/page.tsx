@@ -1,11 +1,22 @@
 import type { Metadata } from "next";
 import { PageLayout } from "@/components/layout/page-layout";
-import { Target, Eye, Users, TrendingUp } from "lucide-react";
+import { Target, Eye, Users, TrendingUp, Crown, Code, GraduationCap, Megaphone } from "lucide-react";
+import { WebPageStructuredData } from "@/components/seo/structured-data";
 
 export const metadata: Metadata = {
-  title: "About Us — IMC Intelligent Mastery Coaching",
+  title: "About Us — Mission, Vision & Team",
   description:
-    "Learn about IMC's mission to close the gap between human potential and corporate reality. Meet our team and discover our story.",
+    "Learn about IMC's mission to close the gap between human potential and corporate reality. Meet our leadership team and discover how we build corporate readiness.",
+  alternates: {
+    canonical: "/about",
+  },
+  openGraph: {
+    type: "website",
+    url: "https://imc-hub.github.io/about",
+    title: "About Us — IMC Intelligent Mastery Coaching",
+    description:
+      "Learn about IMC's mission, vision, principles, and the team building corporate readiness solutions.",
+  },
 };
 
 const values = [
@@ -37,36 +48,57 @@ const values = [
 
 const team = [
   {
-    name: "Founding Team",
-    role: "Vision & Strategy",
+    icon: Crown,
+    name: "Mohamed Talaat",
+    role: "Chief Executive Officer",
     description:
-      "Built by senior operators, educators, and engineers who've seen the gap between education and employment firsthand.",
+      "Strategic vision, project management, and direct oversight of the sports & physical endurance sector (OCTRI integration).",
+    color: "text-imc-teal",
+    bgColor: "bg-imc-teal/10",
   },
   {
-    name: "Education Design",
-    role: "Curriculum & Pedagogy",
+    icon: Code,
+    name: "Ahmed Ezzat",
+    role: "Chief Technology Officer",
     description:
-      "Former McKinsey consultants, corporate trainers, and learning scientists designing structured readiness paths.",
+      "Digital solutions, software development, website, and mobile application development powered by gamification and simulation.",
+    color: "text-imc-gold",
+    bgColor: "bg-imc-gold/10",
   },
   {
-    name: "Engineering",
-    role: "Platform & Simulation",
+    icon: GraduationCap,
+    name: "Mostafa Alam",
+    role: "Learning & Development Director",
     description:
-      "Full-stack engineers and simulation designers building the readiness platform from the ground up.",
+      "Educational & training content creation, and corporate training program management (B2B).",
+    color: "text-emerald-500",
+    bgColor: "bg-emerald-500/10",
   },
   {
-    name: "Industry Advisors",
-    role: "Corporate Partnerships",
+    icon: Megaphone,
+    name: "Mohamed Ramadan",
+    role: "Chief Commercial Officer",
     description:
-      "CHROs, startup founders, and hiring managers ensuring IMC outcomes match real corporate needs.",
+      "Marketing, sales, commercial partnerships, and corporate contract acquisition.",
+    color: "text-sky-500",
+    bgColor: "bg-sky-500/10",
   },
 ];
 
 export default function AboutPage() {
   return (
     <PageLayout>
+      <WebPageStructuredData
+        title="About Us — IMC Intelligent Mastery Coaching"
+        description="Learn about IMC's mission to close the gap between human potential and corporate reality. Meet our team."
+        url="https://imc-hub.github.io/about"
+        breadcrumb={[
+          { name: "Home", item: "https://imc-hub.github.io/" },
+          { name: "About Us", item: "https://imc-hub.github.io/about" },
+        ]}
+      />
       {/* Hero */}
-      <section className="bg-imc-navy py-20 sm:py-28">
+      <section aria-label="About IMC" className="bg-imc-navy py-20 sm:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-imc-teal">
@@ -178,27 +210,28 @@ export default function AboutPage() {
           </div>
 
           <div className="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {team.map((group) => (
-              <div
-                key={group.name}
-                className="rounded-xl border border-border/60 bg-card p-6"
-              >
-                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-imc-teal/10">
-                  <span className="text-sm font-bold text-imc-teal">
-                    {group.name.charAt(0)}
-                  </span>
+            {team.map((member) => {
+              const Icon = member.icon;
+              return (
+                <div
+                  key={member.name}
+                  className="rounded-xl border border-border/60 bg-card p-6 transition-all duration-300 hover:border-imc-teal/30"
+                >
+                  <div className={`flex h-12 w-12 items-center justify-center rounded-xl ${member.bgColor}`}>
+                    <Icon className={`h-6 w-6 ${member.color}`} />
+                  </div>
+                  <h3 className="mt-4 text-base font-bold text-foreground">
+                    {member.name}
+                  </h3>
+                  <p className={`mt-0.5 text-xs font-semibold ${member.color}`}>
+                    {member.role}
+                  </p>
+                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                    {member.description}
+                  </p>
                 </div>
-                <h3 className="mt-4 text-base font-bold text-foreground">
-                  {group.name}
-                </h3>
-                <p className="mt-0.5 text-xs font-medium text-imc-teal">
-                  {group.role}
-                </p>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                  {group.description}
-                </p>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
@@ -215,7 +248,7 @@ export default function AboutPage() {
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <a
-              href="/#get-started"
+              href="/assessment"
               className="inline-flex h-11 items-center justify-center rounded-lg bg-imc-teal px-6 text-sm font-medium text-white transition-colors hover:bg-imc-teal-dark"
             >
               Start Free Assessment

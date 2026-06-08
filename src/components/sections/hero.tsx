@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, Play } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export function HeroSection() {
@@ -25,26 +25,15 @@ export function HeroSection() {
             corporate readiness. Real simulations. Real skills. Real outcomes.
           </p>
 
-          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <div className="mt-10 flex items-center justify-center">
             <Button
               size="lg"
               className="w-full bg-imc-teal text-white hover:bg-imc-teal-dark sm:w-auto"
               asChild
             >
-              <Link href="/#get-started">
+              <Link href="/assessment">
                 Start Free Assessment
                 <ArrowRight className="ml-1.5 h-4 w-4" />
-              </Link>
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="w-full border-slate-600 text-slate-300 hover:bg-slate-800 hover:text-white sm:w-auto"
-              asChild
-            >
-              <Link href="/#how-it-works">
-                <Play className="mr-1.5 h-4 w-4" />
-                Watch Demo
               </Link>
             </Button>
           </div>

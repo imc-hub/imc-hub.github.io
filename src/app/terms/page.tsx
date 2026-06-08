@@ -1,10 +1,18 @@
 import type { Metadata } from "next";
 import { PageLayout } from "@/components/layout/page-layout";
+import { WebPageStructuredData } from "@/components/seo/structured-data";
 
 export const metadata: Metadata = {
-  title: "Terms of Service — IMC Intelligent Mastery Coaching",
+  title: "Terms of Service",
   description:
-    "Read the Terms of Service for IMC platforms, including user obligations, content policies, and liability limitations.",
+    "Read the Terms of Service for IMC platforms, including user obligations, content policies, subscription terms, and liability limitations.",
+  alternates: {
+    canonical: "/terms",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 const lastUpdated = "June 7, 2026";
@@ -136,6 +144,15 @@ const sections = [
 export default function TermsPage() {
   return (
     <PageLayout>
+      <WebPageStructuredData
+        title="Terms of Service — IMC Intelligent Mastery Coaching"
+        description="Read the Terms of Service for IMC platforms including user obligations, content policies, subscription terms."
+        url="https://imc-hub.github.io/terms"
+        breadcrumb={[
+          { name: "Home", item: "https://imc-hub.github.io/" },
+          { name: "Terms of Service", item: "https://imc-hub.github.io/terms" },
+        ]}
+      />
       <section className="bg-imc-navy py-16 sm:py-20">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <div className="text-center">

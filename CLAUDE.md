@@ -25,9 +25,12 @@ src/
 ├── app/
 │   ├── layout.tsx          # Root layout (Inter font, CSS vars, <html>/<body>)
 │   ├── globals.css         # Tailwind import, theme, light/dark variables
-│   ├── page.tsx            # Homepage (Hero, Stats, Ecosystem, HowItWorks, Testimonials, CTA)
+│   ├── page.tsx            # Homepage (Hero, Stats, Ecosystem, Pricing, HowItWorks, Testimonials, CTA)
 │   ├── not-found.tsx       # 404 page
+│   ├── imc.jpeg            # IMC logo image (also copied to public/imc.jpeg)
 │   ├── about/page.tsx      # About (mission, vision, principles, team)
+│   ├── academy/page.tsx    # IMC Academy — multi-course platform + Rx Challenger deep-dive
+│   ├── assessment/page.tsx # Career readiness assessment (quiz, scoring, results)
 │   ├── contact/page.tsx    # Contact (methods, form→mailto, FAQ)
 │   ├── privacy/page.tsx    # Privacy Policy (12 sections)
 │   └── terms/page.tsx      # Terms of Service (13 sections)
@@ -37,9 +40,10 @@ src/
 │   │   ├── footer.tsx      # Links: Product, Company, Legal
 │   │   └── page-layout.tsx # Header + Footer wrapper for sub-pages
 │   ├── sections/
-│   │   ├── hero.tsx        # Hero with gradient bg, CTAs, pillar cards, logos
+│   │   ├── hero.tsx        # Hero with gradient bg, CTA, pillar cards, logos
 │   │   ├── stats.tsx       # 4 stats on navy background
 │   │   ├── ecosystem.tsx   # 3 pillar cards (Academy, Simulator, OCTRI)
+│   │   ├── pricing.tsx     # 3 pricing cards (Academy free, Simulator, OCTRI)
 │   │   ├── how-it-works.tsx# 4-step process with icons
 │   │   ├── testimonials.tsx# 3 testimonial cards with stars
 │   │   └── cta.tsx         # Final CTA with buttons
@@ -48,9 +52,12 @@ src/
 │       ├── card.tsx        # Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter
 │       ├── input.tsx       # @base-ui/react Input wrapper
 │       ├── label.tsx       # "use client" label
-│       └── textarea.tsx    # Standard textarea
+│       ├── textarea.tsx    # Standard textarea
+│       └── toast.tsx       # "use client" global toast system
 └── lib/
     └── utils.ts            # cn() = twMerge(clsx())
+public/
+└── imc.jpeg                # IMC logo (referenced by header & footer)
 ```
 
 ## Architecture Decisions
@@ -84,11 +91,19 @@ src/
 ### Hash Links for Homepage Sections
 - Header and footer use `href="/#ecosystem"`, `href="/#how-it-works"`, `href="/#get-started"`
 - These are on `<Link>` components which handle basePath automatically
-- NOTE: `/#pricing` footer link exists but there's no pricing section on the page
+- Pricing section exists (`/pricing` section id on homepage)
 
 ### Navigation Links
-- Header: About (`/about`), Ecosystem (`/#ecosystem`), How It Works (`/#how-it-works`), Contact (`/contact`)
-- Footer Product: Ecosystem, How It Works, Pricing; Company: About, Contact; Legal: Terms, Privacy
+- Header: About (`/about`), Academy (`/academy`), Ecosystem (`/#ecosystem`), How It Works (`/#how-it-works`), Contact (`/contact`)
+- Header buttons: "Get Started" → `/assessment` only (Sign In removed)
+- Footer Product: Academy, Ecosystem, How It Works, Pricing; Company: About, Contact; Legal: Terms, Privacy
+
+### Logo
+- IMC logo is `/imc.jpeg` (stored in `public/`, referenced via `<img src="/imc.jpeg">`)
+- Header: `h-9 w-9 rounded-lg object-cover` (36×36px)
+- Footer: `h-8 w-8 rounded-lg object-cover` (32×32px)
+- Original navy box + "IMC" text placeholder replaced with the actual logo image
+- Image placed at `src/app/imc.jpeg` and copied to `public/imc.jpeg` for static export
 
 ## Build & Deploy
 
@@ -139,3 +154,90 @@ cd out && python3 -m http.server 8080
 - **CSS not loading in production:** Check if `basePath` in `next.config.ts` matches the deployment URL structure
 - **Form/button not working:** Event handlers (`onClick`, `onSubmit`) only work in `"use client"` components; Server Components can only have `action` attributes or link-based interactions
 - **GitHub Pages still serving README.md:** Ensure Pages source is "GitHub Actions" not a branch; check Actions tab for workflow failures
+- **Adding images:** Place in `public/` folder and reference as `/filename.ext` — `next/image` default loader is unavailable with static export; use plain `<img>` tags
+- **Updating the logo:** Replace `public/imc.jpeg`; header and footer both reference `/imc.jpeg`
+
+## Session Changes (2026-06-09)
+
+### New Pages
+- **`/academy`** — Full IMC Academy platform page with:
+  - Hero: "Structured learning paths for every career stage"
+  - Courses catalog: 5 course cards (Rx Challenger featured + 4 Coming Soon)
+  - Rx Challenger deep-dive: features, patient history/chief complaints/diagnosis, testimonials, FAQ
+  - Developer about section (Ahmed Ezzat)
+  - CTA: Download Rx Challenger + get notified about new courses
+- **`/assessment`** — Career readiness quiz (20 MCQ questions, 5 categories, scoring, results)
+
+### Modified Components
+- **Header**: Removed "Sign In" button (desktop + mobile); "Get Started" is the only CTA
+- **Hero**: Removed "Watch Demo" button; "Start Free Assessment" is the single CTA
+- **Header & Footer**: Replaced navy box + "IMC" text logo with `<img src="/imc.jpeg">`
+- **Ecosystem**: Academy "Explore" link → `/academy` (was `/#get-started`)
+- **Pricing**: Academy "Start Learning" link → `/academy` (was `/#get-started`)
+- **Header nav**: Added "Academy" link between About and Ecosystem
+- **Footer nav**: Added "Academy" link at top of Product column
+
+### Rx Challenger Content (from rxchallenger.github.io)
+- All text, features, testimonials, FAQ, and developer info pulled from the live site
+- Rx Challenger is positioned as a featured course within the broader IMC Academy platform
+- Links to Google Play: `https://play.google.com/store/apps/details?id=com.pharmacycafe.goodrx&hl=en`
+- Developer: Ahmed Ezzat, clinical pharmacist, Alexandria, Egypt
+
+## SEO Overhaul (2026-06-09)
+
+### New Files Created
+- **`src/app/sitemap.ts`** — Dynamic sitemap.xml with 7 routes, priorities, and changefreq
+- **`src/app/robots.ts`** — robots.txt allowing all, disallowing `/_next/` and `/out/`
+- **`src/components/seo/structured-data.tsx`** — Server-side JSON-LD components:
+  - `OrganizationStructuredData` — Organization schema (name, logo, address, contact points)
+  - `WebsiteStructuredData` — WebSite schema (SearchAction + AssessAction)
+  - `WebPageStructuredData` — Per-page WebPage schema with BreadcrumbList support
+  - `AcademyStructuredData` — EducationalOrganization + Course schema for Rx Challenger
+  - `FaqStructuredData` — FAQPage schema for FAQ sections
+  - `TestimonialStructuredData` — Product + AggregateRating + Review schemas
+  - `AssessmentStructuredData` — Quiz schema for the assessment page
+- **`src/components/seo/client-structured-data.tsx`** — Client-side JSON-LD injection (for `"use client"` pages):
+  - `AssessmentClientStructuredData` — Quiz schema injected via `useEffect`
+  - `WebPageClientStructuredData` — WebPage schema for client pages
+  - `FaqClientStructuredData` — FAQPage schema for client pages (Contact)
+
+### Modified Files
+- **`src/app/layout.tsx`** — Added `metadataBase`, title template (`%s | Intelligent Mastery Coaching`), 12 keywords, Open Graph (title/description/url/type/locale/siteName/image), Twitter Cards (`summary_large_image`), Google robot directives, `theme-color`, `preconnect` hints, Organization + Website JSON-LD in `<head>`
+- **`src/app/page.tsx`** — Added `metadata` export (title, description, canonical, OG), `WebPageStructuredData`
+- **`src/app/about/page.tsx`** — Added `metadata` export, `WebPageStructuredData` with breadcrumbs
+- **`src/app/academy/page.tsx`** — Added `metadata` export, `WebPageStructuredData` with breadcrumbs, `AcademyStructuredData`, `FaqStructuredData`, `TestimonialStructuredData`
+- **`src/app/assessment/page.tsx`** — Split into `AssessmentPage` (wrapper) + `AssessmentApp` (logic), added `AssessmentClientStructuredData`
+- **`src/app/contact/page.tsx`** — Added `FaqClientStructuredData` for FAQ JSON-LD
+- **`src/app/privacy/page.tsx`** — Added `metadata` export (canonical, robots), `WebPageStructuredData` with breadcrumbs
+- **`src/app/terms/page.tsx`** — Added `metadata` export (canonical, robots), `WebPageStructuredData` with breadcrumbs
+- **`src/app/not-found.tsx`** — Added `metadata` export with `robots: noindex`
+- **`src/components/layout/header.tsx`** — Added `aria-label` on logo link, `<nav aria-label="Primary navigation">`, `width`/`height` on logo `<img>`, improved `alt` text
+- **`src/components/layout/footer.tsx`** — Changed Product/Company/Legal `<div>` wrappers to `<nav aria-label="...">`, added `aria-label` on logo link, `width`/`height` on logo `<img>`, improved `alt` text
+
+### SEO Checklist (All Implemented)
+- [x] Unique `<title>` on every page (50-60 chars)
+- [x] Unique `<meta name="description">` on every page (150-160 chars)
+- [x] Canonical URLs on all server-rendered pages
+- [x] Open Graph tags (title, description, url, type, image)
+- [x] Twitter Card tags (summary_large_image)
+- [x] XML sitemap with priorities and changefreq
+- [x] robots.txt with sitemap reference
+- [x] JSON-LD Organization schema (global)
+- [x] JSON-LD WebSite schema with SearchAction + AssessAction (global)
+- [x] JSON-LD WebPage + BreadcrumbList (per-page)
+- [x] JSON-LD FAQPage (Academy, Contact)
+- [x] JSON-LD Course (Academy — Rx Challenger)
+- [x] JSON-LD Product + Reviews + AggregateRating (Academy — Rx Challenger testimonials)
+- [x] JSON-LD Quiz (Assessment)
+- [x] Semantic HTML: `<nav aria-label>`, `<main>`, one `<h1>` per page
+- [x] Image `alt` text, `width`, and `height` attributes
+- [x] `preconnect` hints for Google Fonts
+- [x] `theme-color` meta tag
+- [x] `font-display: swap` on Inter font
+- [x] 404 page with `noindex` robots directive
+
+### Notes
+- Client components (`assessment`, `contact`) cannot export `metadata` — they use client-side JSON-LD injection via `useEffect` instead
+- The `dangerouslySetInnerHTML` in `JsonLd` component is safe here — it renders only hardcoded JSON-LD objects, never user input
+- Build generates 12 static pages including `/sitemap.xml` and `/robots.txt`
+- All pages pass `npx next build` with zero errors

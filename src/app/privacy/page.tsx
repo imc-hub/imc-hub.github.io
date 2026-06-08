@@ -1,10 +1,18 @@
 import type { Metadata } from "next";
 import { PageLayout } from "@/components/layout/page-layout";
+import { WebPageStructuredData } from "@/components/seo/structured-data";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy — IMC Intelligent Mastery Coaching",
+  title: "Privacy Policy",
   description:
-    "Read IMC's Privacy Policy to understand how we collect, use, and protect your personal data.",
+    "Read IMC's Privacy Policy to understand how we collect, use, and protect your personal data. Learn about GDPR, CCPA compliance, data rights, and cookie usage.",
+  alternates: {
+    canonical: "/privacy",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 const lastUpdated = "June 7, 2026";
@@ -123,6 +131,15 @@ const sections = [
 export default function PrivacyPage() {
   return (
     <PageLayout>
+      <WebPageStructuredData
+        title="Privacy Policy — IMC Intelligent Mastery Coaching"
+        description="Read IMC's Privacy Policy covering GDPR, CCPA compliance, data collection, usage, protection, and your rights."
+        url="https://imc-hub.github.io/privacy"
+        breadcrumb={[
+          { name: "Home", item: "https://imc-hub.github.io/" },
+          { name: "Privacy Policy", item: "https://imc-hub.github.io/privacy" },
+        ]}
+      />
       <section className="bg-imc-navy py-16 sm:py-20">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <div className="text-center">

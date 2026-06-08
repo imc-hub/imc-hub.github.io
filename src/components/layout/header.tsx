@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 
 const navLinks = [
   { href: "/about", label: "About" },
+  { href: "/academy", label: "Academy" },
   { href: "/#ecosystem", label: "Ecosystem" },
   { href: "/#how-it-works", label: "How It Works" },
   { href: "/contact", label: "Contact" },
@@ -19,18 +20,20 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/60 bg-background/80 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <Link href="/" className="flex items-center gap-2.5">
-          <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-imc-navy">
-            <span className="text-sm font-extrabold tracking-tight text-white">
-              IMC
-            </span>
-          </div>
+        <Link href="/" className="flex items-center gap-2.5" aria-label="IMC — Intelligent Mastery Coaching — Home">
+          <img
+            src="/imc.jpeg"
+            alt="IMC — Intelligent Mastery Coaching"
+            className="h-9 w-9 rounded-lg object-cover"
+            width={36}
+            height={36}
+          />
           <span className="hidden text-sm font-semibold tracking-tight text-foreground sm:inline">
             Intelligent Mastery Coaching
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-1 md:flex">
+        <nav aria-label="Primary navigation" className="hidden items-center gap-1 md:flex">
           {navLinks.map((link) => (
             <Link
               key={link.href}
@@ -43,11 +46,8 @@ export function Header() {
         </nav>
 
         <div className="hidden items-center gap-3 md:flex">
-          <Button variant="ghost" size="sm" asChild>
-            <Link href="/#get-started">Sign In</Link>
-          </Button>
           <Button size="sm" className="bg-imc-teal text-white hover:bg-imc-teal-dark" asChild>
-            <Link href="/#get-started">Get Started</Link>
+            <Link href="/assessment">Get Started</Link>
           </Button>
         </div>
 
@@ -79,13 +79,8 @@ export function Header() {
             </Link>
           ))}
           <div className="mt-3 flex flex-col gap-2 border-t border-border/60 pt-4">
-            <Button variant="outline" size="sm" asChild>
-              <Link href="/#get-started" onClick={() => setMobileOpen(false)}>
-                Sign In
-              </Link>
-            </Button>
             <Button size="sm" className="bg-imc-teal text-white hover:bg-imc-teal-dark" asChild>
-              <Link href="/#get-started" onClick={() => setMobileOpen(false)}>
+              <Link href="/assessment" onClick={() => setMobileOpen(false)}>
                 Get Started
               </Link>
             </Button>

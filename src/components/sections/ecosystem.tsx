@@ -80,7 +80,7 @@ export function EcosystemSection() {
             return (
               <Card
                 key={pillar.name}
-                className={`group relative overflow-hidden border border-border/60 p-6 transition-all duration-300 ${pillar.borderColor} sm:p-8`}
+                className={`group relative flex flex-col overflow-hidden border border-border/60 p-6 transition-all duration-300 ${pillar.borderColor} sm:p-8`}
               >
                 <div
                   className={`inline-flex h-12 w-12 items-center justify-center rounded-xl ${pillar.bgColor}`}
@@ -112,9 +112,10 @@ export function EcosystemSection() {
                   ))}
                 </ul>
 
-                <div className="mt-6">
+                <div className="mt-auto pt-6">
                   <Link
-                    href="/#get-started"
+                    href={pillar.name === "OCTRI" ? "https://www.octri-egypt.com/" : pillar.name === "IMC Academy" ? "/academy" : "/#get-started"}
+                    {...(pillar.name === "OCTRI" ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                     className={`inline-flex items-center gap-1.5 text-sm font-medium ${pillar.color} transition-all hover:gap-2.5`}
                   >
                     Explore {pillar.name}

@@ -1,23 +1,24 @@
-import type { Metadata } from "next";
+"use client";
+
 import { PageLayout } from "@/components/layout/page-layout";
 import {
   Mail,
   MapPin,
-  MessageSquare,
   Building2,
-  Users,
-  HelpCircle,
+  Send,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
+import { showToast, ToastContainer } from "@/components/ui/toast";
+import { useState, type FormEvent } from "react";
+import emailjs from "@emailjs/browser";
+import { FaqClientStructuredData } from "@/components/seo/client-structured-data";
 
-export const metadata: Metadata = {
-  title: "Contact Us — IMC Intelligent Mastery Coaching",
-  description:
-    "Get in touch with the IMC team. We're here to help with questions about our platform, partnerships, or corporate training programs.",
-};
+const EMAILJS_PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "";
+const EMAILJS_SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "";
+const EMAILJS_TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "";
 
 const contactMethods = [
   {
@@ -38,7 +39,7 @@ const contactMethods = [
     icon: MapPin,
     title: "Office",
     description: "Visit us by appointment",
-    detail: "Cairo, EG",
+    detail: "Giza, CA, Egypt",
     action: null,
   },
 ];
@@ -77,8 +78,86 @@ const faqs = [
 ];
 
 export default function ContactPage() {
+  const [isSending, setIsSending] = useState(false);
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSending(true);
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    const firstName = (formData.get("first_name") as string || "").trim();
+    const lastName = (formData.get("last_name") as string || "").trim();
+    const email = (formData.get("email") as string || "").trim();
+    const inquiryType = (formData.get("inquiry_type") as string || "").trim();
+    const message = (formData.get("message") as string || "").trim();
+
+    if (!firstName || !lastName || !email || !inquiryType || !message) {
+      showToast("Please fill in all required fields.", "error");
+      setIsSending(false);
+      return;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      showToast("Please enter a valid email address.", "error");
+      setIsSending(false);
+      return;
+    }
+
+    if (firstName.length > 100 || lastName.length > 100 || email.length > 255 || message.length > 5000) {
+      showToast("Input exceeds maximum allowed length.", "error");
+      setIsSending(false);
+      return;
+    }
+
+    if (!EMAILJS_PUBLIC_KEY || !EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID) {
+      showToast("Email service is not configured. Please contact us directly at hello@imc-hub.com.", "error");
+      setIsSending(false);
+      return;
+    }
+
+    try {
+      const fullMessage = `Name: ${firstName} ${lastName}
+Email: ${email}
+Inquiry Type: ${inquiryType}
+
+Message:
+${message}`;
+
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          from_name: `${firstName} ${lastName}`,
+          first_name: firstName,
+          last_name: lastName,
+          from_email: email,
+          reply_to: email,
+          inquiry_type: inquiryType,
+          message: fullMessage,
+          to_email: "hello@imc-hub.com",
+          to_name: "IMC Team",
+        },
+        EMAILJS_PUBLIC_KEY
+      );
+
+      showToast("Message sent successfully! We'll get back to you within 24 hours.", "success");
+      form.reset();
+    } catch (error) {
+      console.error("EmailJS send failed:", error);
+      showToast("Failed to send message. Please try again or email us directly at hello@imc-hub.com.", "error");
+    } finally {
+      setIsSending(false);
+    }
+  };
+
   return (
     <PageLayout>
+      <FaqClientStructuredData questions={faqs} />
+      <ToastContainer />
+
       {/* Hero */}
       <section className="bg-imc-navy py-16 sm:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -154,7 +233,7 @@ export default function ContactPage() {
               </h2>
             </div>
 
-            <div className="mt-10 space-y-6">
+            <form onSubmit={handleSubmit} className="mt-10 space-y-6" noValidate>
               <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
                 <div className="space-y-2">
                   <Label htmlFor="first_name">First Name</Label>
@@ -164,6 +243,7 @@ export default function ContactPage() {
                     placeholder="Jane"
                     required
                     maxLength={100}
+                    disabled={isSending}
                   />
                 </div>
                 <div className="space-y-2">
@@ -174,6 +254,7 @@ export default function ContactPage() {
                     placeholder="Doe"
                     required
                     maxLength={100}
+                    disabled={isSending}
                   />
                 </div>
               </div>
@@ -187,6 +268,7 @@ export default function ContactPage() {
                   placeholder="jane@example.com"
                   required
                   maxLength={255}
+                  disabled={isSending}
                 />
               </div>
 
@@ -198,16 +280,17 @@ export default function ContactPage() {
                   className="flex h-10 w-full rounded-lg border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                   required
                   defaultValue=""
+                  disabled={isSending}
                 >
                   <option value="" disabled>
                     Select an option
                   </option>
-                  <option value="general">General Inquiry</option>
-                  <option value="support">Technical Support</option>
-                  <option value="sales">Sales & Partnerships</option>
-                  <option value="enterprise">Enterprise Training</option>
-                  <option value="press">Press & Media</option>
-                  <option value="other">Other</option>
+                  <option value="General Inquiry">General Inquiry</option>
+                  <option value="Technical Support">Technical Support</option>
+                  <option value="Sales & Partnerships">Sales & Partnerships</option>
+                  <option value="Enterprise Training">Enterprise Training</option>
+                  <option value="Press & Media">Press & Media</option>
+                  <option value="Other">Other</option>
                 </select>
               </div>
 
@@ -220,23 +303,25 @@ export default function ContactPage() {
                   required
                   rows={5}
                   maxLength={5000}
+                  disabled={isSending}
                 />
               </div>
 
               <Button
-                type="button"
+                type="submit"
                 size="lg"
+                disabled={isSending}
                 className="w-full bg-imc-teal text-white hover:bg-imc-teal-dark"
-                asChild
               >
-                <a href="mailto:hello@imc-hub.com">Send Message</a>
+                <Send className="mr-2 h-4 w-4" />
+                {isSending ? "Sending..." : "Send Message"}
               </Button>
 
               <p className="text-center text-xs text-muted-foreground">
                 We typically respond within 24 hours. For urgent matters, email
                 us directly at hello@imc-hub.com.
               </p>
-            </div>
+            </form>
           </div>
         </div>
       </section>
