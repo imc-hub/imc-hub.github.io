@@ -213,13 +213,13 @@ const testimonials = [
   {
     name: "Andrew",
     role: "Senior Pharmacist",
-    rating: 3,
+    rating: 5,
     text: "Even as a senior pharmacist, I found Rx Challenger an excellent refresher. The app's focus on diagnosis and lab values bridges a critical gap in pharmacy training. I recommend it to anyone looking to stay sharp and mentor younger colleagues more effectively.",
   },
   {
     name: "Hesham",
     role: "Software Tester",
-    rating: 4,
+    rating: 5,
     text: "Rx Challenger stands out as an educational app with exceptional attention to detail. Testing the app gave me insights into its robust features like cloud sync and tooltips. The seamless user experience reflects the developer commitment to quality and learning outcomes",
   },
 ];
