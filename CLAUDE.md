@@ -31,7 +31,7 @@ src/
 │   ├── about/page.tsx      # About (mission, vision, principles, team)
 │   ├── academy/page.tsx    # IMC Academy — multi-course platform + Rx Challenger deep-dive
 │   ├── assessment/page.tsx # Career readiness assessment (quiz, scoring, results)
-│   ├── contact/page.tsx    # Contact (methods, form→mailto, FAQ)
+│   ├── contact/page.tsx    # Contact (methods, form→EmailJS w/ validation, FAQ)
 │   ├── privacy/page.tsx    # Privacy Policy (12 sections)
 │   └── terms/page.tsx      # Terms of Service (13 sections)
 ├── components/
@@ -56,8 +56,12 @@ src/
 │       └── toast.tsx       # "use client" global toast system
 └── lib/
     └── utils.ts            # cn() = twMerge(clsx())
+scripts/
+├── postbuild.mjs           # Cleans up __next.* junk files from static export
+└── serve.mjs               # Local dev server (port 8080) with path traversal protection + security headers
 public/
-└── imc.jpeg                # IMC logo (referenced by header & footer)
+├── imc.jpeg                              # IMC logo (referenced by header & footer)
+└── google62c9fc6ba2ba8b2e.html           # Google Search Console verification file
 ```
 
 ## Architecture Decisions
@@ -202,7 +206,7 @@ cd out && python3 -m http.server 8080
   - `FaqClientStructuredData` — FAQPage schema for client pages (Contact)
 
 ### Modified Files
-- **`src/app/layout.tsx`** — Added `metadataBase`, title template (`%s | Intelligent Mastery Coaching`), 12 keywords, Open Graph (title/description/url/type/locale/siteName/image), Twitter Cards (`summary_large_image`), Google robot directives, `theme-color`, `preconnect` hints, Organization + Website JSON-LD in `<head>`
+- **`src/app/layout.tsx`** — Added `metadataBase`, title template (`%s | Intelligent Mastery Coaching`), 12 keywords, Open Graph (title/description/url/type/locale/siteName/image), Twitter Cards (`summary_large_image`), Google robot directives, `theme-color`, `preconnect` hints, Organization + Website JSON-LD in `<head>`. Added security meta tags: `X-Content-Type-Options: nosniff`, `X-Frame-Options: DENY`, `Referrer-Policy: strict-origin-when-cross-origin`, `Permissions-Policy` (camera/microphone/geolocation/payment disabled)
 - **`src/app/page.tsx`** — Added `metadata` export (title, description, canonical, OG), `WebPageStructuredData`
 - **`src/app/about/page.tsx`** — Added `metadata` export, `WebPageStructuredData` with breadcrumbs
 - **`src/app/academy/page.tsx`** — Added `metadata` export, `WebPageStructuredData` with breadcrumbs, `AcademyStructuredData`, `FaqStructuredData`, `TestimonialStructuredData`
@@ -241,3 +245,31 @@ cd out && python3 -m http.server 8080
 - The `dangerouslySetInnerHTML` in `JsonLd` component is safe here — it renders only hardcoded JSON-LD objects, never user input
 - Build generates 12 static pages including `/sitemap.xml` and `/robots.txt`
 - All pages pass `npx next build` with zero errors
+
+## Security Audit (2026-06-09)
+
+### Fixes Applied
+| Finding | Severity | Fix |
+|---------|----------|-----|
+| Missing email validation in contact form | Medium | Added email regex validation (`/^[^\s@]+@[^\s@]+\.[^\s@]+$/`) + server-side length checks for all fields in `contact/page.tsx` |
+| No security headers | Medium | Added meta-tag security headers in `layout.tsx`: `X-Content-Type-Options: nosniff`, `X-Frame-Options: DENY`, `Referrer-Policy: strict-origin-when-cross-origin`, `Permissions-Policy` disabling unused APIs |
+| Path traversal in dev server `serve.mjs` | Low | Added path resolution check ensuring served files stay within `out/` directory; added security headers + CSP to dev server responses |
+
+### Known Issues
+- **PostCSS XSS (CVE, moderate)**: Transitive dependency via `next@16.2.7` bundles PostCSS 8.4.31 (<8.5.10). Risk is low for our static site since PostCSS runs at build time only, not on user input. Cannot be fixed without downgrading Next.js.
+- **No HTTP CSP header on production**: GitHub Pages doesn't support custom HTTP headers. A `Content-Security-Policy` cannot be set as an HTTP header. Consider using Cloudflare as a CDN in front of GitHub Pages for full header control.
+
+### Clean Scan Results
+- No XSS vectors (no user input in `dangerouslySetInnerHTML`, no `eval`, `innerHTML`, `document.write`)
+- No injection vectors (no SQL, command, SSRF, SSTI, LFI/RFI — fully static site)
+- No auth/session issues (no authentication system)
+- No open redirect or DOM-based vulnerabilities
+- No client-side storage (`localStorage`, `sessionStorage`, cookies)
+- All `target="_blank"` links properly use `rel="noopener noreferrer"`
+- No hardcoded secrets; env vars use `NEXT_PUBLIC_` prefix correctly
+- Semgrep SAST scan: zero findings
+- Robots.txt excludes `/_next/` and `/out/` directories
+
+### Google Search Console Verification
+- Verification file: `public/google62c9fc6ba2ba8b2e.html` → served at `https://imc-hub.github.io/google62c9fc6ba2b2e.html`
+- File must remain in place for continued verification

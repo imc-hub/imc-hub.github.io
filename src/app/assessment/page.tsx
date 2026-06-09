@@ -25,10 +25,11 @@ function AssessmentApp() {
 
   const question = questions[currentQ];
   const progress = ((currentQ + 1) / questions.length) * 100;
-  const isAnswered = answers[question?.id] !== undefined;
+  const selectedIdx = answers[question?.id];
+  const isAnswered = selectedIdx !== undefined;
 
-  const selectAnswer = (value: number) => {
-    setAnswers((prev) => ({ ...prev, [question.id]: value }));
+  const selectAnswer = (idx: number) => {
+    setAnswers((prev) => ({ ...prev, [question.id]: idx }));
   };
 
   const goNext = () => {
@@ -58,10 +59,8 @@ function AssessmentApp() {
       <div className="min-h-screen bg-background">
         <header className="border-b border-border/60 bg-background/80 backdrop-blur-md">
           <div className="mx-auto flex h-16 max-w-7xl items-center px-4 sm:px-6 lg:px-8">
-            <Link href="/" className="flex items-center gap-2.5">
-              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-imc-navy">
-                <span className="text-sm font-extrabold tracking-tight text-white">IMC</span>
-              </div>
+            <Link href="/" className="flex items-center gap-2.5" aria-label="IMC Home">
+              <img src="/imc.jpeg" alt="IMC Logo" width={36} height={36} className="h-9 w-9 rounded-lg object-cover" />
               <span className="hidden text-sm font-semibold tracking-tight text-foreground sm:inline">
                 Intelligent Mastery Coaching
               </span>
@@ -160,12 +159,13 @@ function AssessmentApp() {
 
           <div className="mt-8 space-y-3">
             {question.options.map((option, idx) => {
-              const isSelected = answers[question.id] === option.value;
+              const optionKey = `${question.id}-${idx}`;
+              const isSelected = selectedIdx === idx;
               return (
                 <button
-                  key={idx}
+                  key={optionKey}
                   type="button"
-                  onClick={() => selectAnswer(option.value)}
+                  onClick={() => selectAnswer(idx)}
                   className={`flex w-full items-center gap-3 rounded-xl border p-4 text-left transition-all ${
                     isSelected
                       ? "border-imc-teal bg-imc-teal/5 ring-1 ring-imc-teal/30"
@@ -217,10 +217,8 @@ function AssessmentApp() {
     <div className="min-h-screen bg-background">
       <header className="border-b border-border/60 bg-background/80 backdrop-blur-md">
         <div className="mx-auto flex h-16 max-w-7xl items-center px-4 sm:px-6 lg:px-8">
-          <Link href="/" className="flex items-center gap-2.5">
-            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-imc-navy">
-              <span className="text-sm font-extrabold tracking-tight text-white">IMC</span>
-            </div>
+          <Link href="/" className="flex items-center gap-2.5" aria-label="IMC Home">
+            <img src="/imc.jpeg" alt="IMC Logo" width={36} height={36} className="h-9 w-9 rounded-lg object-cover" />
             <span className="hidden text-sm font-semibold tracking-tight text-foreground sm:inline">
               Intelligent Mastery Coaching
             </span>

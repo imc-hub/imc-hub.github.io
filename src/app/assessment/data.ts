@@ -257,7 +257,8 @@ export function calculateScore(answers: Record<number, number>): {
   const categoryMap: Record<string, { score: number; max: number }> = {};
 
   for (const q of questions) {
-    const answerValue = answers[q.id] ?? 0;
+    const selectedIdx = answers[q.id];
+    const answerValue = selectedIdx !== undefined ? q.options[selectedIdx].value : 0;
     total += answerValue;
     if (!categoryMap[q.category]) categoryMap[q.category] = { score: 0, max: 0 };
     categoryMap[q.category].score += answerValue;

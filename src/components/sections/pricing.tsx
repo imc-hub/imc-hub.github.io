@@ -28,7 +28,7 @@ const plans = [
   {
     name: "Corporate Simulator",
     tagline: "Real-World Practice",
-    price: "EGP 499",
+    price: "EGP 999",
     priceNote: "/month",
     description:
       "Make real P&L decisions, lead teams, and compete in business simulations.",
@@ -107,7 +107,9 @@ export function PricingSection() {
                 </div>
               )}
 
-              <p className={`text-xs font-semibold uppercase tracking-[0.15em] ${plan.color}`}>
+              <p
+                className={`text-xs font-semibold uppercase tracking-[0.15em] ${plan.color}`}
+              >
                 {plan.tagline}
               </p>
               <h3 className="mt-2 text-xl font-bold text-foreground">
@@ -135,7 +137,9 @@ export function PricingSection() {
                     key={feature}
                     className="flex items-start gap-2.5 text-sm text-muted-foreground"
                   >
-                    <Check className={`mt-0.5 h-4 w-4 shrink-0 ${plan.color}`} />
+                    <Check
+                      className={`mt-0.5 h-4 w-4 shrink-0 ${plan.color}`}
+                    />
                     <span>{feature}</span>
                   </li>
                 ))}
@@ -175,7 +179,10 @@ export function PricingSection() {
 
         <p className="mt-10 text-center text-xs text-muted-foreground">
           All prices in EGP. Corporate and enterprise plans available —{" "}
-          <Link href="/contact" className="text-imc-teal underline hover:no-underline">
+          <Link
+            href="/contact"
+            className="text-imc-teal underline hover:no-underline"
+          >
             contact sales
           </Link>{" "}
           for custom pricing.
