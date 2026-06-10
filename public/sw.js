@@ -29,6 +29,7 @@ precacheAndRoute([
   { url: '/contact', revision: '1' },
   { url: '/privacy', revision: '1' },
   { url: '/terms', revision: '1' },
+  { url: '/cookies', revision: '1' },
 ]);
 
 // Navigation requests — NetworkFirst with offline fallback
