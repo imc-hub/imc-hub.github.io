@@ -112,6 +112,13 @@
   }
 }
 
+/* Fix Chrome iOS 100vh bug — dvh fallback */
+@supports not (height: 100dvh) {
+  .min-h-\[100dvh\] {
+    min-height: 100vh;
+  }
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;

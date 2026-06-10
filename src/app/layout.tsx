@@ -126,7 +126,7 @@ export default function RootLayout({
         <OrganizationStructuredData />
         <WebsiteStructuredData />
       </head>
-      <body className="min-h-screen flex flex-col bg-background text-foreground">
+      <body className="min-h-[100dvh] flex flex-col bg-background text-foreground">
         {children}
         <InstallPrompt />
         <script

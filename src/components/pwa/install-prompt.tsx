@@ -15,17 +15,23 @@ export default function InstallPrompt() {
   const [isIOS, setIsIOS] = useState(false);
 
   useEffect(() => {
-    // Detect iOS Safari
-    const ios =
-      /iPad|iPhone|iPod/.test(navigator.userAgent) &&
+    const ua = navigator.userAgent;
+    const isIOS =
+      /iPad|iPhone|iPod/.test(ua) &&
       !(window as unknown as { MSStream?: unknown }).MSStream;
+    const isSafari = isIOS &&
+      /Safari/.test(ua) &&
+      !/CriOS/.test(ua) &&
+      !/FxiOS/.test(ua) &&
+      !/EdgiOS/.test(ua);
     const isStandalone = window.matchMedia(
       "(display-mode: standalone)"
     ).matches;
 
-    if (ios && !isStandalone) {
+    // Only show iOS guide on iOS Safari (not Chrome/Firefox/Edge on iOS)
+    // Chrome on iOS doesn't support beforeinstallprompt and has viewport bugs
+    if (isIOS && isSafari && !isStandalone) {
       setIsIOS(true);
-      // Show iOS guide after a short delay if not dismissed
       const dismissed = sessionStorage.getItem("imc-pwa-ios-dismissed");
       if (!dismissed) {
         const timer = setTimeout(() => setShowIOSGuide(true), 3000);
@@ -46,7 +52,6 @@ export default function InstallPrompt() {
 
     window.addEventListener("beforeinstallprompt", handler);
 
-    // Listen for successful install
     window.addEventListener("appinstalled", () => {
       setShowBanner(false);
       setDeferredPrompt(null);
