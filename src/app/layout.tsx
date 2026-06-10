@@ -106,23 +106,32 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} antialiased`}>
       <head>
-        <link rel="icon" href="/imc.jpeg" type="image/jpeg" />
+        {/* Favicon — standard ICO for browsers & Google Search */}
+        <link rel="icon" href="/favicon.ico" sizes="48x48" />
+        <link rel="icon" href="/favicon-32x32.png" sizes="32x32" type="image/png" />
+        <link rel="icon" href="/favicon-16x16.png" sizes="16x16" type="image/png" />
+        {/* Apple Touch Icon */}
         <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" sizes="180x180" />
+        {/* Web App Manifest */}
         <link rel="manifest" href="/manifest.json" />
+        {/* Preconnect */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
           href="https://fonts.gstatic.com"
           crossOrigin="anonymous"
         />
+        {/* Theme & PWA */}
         <meta name="theme-color" content="#0b1d3a" />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        {/* Security Headers (meta-tag fallbacks) */}
         <meta httpEquiv="X-Content-Type-Options" content="nosniff" />
         <meta httpEquiv="X-Frame-Options" content="DENY" />
         <meta httpEquiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
         <meta httpEquiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=()" />
+        {/* Structured Data */}
         <OrganizationStructuredData />
         <WebsiteStructuredData />
       </head>

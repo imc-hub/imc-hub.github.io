@@ -9,6 +9,29 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/cookies",
   },
+  openGraph: {
+    type: "website",
+    url: "https://imc-hub.github.io/cookies",
+    siteName: "IMC — Intelligent Mastery Coaching",
+    title: "Cookie Declaration — IMC",
+    description:
+      "Read IMC's Cookie Declaration to understand how we use cookies, the types of cookies set by our platform, your consent choices, and how to manage cookie preferences.",
+    images: [
+      {
+        url: "https://imc-hub.github.io/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "IMC — Intelligent Mastery Coaching",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Cookie Declaration — IMC",
+    description:
+      "Read IMC's Cookie Declaration to understand how we use cookies and how to manage cookie preferences.",
+    images: ["https://imc-hub.github.io/og-image.png"],
+  },
   robots: {
     index: true,
     follow: true,

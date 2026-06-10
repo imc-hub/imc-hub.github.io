@@ -9,6 +9,29 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/privacy",
   },
+  openGraph: {
+    type: "website",
+    url: "https://imc-hub.github.io/privacy",
+    siteName: "IMC — Intelligent Mastery Coaching",
+    title: "Privacy Policy — IMC",
+    description:
+      "Read IMC's Privacy Policy to understand how we collect, use, and protect your personal data.",
+    images: [
+      {
+        url: "https://imc-hub.github.io/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "IMC — Intelligent Mastery Coaching",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Privacy Policy — IMC",
+    description:
+      "Read IMC's Privacy Policy to understand how we collect, use, and protect your personal data.",
+    images: ["https://imc-hub.github.io/og-image.png"],
+  },
   robots: {
     index: true,
     follow: true,

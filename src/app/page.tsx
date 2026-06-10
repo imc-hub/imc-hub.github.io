@@ -20,9 +20,25 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: "https://imc-hub.github.io/",
+    siteName: "IMC — Intelligent Mastery Coaching",
     title: "IMC — Close the Gap Between Human Potential & Corporate Reality",
     description:
       "IMC helps students, career changers, and companies build real-world readiness through structured coaching, business simulations, skill development, and corporate training programs.",
+    images: [
+      {
+        url: "https://imc-hub.github.io/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "IMC — Close the gap between human potential and corporate reality",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "IMC — Close the Gap Between Human Potential & Corporate Reality",
+    description:
+      "IMC helps students, career changers, and companies build real-world readiness through structured coaching, business simulations, skill development, and corporate training programs.",
+    images: ["https://imc-hub.github.io/og-image.png"],
   },
 };
 

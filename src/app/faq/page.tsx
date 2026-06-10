@@ -16,9 +16,25 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: "https://imc-hub.github.io/faq",
+    siteName: "IMC — Intelligent Mastery Coaching",
     title: "FAQ — IMC Intelligent Mastery Coaching",
     description:
       "Find answers to common questions about IMC's coaching programs, pricing, services, and more.",
+    images: [
+      {
+        url: "https://imc-hub.github.io/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "IMC — Intelligent Mastery Coaching",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "FAQ — IMC Intelligent Mastery Coaching",
+    description:
+      "Find answers to common questions about IMC's coaching programs, pricing, services, and more.",
+    images: ["https://imc-hub.github.io/og-image.png"],
   },
 };
 

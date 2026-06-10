@@ -10,5 +10,6 @@ export default function robots(): MetadataRoute.Robots {
       disallow: ["/api/", "/_next/", "/out/"],
     },
     sitemap: "https://imc-hub.github.io/sitemap.xml",
+    host: "https://imc-hub.github.io",
   };
 }

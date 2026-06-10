@@ -327,3 +327,90 @@ PWA is fully implemented and deployed. Install prompt works on Android Chrome. O
 - **iOS (all browsers)**: Returns `null` — no banner (Apple doesn't support programmatic install)
 - **Desktop Chrome**: Shows banner if `beforeinstallprompt` fires
 - Uses pure Tailwind classes — no inline styles, no DOM manipulation
+
+## SEO Audit & Fix — Favicon, Social Sharing, Structured Data (2026-06-10)
+
+### Problem
+Logo/preview not showing in Google Search, WhatsApp, Facebook, LinkedIn, X/Twitter, Telegram.
+
+### Root Causes Found
+1. **No `favicon.ico`** — Browsers and Google Search look for `/favicon.ico` at root. Missing entirely.
+2. **No `og-image.png`** — OG and Twitter image references pointed to `/og-image.png` which didn't exist.
+3. **Incomplete favicon references** — Only had `/imc.jpeg` as icon + apple-touch-icon. Missing 16x16, 32x32, and ICO.
+4. **Organization `logo` in JSON-LD used `imc.jpeg`** — Google prefers a proper ImageObject with dimensions.
+5. **Per-page OG metadata missing `og:image` and `og:site_name`** — About, academy, privacy, terms, faq, cookies, sitemap pages all lacked OG images.
+6. **Assessment and contact pages couldn't export metadata** — Client components can't export `metadata`.
+
+### Files Created (7)
+| File | Purpose |
+|------|---------|
+| `public/favicon.ico` | Multi-resolution ICO (16/32/48px embedded) |
+| `public/favicon-16x16.png` | Standard 16×16 favicon |
+| `public/favicon-32x32.png` | Standard 32×32 favicon |
+| `public/og-image.png` | 1200×630 social preview (navy bg + logo) |
+| `public/og-image-square.png` | 600×600 square fallback |
+| `src/app/assessment/layout.tsx` | Metadata for client component page |
+| `src/app/contact/layout.tsx` | Metadata for client component page |
+
+### Files Modified (12)
+| File | Changes |
+|------|---------|
+| `src/app/layout.tsx` | Added favicon.ico/16/32 link tags, removed imc.jpeg as favicon |
+| `src/app/page.tsx` | Added og:image + og:site_name + twitter:* per page |
+| `src/app/about/page.tsx` | Added og:image + og:site_name + twitter:* |
+| `src/app/academy/page.tsx` | Added og:image + og:site_name + twitter:* |
+| `src/app/faq/page.tsx` | Added og:image + og:site_name + twitter:* |
+| `src/app/cookies/page.tsx` | Added og:image + og:site_name + twitter:* |
+| `src/app/privacy/page.tsx` | Added og:image + og:site_name + twitter:* |
+| `src/app/terms/page.tsx` | Added og:image + og:site_name + twitter:* |
+| `src/app/sitemap/page.tsx` | Added og:image + og:site_name + twitter:* |
+| `src/components/seo/structured-data.tsx` | Changed Organization `logo` to ImageObject with og-image.png, added `image` field, added GitHub to `sameAs` |
+| `src/app/sitemap.ts` | Verified all 9 routes exist (including faq, cookies) |
+| `src/app/robots.ts` | Added `host` directive |
+
+### Key URLs
+| Purpose | URL |
+|---------|-----|
+| Favicon (ICO) | `/favicon.ico` |
+| Favicon 16×16 | `/favicon-16x16.png` |
+| Favicon 32×32 | `/favicon-32x32.png` |
+| OG Image | `https://imc-hub.github.io/og-image.png` |
+| Organization Logo (JSON-LD) | `https://imc-hub.github.io/og-image.png` (ImageObject) |
+| Apple Touch Icon | `/icons/apple-touch-icon.png` |
+| PWA Icons | `/icons/icon-192.png`, `/icons/icon-512.png`, `/icons/icon-maskable.png` |
+| Header/Footer Logo | `/imc.jpeg` |
+
+### Pattern: Client Component Pages Need Separate Layout for Metadata
+- `"use client"` pages **cannot** export `metadata` — Next.js ignores it.
+- Solution: Create a `layout.tsx` in the same directory that exports `metadata`.
+- The layout wraps children with `<>{children}</>`.
+- Client-side JSON-LD (structured data) can still be via `useEffect` injection.
+
+### Pattern: Favicon Setup (Complete)
+```html
+<link rel="icon" href="/favicon.ico" sizes="48x48"/>
+<link rel="icon" href="/favicon-32x32.png" sizes="32x32" type="image/png"/>
+<link rel="icon" href="/favicon-16x16.png" sizes="16x16" type="image/png"/>
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" sizes="180x180"/>
+```
+
+### Pattern: Organization Structured Data (Google-recommended)
+```json
+{
+  "@type": "Organization",
+  "logo": {
+    "@type": "ImageObject",
+    "url": "https://imc-hub.github.io/og-image.png",
+    "width": 1200,
+    "height": 630,
+    "caption": "IMC — Intelligent Mastery Coaching"
+  },
+  "image": "https://imc-hub.github.io/og-image.png"
+}
+```
+
+### Remaining Recommendations
+1. After deploy, request re-indexing in Google Search Console for new favicon/structured data.
+2. Test with Facebook Sharing Debugger, LinkedIn Post Inspector, Twitter Card Validator.
+3. Consider a dedicated square logo (512×512) for Google Knowledge Panel.
+4. Add more social profiles to `sameAs` when available (LinkedIn, X/Twitter, etc.).

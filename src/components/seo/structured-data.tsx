@@ -18,7 +18,14 @@ export function OrganizationStructuredData() {
     name: "IMC — Intelligent Mastery Coaching",
     alternateName: "IMC",
     url: SITE_URL,
-    logo: `${SITE_URL}/imc.jpeg`,
+    logo: {
+      "@type": "ImageObject",
+      url: `${SITE_URL}/og-image.png`,
+      width: 1200,
+      height: 630,
+      caption: "IMC — Intelligent Mastery Coaching",
+    },
+    image: `${SITE_URL}/og-image.png`,
     description:
       "IMC helps students, career changers, and companies build real-world readiness through structured coaching, simulations, and skill development.",
     foundingLocation: {
@@ -45,6 +52,7 @@ export function OrganizationStructuredData() {
     ],
     sameAs: [
       "https://play.google.com/store/apps/details?id=com.pharmacycafe.goodrx&hl=en",
+      "https://github.com/imc-hub",
     ],
   };
   return <JsonLd data={data} />;

@@ -9,6 +9,29 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/terms",
   },
+  openGraph: {
+    type: "website",
+    url: "https://imc-hub.github.io/terms",
+    siteName: "IMC — Intelligent Mastery Coaching",
+    title: "Terms of Service — IMC",
+    description:
+      "Read the Terms of Service for IMC platforms, including user obligations, content policies, subscription terms, and liability limitations.",
+    images: [
+      {
+        url: "https://imc-hub.github.io/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "IMC — Intelligent Mastery Coaching",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Terms of Service — IMC",
+    description:
+      "Read the Terms of Service for IMC platforms, including user obligations, content policies, subscription terms, and liability limitations.",
+    images: ["https://imc-hub.github.io/og-image.png"],
+  },
   robots: {
     index: true,
     follow: true,

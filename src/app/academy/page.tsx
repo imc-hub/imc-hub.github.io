@@ -38,9 +38,25 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: "https://imc-hub.github.io/academy",
+    siteName: "IMC — Intelligent Mastery Coaching",
     title: "IMC Academy — Courses & Learning Paths for Every Career Stage",
     description:
       "Structured learning paths for pharmacy, business readiness, data analysis, AI skills, and corporate soft skills. Start learning today.",
+    images: [
+      {
+        url: "https://imc-hub.github.io/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "IMC Academy — Courses & Learning Paths for Every Career Stage",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "IMC Academy — Courses & Learning Paths for Every Career Stage",
+    description:
+      "Structured learning paths for pharmacy, business readiness, data analysis, AI skills, and corporate soft skills. Start learning today.",
+    images: ["https://imc-hub.github.io/og-image.png"],
   },
 };
 
