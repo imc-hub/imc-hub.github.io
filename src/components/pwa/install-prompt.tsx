@@ -1,41 +1,150 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 
 interface BeforeInstallPromptEvent extends Event {
   prompt(): Promise<void>;
   userChoice: Promise<{ outcome: "accepted" | "dismissed" }>;
 }
 
+function InstallBanner({
+  deferredPrompt,
+  onInstall,
+  onDismiss,
+}: {
+  deferredPrompt: BeforeInstallPromptEvent;
+  onInstall: () => void;
+  onDismiss: () => void;
+}) {
+  // Use a ref + inline styles to avoid any CSS framework issues on iOS
+  const bannerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    // Force the banner to not affect document flow
+    if (bannerRef.current) {
+      const parent = bannerRef.current.parentElement;
+      if (parent) {
+        // Ensure no extra space is added
+        parent.style.minHeight = "0";
+        parent.style.height = "0";
+        parent.style.overflow = "visible";
+        parent.style.padding = "0";
+        parent.style.margin = "0";
+      }
+    }
+  }, []);
+
+  return (
+    <div
+      ref={bannerRef}
+      role="dialog"
+      aria-label="Install IMC App"
+      style={{
+        position: "fixed",
+        bottom: 0,
+        left: 0,
+        right: 0,
+        zIndex: 9999,
+        lineHeight: 0,
+        fontSize: 0,
+      }}
+    >
+      <div
+        style={{
+          borderTop: "1px solid rgba(255,255,255,0.1)",
+          backgroundColor: "#0b1d3a",
+          lineHeight: "normal",
+          fontSize: "14px",
+        }}
+      >
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "16px",
+            maxWidth: "960px",
+            margin: "0 auto",
+            padding: "12px 16px",
+          }}
+        >
+          <div style={{ flex: 1, minWidth: 0 }}>
+            <p
+              style={{
+                margin: 0,
+                fontSize: "14px",
+                fontWeight: 600,
+                color: "#fff",
+                whiteSpace: "nowrap",
+                overflow: "hidden",
+                textOverflow: "ellipsis",
+              }}
+            >
+              Install IMC App
+            </p>
+            <p
+              style={{
+                margin: "2px 0 0",
+                fontSize: "12px",
+                color: "rgba(255,255,255,0.6)",
+                whiteSpace: "nowrap",
+                overflow: "hidden",
+                textOverflow: "ellipsis",
+              }}
+            >
+              Works offline, loads faster
+            </p>
+          </div>
+          <div style={{ display: "flex", gap: "8px", flexShrink: 0 }}>
+            <button
+              onClick={onDismiss}
+              style={{
+                background: "transparent",
+                border: "none",
+                color: "rgba(255,255,255,0.6)",
+                fontSize: "12px",
+                padding: "8px 12px",
+                cursor: "pointer",
+                borderRadius: "8px",
+              }}
+            >
+              Not now
+            </button>
+            <button
+              onClick={onInstall}
+              style={{
+                backgroundColor: "#00b4d8",
+                border: "none",
+                color: "#0b1d3a",
+                fontSize: "12px",
+                fontWeight: 600,
+                padding: "8px 16px",
+                cursor: "pointer",
+                borderRadius: "8px",
+              }}
+            >
+              Install
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function InstallPrompt() {
   const [deferredPrompt, setDeferredPrompt] =
     useState<BeforeInstallPromptEvent | null>(null);
   const [showBanner, setShowBanner] = useState(false);
-  const [showIOSGuide, setShowIOSGuide] = useState(false);
-  const [isIOS, setIsIOS] = useState(false);
 
   useEffect(() => {
     const ua = navigator.userAgent;
     const isIOS =
       /iPad|iPhone|iPod/.test(ua) &&
       !(window as unknown as { MSStream?: unknown }).MSStream;
-    const isSafari =
-      isIOS &&
-      /Safari/.test(ua) &&
-      !/CriOS/.test(ua) &&
-      !/FxiOS/.test(ua) &&
-      !/EdgiOS/.test(ua);
-    const isStandalone = window.matchMedia(
-      "(display-mode: standalone)"
-    ).matches;
 
-    if (isIOS && isSafari && !isStandalone) {
-      setIsIOS(true);
-      const dismissed = sessionStorage.getItem("imc-pwa-ios-dismissed");
-      if (!dismissed) {
-        const timer = setTimeout(() => setShowIOSGuide(true), 3000);
-        return () => clearTimeout(timer);
-      }
+    // Chrome on iOS (CriOS) doesn't support beforeinstallprompt
+    // Only listen on non-iOS or Android Chrome
+    if (isIOS) {
       return;
     }
 
@@ -75,126 +184,16 @@ export default function InstallPrompt() {
     sessionStorage.setItem("imc-pwa-dismissed", "true");
   }, []);
 
-  const handleIOSDismiss = useCallback(() => {
-    setShowIOSGuide(false);
-    sessionStorage.setItem("imc-pwa-ios-dismissed", "true");
-  }, []);
-
-  // Android / Chrome install banner
   if (showBanner && deferredPrompt) {
     return (
-      <div
-        role="dialog"
-        aria-label="Install IMC App"
-        style={{
-          position: "fixed",
-          bottom: 0,
-          left: 0,
-          right: 0,
-          zIndex: 50,
-          borderTop: "1px solid rgba(255,255,255,0.1)",
-          backgroundColor: "rgba(11, 29, 58, 0.98)",
-        }}
-      >
-        <div className="mx-auto flex max-w-5xl items-center gap-4 px-4 py-3 sm:px-6">
-          <img
-            src="/icons/icon-192.png"
-            alt=""
-            width={48}
-            height={48}
-            className="hidden shrink-0 rounded-xl sm:block"
-          />
-          <div className="min-w-0 flex-1">
-            <p className="truncate text-sm font-semibold text-white">
-              Install IMC App
-            </p>
-            <p className="truncate text-xs text-white/60">
-              Get the full experience — works offline, loads faster
-            </p>
-          </div>
-          <div className="flex shrink-0 items-center gap-2">
-            <button
-              onClick={handleDismiss}
-              className="rounded-lg px-3 py-2 text-xs font-medium text-white/60 transition-colors hover:bg-white/10 hover:text-white"
-              aria-label="Dismiss install prompt"
-            >
-              Not now
-            </button>
-            <button
-              onClick={handleInstall}
-              className="rounded-lg bg-[#0b1d3a] px-4 py-2 text-xs font-semibold text-white transition-colors hover:bg-[#132a4a]"
-              aria-label="Install IMC app"
-            >
-              Install
-            </button>
-          </div>
-        </div>
-      </div>
+      <InstallBanner
+        deferredPrompt={deferredPrompt}
+        onInstall={handleInstall}
+        onDismiss={handleDismiss}
+      />
     );
   }
 
-  // iOS Safari guide
-  if (showIOSGuide && isIOS) {
-    return (
-      <div
-        role="dialog"
-        aria-label="Add to Home Screen"
-        style={{
-          position: "fixed",
-          bottom: 0,
-          left: 0,
-          right: 0,
-          zIndex: 50,
-          borderTop: "1px solid rgba(255,255,255,0.1)",
-          backgroundColor: "rgba(11, 29, 58, 0.98)",
-        }}
-      >
-        <div className="mx-auto max-w-5xl px-4 py-4 sm:px-6">
-          <div className="flex items-start gap-3">
-            <img
-              src="/icons/icon-192.png"
-              alt=""
-              width={48}
-              height={48}
-              className="shrink-0 rounded-xl"
-            />
-            <div className="min-w-0 flex-1">
-              <p className="text-sm font-semibold text-white">
-                Add IMC to Home Screen
-              </p>
-              <p className="mt-1 text-xs leading-relaxed text-white/60">
-                Tap the{" "}
-                <span className="inline-flex items-center gap-1 rounded bg-white/10 px-1.5 py-0.5 font-mono text-[10px] text-white">
-                  Share
-                </span>{" "}
-                button, then{" "}
-                <span className="font-medium text-white/80">
-                  &quot;Add to Home Screen&quot;
-                </span>
-              </p>
-            </div>
-            <button
-              onClick={handleIOSDismiss}
-              className="shrink-0 rounded-lg p-2 text-white/40 transition-colors hover:bg-white/10 hover:text-white"
-              aria-label="Dismiss"
-            >
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 16 16"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-              >
-                <path d="M4 4l8 8M12 4l-8 8" />
-              </svg>
-            </button>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  return null;
+  // Render an empty span that takes zero space — never null to avoid React reconciliation issues
+  return <span style={{ display: "none" }} />;
 }

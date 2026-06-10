@@ -115,6 +115,7 @@ export default function RootLayout({
           href="https://fonts.gstatic.com"
           crossOrigin="anonymous"
         />
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
         <meta name="theme-color" content="#0b1d3a" />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -126,7 +127,7 @@ export default function RootLayout({
         <OrganizationStructuredData />
         <WebsiteStructuredData />
       </head>
-      <body className="min-h-[100dvh] flex flex-col bg-background text-foreground">
+      <body className="min-h-screen flex flex-col bg-background text-foreground">
         {children}
         <InstallPrompt />
         <script
