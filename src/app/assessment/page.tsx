@@ -56,7 +56,7 @@ function AssessmentApp() {
   // ── Intro Screen ──
   if (view === "intro") {
     return (
-      <div className="min-h-screen bg-background">
+      <div className="min-h-[100dvh] bg-background">
         <header className="border-b border-border/60 bg-background/80 backdrop-blur-md">
           <div className="mx-auto flex h-16 max-w-7xl items-center px-4 sm:px-6 lg:px-8">
             <Link href="/" className="flex items-center gap-2.5" aria-label="IMC Home">
@@ -128,7 +128,7 @@ function AssessmentApp() {
   // ── Quiz Screen ──
   if (view === "quiz") {
     return (
-      <div className="min-h-screen bg-background">
+      <div className="min-h-[100dvh] bg-background">
         <header className="border-b border-border/60 bg-background/80 backdrop-blur-md">
           <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
             <button onClick={resetQuiz} className="flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground">
@@ -214,7 +214,7 @@ function AssessmentApp() {
 
   // ── Results Screen ──
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-[100dvh] bg-background">
       <header className="border-b border-border/60 bg-background/80 backdrop-blur-md">
         <div className="mx-auto flex h-16 max-w-7xl items-center px-4 sm:px-6 lg:px-8">
           <Link href="/" className="flex items-center gap-2.5" aria-label="IMC Home">

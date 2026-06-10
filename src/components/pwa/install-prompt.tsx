@@ -19,7 +19,8 @@ export default function InstallPrompt() {
     const isIOS =
       /iPad|iPhone|iPod/.test(ua) &&
       !(window as unknown as { MSStream?: unknown }).MSStream;
-    const isSafari = isIOS &&
+    const isSafari =
+      isIOS &&
       /Safari/.test(ua) &&
       !/CriOS/.test(ua) &&
       !/FxiOS/.test(ua) &&
@@ -28,8 +29,6 @@ export default function InstallPrompt() {
       "(display-mode: standalone)"
     ).matches;
 
-    // Only show iOS guide on iOS Safari (not Chrome/Firefox/Edge on iOS)
-    // Chrome on iOS doesn't support beforeinstallprompt and has viewport bugs
     if (isIOS && isSafari && !isStandalone) {
       setIsIOS(true);
       const dismissed = sessionStorage.getItem("imc-pwa-ios-dismissed");
@@ -40,7 +39,6 @@ export default function InstallPrompt() {
       return;
     }
 
-    // Android / desktop Chrome — listen for beforeinstallPrompt
     const handler = (e: Event) => {
       e.preventDefault();
       setDeferredPrompt(e as BeforeInstallPromptEvent);
@@ -88,7 +86,15 @@ export default function InstallPrompt() {
       <div
         role="dialog"
         aria-label="Install IMC App"
-        className="fixed bottom-0 left-0 right-0 z-50 border-t border-white/10 bg-[#0b1d3a]/95 backdrop-blur-md"
+        style={{
+          position: "fixed",
+          bottom: 0,
+          left: 0,
+          right: 0,
+          zIndex: 50,
+          borderTop: "1px solid rgba(255,255,255,0.1)",
+          backgroundColor: "rgba(11, 29, 58, 0.98)",
+        }}
       >
         <div className="mx-auto flex max-w-5xl items-center gap-4 px-4 py-3 sm:px-6">
           <img
@@ -116,7 +122,7 @@ export default function InstallPrompt() {
             </button>
             <button
               onClick={handleInstall}
-              className="rounded-lg bg-[#00b4d8] px-4 py-2 text-xs font-semibold text-[#0b1d3a] transition-colors hover:bg-[#0096b8]"
+              className="rounded-lg bg-[#0b1d3a] px-4 py-2 text-xs font-semibold text-white transition-colors hover:bg-[#132a4a]"
               aria-label="Install IMC app"
             >
               Install
@@ -133,7 +139,15 @@ export default function InstallPrompt() {
       <div
         role="dialog"
         aria-label="Add to Home Screen"
-        className="fixed bottom-0 left-0 right-0 z-50 border-t border-white/10 bg-[#0b1d3a]/95 backdrop-blur-md"
+        style={{
+          position: "fixed",
+          bottom: 0,
+          left: 0,
+          right: 0,
+          zIndex: 50,
+          borderTop: "1px solid rgba(255,255,255,0.1)",
+          backgroundColor: "rgba(11, 29, 58, 0.98)",
+        }}
       >
         <div className="mx-auto max-w-5xl px-4 py-4 sm:px-6">
           <div className="flex items-start gap-3">
