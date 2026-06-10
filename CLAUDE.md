@@ -271,5 +271,45 @@ cd out && python3 -m http.server 8080
 - Robots.txt excludes `/_next/` and `/out/` directories
 
 ### Google Search Console Verification
-- Verification file: `public/google62c9fc6ba2ba8b2e.html` → served at `https://imc-hub.github.io/google62c9fc6ba2b2e.html`
+- Verification file: `public/google62c9fc6ba2ba8b2e.html` → served at `https://imc-hub.github.io/google62c9fc6ba2ba8b2e.html`
 - File must remain in place for continued verification
+
+## PWA Status & Planning
+
+### Current State: No PWA
+As of 2026-06-10, there is **no PWA setup** — no manifest.json, no service worker, no offline capability.
+
+### What Already Exists (PWA-adjacent)
+- `layout.tsx` has: `icon` link, `apple-touch-icon` link, `theme-color` meta (#0b1d3a), `appleWebApp` metadata
+- Static export = all pages pre-rendered HTML (good foundation for offline caching)
+- GitHub Pages serves over HTTPS (required for service workers)
+
+### Constraints
+- **GitHub Pages:** No custom HTTP headers (no Cache-Control, no Service-Worker-Allowed)
+- **Static export:** No middleware, no API routes — SW must be in `public/`
+- **No `next/image`:** Already using plain `<img>` with `unoptimized: true` ✅
+
+### Recommended Approach: Custom SW + Manifest (Option B)
+1. `public/manifest.json` — app name, icons, theme color, display: standalone
+2. `public/icons/` — icon-192.png, icon-512.png, icon-maskable.png (generated from imc.jpeg)
+3. `public/sw.js` — Workbox-based service worker with precaching + runtime caching
+4. SW registration in `layout.tsx` via `<script>` or client component
+5. Add `<link rel="manifest" href="/manifest.json" />` to `<head>`
+
+### Caching Strategy
+- HTML pages: NetworkFirst (1hr TTL, offline fallback to cached index)
+- CSS/JS bundles: CacheFirst (1yr, hashed filenames)
+- Images: CacheFirst (30 days)
+- Google Fonts: StaleWhileRevalidate (7 days) / CacheFirst (1yr for font files)
+
+### Pages to Precache (7 routes)
+`/`, `/about`, `/academy`, `/assessment`, `/contact`, `/privacy`, `/terms`
+
+### Key Risks
+- GitHub Pages cache headers can't be overridden
+- Assessment page is client-side ("use client") — SW must not break client-side quiz state
+- EmailJS contact form needs offline handling
+- SW update cycle: use `skipWaiting: true` + `clientsClaim: true`
+
+### Full Plan
+See memory file: `pwa-planning.md`

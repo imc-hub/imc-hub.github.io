@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { OrganizationStructuredData, WebsiteStructuredData } from "@/components/seo/structured-data";
+import InstallPrompt from "@/components/pwa/install-prompt";
 
 const inter = Inter({
   variable: "--font-sans",
@@ -106,7 +107,8 @@ export default function RootLayout({
     <html lang="en" className={`${inter.variable} antialiased`}>
       <head>
         <link rel="icon" href="/imc.jpeg" type="image/jpeg" />
-        <link rel="apple-touch-icon" href="/imc.jpeg" />
+        <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" sizes="180x180" />
+        <link rel="manifest" href="/manifest.json" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
@@ -114,6 +116,9 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
         <meta name="theme-color" content="#0b1d3a" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <meta httpEquiv="X-Content-Type-Options" content="nosniff" />
         <meta httpEquiv="X-Frame-Options" content="DENY" />
         <meta httpEquiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
@@ -123,6 +128,19 @@ export default function RootLayout({
       </head>
       <body className="min-h-screen flex flex-col bg-background text-foreground">
         {children}
+        <InstallPrompt />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              if ('serviceWorker' in navigator) {
+                window.addEventListener('load', function() {
+                  navigator.serviceWorker.register('/sw.js', { scope: '/' })
+                    .catch(function() {});
+                });
+              }
+            `,
+          }}
+        />
       </body>
     </html>
   );
