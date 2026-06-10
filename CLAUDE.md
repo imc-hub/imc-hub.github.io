@@ -274,42 +274,56 @@ cd out && python3 -m http.server 8080
 - Verification file: `public/google62c9fc6ba2ba8b2e.html` → served at `https://imc-hub.github.io/google62c9fc6ba2ba8b2e.html`
 - File must remain in place for continued verification
 
-## PWA Status & Planning
+## PWA — Implemented (2026-06-10)
 
-### Current State: No PWA
-As of 2026-06-10, there is **no PWA setup** — no manifest.json, no service worker, no offline capability.
+### Current State: ✅ Live
+PWA is fully implemented and deployed. Install prompt works on Android Chrome. Offline caching via Workbox service worker.
 
-### What Already Exists (PWA-adjacent)
-- `layout.tsx` has: `icon` link, `apple-touch-icon` link, `theme-color` meta (#0b1d3a), `appleWebApp` metadata
-- Static export = all pages pre-rendered HTML (good foundation for offline caching)
-- GitHub Pages serves over HTTPS (required for service workers)
+### Files
+| File | Purpose |
+|------|---------|
+| `public/manifest.json` | App manifest — standalone, icons, theme #0b1d3a |
+| `public/sw.js` | Workbox 7.3.0 service worker — precache + runtime caching |
+| `public/icons/icon-192.png` | PWA icon 192×192 |
+| `public/icons/icon-512.png` | PWA icon 512×512 |
+| `public/icons/icon-maskable.png` | Maskable icon 512×512 (safe zone padded) |
+| `public/icons/apple-touch-icon.png` | iOS home screen icon 180×180 |
+| `src/components/pwa/install-prompt.tsx` | Install banner (Android Chrome only) |
 
-### Constraints
-- **GitHub Pages:** No custom HTTP headers (no Cache-Control, no Service-Worker-Allowed)
-- **Static export:** No middleware, no API routes — SW must be in `public/`
-- **No `next/image`:** Already using plain `<img>` with `unoptimized: true` ✅
-
-### Recommended Approach: Custom SW + Manifest (Option B)
-1. `public/manifest.json` — app name, icons, theme color, display: standalone
-2. `public/icons/` — icon-192.png, icon-512.png, icon-maskable.png (generated from imc.jpeg)
-3. `public/sw.js` — Workbox-based service worker with precaching + runtime caching
-4. SW registration in `layout.tsx` via `<script>` or client component
-5. Add `<link rel="manifest" href="/manifest.json" />` to `<head>`
+### Layout Changes (`src/app/layout.tsx`)
+- `<link rel="manifest" href="/manifest.json" />` in `<head>`
+- `<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" sizes="180x180" />`
+- `<meta name="mobile-web-app-capable" content="yes" />`
+- `<meta name="apple-mobile-web-app-capable" content="yes" />`
+- `<meta name="apple-mobile-web-app-status-bar-style" content="default" />`
+- SW registration via inline `<script>` in body (registers `/sw.js` on load)
+- `<InstallPrompt />` component after `{children}` in body
 
 ### Caching Strategy
-- HTML pages: NetworkFirst (1hr TTL, offline fallback to cached index)
-- CSS/JS bundles: CacheFirst (1yr, hashed filenames)
+- HTML pages: NetworkFirst (1hr TTL, offline fallback to cached `/`)
+- CSS/JS bundles: CacheFirst (1yr, hashed filenames = immutable)
 - Images: CacheFirst (30 days)
-- Google Fonts: StaleWhileRevalidate (7 days) / CacheFirst (1yr for font files)
+- Google Fonts CSS: StaleWhileRevalidate (7 days)
+- Google Fonts files: CacheFirst (1yr)
+- EmailJS API: NetworkOnly (never cache)
 
-### Pages to Precache (7 routes)
+### Pages Precached (7 routes)
 `/`, `/about`, `/academy`, `/assessment`, `/contact`, `/privacy`, `/terms`
 
-### Key Risks
-- GitHub Pages cache headers can't be overridden
-- Assessment page is client-side ("use client") — SW must not break client-side quiz state
-- EmailJS contact form needs offline handling
-- SW update cycle: use `skipWaiting: true` + `clientsClaim: true`
+### iOS Gotchas (Critical — Do NOT Re-introduce These)
+1. **Do NOT use `viewport-fit=cover`** — breaks Safari iOS layout
+2. **Do NOT use `overflow-x: hidden` on `<html>`** — breaks Safari CSS
+3. **Do NOT use `dvh` units** — causes Safari CSS issues; stick with `min-h-screen`
+4. **Do NOT use `backdrop-blur` on fixed elements** — causes Chrome iOS viewport/scroll bugs
+5. **Do NOT use `position: fixed` banners on iOS** — Chrome iOS creates extra scrollable space
+6. **Do NOT register `beforeinstallprompt` on iOS** — not supported, causes layout reflows
+7. **Do NOT use `black-translucent` status bar style** — use `default` to prevent content behind status bar
+8. **Do NOT use inline styles with `lineHeight:0` / `fontSize:0` hacks** — breaks Android Chrome CSS
+9. **Do NOT manipulate parent DOM from child components** — causes cross-browser layout issues
+10. **Install prompt must return `null` on iOS** — only show on Android/desktop Chrome
 
-### Full Plan
-See memory file: `pwa-planning.md`
+### Install Prompt Behavior
+- **Android Chrome**: Shows fixed bottom banner via `beforeinstallprompt` event
+- **iOS (all browsers)**: Returns `null` — no banner (Apple doesn't support programmatic install)
+- **Desktop Chrome**: Shows banner if `beforeinstallprompt` fires
+- Uses pure Tailwind classes — no inline styles, no DOM manipulation
