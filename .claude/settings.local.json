@@ -46,7 +46,8 @@
       "mcp__plugin_playwright_playwright__browser_console_messages",
       "Bash(gh run *)",
       "mcp__plugin_playwright_playwright__browser_network_requests",
-      "mcp__plugin_playwright_playwright__browser_run_code_unsafe"
+      "mcp__plugin_playwright_playwright__browser_run_code_unsafe",
+      "Bash(git rm *)"
     ]
   },
   "disabledMcpjsonServers": [
