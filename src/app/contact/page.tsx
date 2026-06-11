@@ -16,9 +16,11 @@ import { useState, type FormEvent } from "react";
 import emailjs from "@emailjs/browser";
 import { FaqClientStructuredData } from "@/components/seo/client-structured-data";
 
-const EMAILJS_PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "";
-const EMAILJS_SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "";
-const EMAILJS_TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "";
+const getEmailJsConfig = () => ({
+  publicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "",
+  serviceId: process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "",
+  templateId: process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "",
+});
 
 const contactMethods = [
   {
@@ -112,7 +114,9 @@ export default function ContactPage() {
       return;
     }
 
-    if (!EMAILJS_PUBLIC_KEY || !EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID) {
+    const { publicKey, serviceId, templateId } = getEmailJsConfig();
+
+    if (!publicKey || !serviceId || !templateId) {
       showToast("Email service is not configured. Please contact us directly at imc.hub.eg@gmail.com.", "error");
       setIsSending(false);
       return;
@@ -127,8 +131,8 @@ Message:
 ${message}`;
 
       await emailjs.send(
-        EMAILJS_SERVICE_ID,
-        EMAILJS_TEMPLATE_ID,
+        serviceId,
+        templateId,
         {
           from_name: `${firstName} ${lastName}`,
           first_name: firstName,
@@ -140,7 +144,7 @@ ${message}`;
           to_email: "imc.hub.eg@gmail.com",
           to_name: "IMC Team",
         },
-        EMAILJS_PUBLIC_KEY
+        publicKey
       );
 
       showToast("Message sent successfully! We'll get back to you within 24 hours.", "success");
