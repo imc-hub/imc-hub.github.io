@@ -51,7 +51,6 @@ export function OrganizationStructuredData() {
       },
     ],
     sameAs: [
-      "https://play.google.com/store/apps/details?id=com.pharmacycafe.goodrx&hl=en",
       "https://github.com/imc-hub",
     ],
   };

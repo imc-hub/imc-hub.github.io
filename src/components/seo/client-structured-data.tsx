@@ -41,6 +41,7 @@ const assessmentQuizData: JsonLdData = {
     "Professional skills",
     "Technical literacy",
     "Workplace communication",
+    "Corporate mindset",
   ],
 };
 
