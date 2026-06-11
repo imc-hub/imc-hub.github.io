@@ -603,3 +603,32 @@ These are public client-side keys (the `NEXT_PUBLIC_` prefix means they're inten
 ### Verification
 - `npx next build` — compiled successfully, 16/16 pages, zero errors
 - `grep -rniE 'rx.?challenger' src/` — all references in correct locations only
+
+## Session Changes (2026-06-12)
+
+### SEO Audit Fixes
+
+**Scope:** Applied remaining fixes from comprehensive SEO audit of all pages and structured data.
+
+**Finding 1 — Google Play in `sameAs`:** The Google Play app URL was listed in `Organization.sameAs`, which is reserved for social media profiles and official links. Removed. GitHub link retained. Add LinkedIn company page when available.
+
+**Finding 2 — Missing `corporate mindset` in assessment assesses:** Client-side `AssessmentClientStructuredData` was missing `"Corporate mindset"` from the `assesses` array. The server-side `AssessmentStructuredData` had it. Added for consistency.
+
+**Already OK (no changes needed):**
+- FAQ page: Already has `<FaqStructuredData>` (not missing as was suspected)
+- All 16/16 pages: Titles, descriptions, canonicals, OG, Twitter Cards, breadcrumbs
+- All structured data: Organization, WebSite, WebPage, FAQPage, Quiz, SoftwareApplication + Reviews
+- Sitemap: All 10 routes with correct priorities and changefreq
+- Robots.txt: Complete with sitemap, host, and proper disallows
+- Favicon: ICO + 16/32 PNG, OG image 1200×630, PWA icons complete
+
+**Files Modified (2):**
+
+| File | Key Changes |
+|------|-------------|
+| `src/components/seo/structured-data.tsx` | Removed Google Play link from `Organization.sameAs` |
+| `src/components/seo/client-structured-data.tsx` | Added `"Corporate mindset"` to `assesses` array |
+
+**Verification:**
+- `npx next build` — compiled successfully, 16/16 pages, zero errors
+- Push: `git push origin main` — committed as cb2aed6 (cb2aed6 → main on origin)
