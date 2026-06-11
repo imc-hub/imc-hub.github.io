@@ -115,7 +115,7 @@ export function EcosystemSection() {
 
                 <div className="mt-auto pt-6">
                   <Link
-                    href={pillar.name.includes("OCTRI") ? "https://www.octri-egypt.com/" : pillar.name.includes("Corporate") ? "/#get-started" : "/academy"}
+                    href={pillar.name.includes("OCTRI") ? "https://www.octri-egypt.com/" : pillar.name.includes("Digital") ? "/digital-solutions" : "/#get-started"}
                     {...(pillar.name.includes("OCTRI") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                     className={`inline-flex items-center gap-1.5 text-sm font-medium ${pillar.color} transition-all hover:gap-2.5`}
                   >

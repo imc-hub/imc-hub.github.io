@@ -89,7 +89,13 @@ const sitemapSections: SitemapSection[] = [
         href: "/academy",
         label: "IMC Academy",
         description:
-          "Industry-built courses including Rx Challenger for pharmacy professionals.",
+          "Corporate & Business Training — business readiness, data analysis, AI skills, and professional development courses.",
+      },
+      {
+        href: "/digital-solutions",
+        label: "Digital Solutions & Technology",
+        description:
+          "Gamified EdTech platforms, mobile applications, and digital learning systems — including Rx Challenger.",
       },
       {
         href: "/assessment",

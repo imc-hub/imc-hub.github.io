@@ -29,11 +29,12 @@ src/
 │   ├── not-found.tsx       # 404 page
 │   ├── imc.jpeg            # IMC logo image (also copied to public/imc.jpeg)
 │   ├── about/page.tsx      # About (mission, vision, principles, team)
-│   ├── academy/page.tsx    # IMC Academy — multi-course platform + Rx Challenger deep-dive
-│   ├── assessment/page.tsx # Career readiness assessment (quiz, scoring, results)
-│   ├── contact/page.tsx    # Contact (methods, form→EmailJS w/ validation, FAQ)
-│   ├── privacy/page.tsx    # Privacy Policy (12 sections)
-│   └── terms/page.tsx      # Terms of Service (13 sections)
+│   ├── academy/page.tsx            # IMC Academy — Corporate & Business Training (courses, learning approach)
+│   ├── digital-solutions/page.tsx  # Digital Solutions & Technology — Rx Challenger + tech approach
+│   ├── assessment/page.tsx         # Career readiness assessment (quiz, scoring, results)
+│   ├── contact/page.tsx            # Contact (methods, form→EmailJS w/ validation, FAQ)
+│   ├── privacy/page.tsx            # Privacy Policy (12 sections)
+│   └── terms/page.tsx              # Terms of Service (13 sections)
 ├── components/
 │   ├── layout/
 │   │   ├── header.tsx      # "use client" — sticky, responsive mobile menu
@@ -243,7 +244,7 @@ cd out && python3 -m http.server 8080
 ### Notes
 - Client components (`assessment`, `contact`) cannot export `metadata` — they use client-side JSON-LD injection via `useEffect` instead
 - The `dangerouslySetInnerHTML` in `JsonLd` component is safe here — it renders only hardcoded JSON-LD objects, never user input
-- Build generates 12 static pages including `/sitemap.xml` and `/robots.txt`
+- Build generates 16 static pages including `/sitemap.xml` and `/robots.txt`
 - All pages pass `npx next build` with zero errors
 
 ## Security Audit (2026-06-09)
@@ -307,8 +308,8 @@ PWA is fully implemented and deployed. Install prompt works on Android Chrome. O
 - Google Fonts files: CacheFirst (1yr)
 - EmailJS API: NetworkOnly (never cache)
 
-### Pages Precached (7 routes)
-`/`, `/about`, `/academy`, `/assessment`, `/contact`, `/privacy`, `/terms`
+### Pages Precached (8 routes)
+`/`, `/about`, `/academy`, `/digital-solutions`, `/assessment`, `/contact`, `/privacy`, `/terms`
 
 ### iOS Gotchas (Critical — Do NOT Re-introduce These)
 1. **Do NOT use `viewport-fit=cover`** — breaks Safari iOS layout
@@ -549,3 +550,35 @@ These are public client-side keys (the `NEXT_PUBLIC_` prefix means they're inten
 
 **Verification:**
 - `npx next build` — compiled successfully, 15/15 pages, zero errors
+
+## Session Changes (2026-06-11)
+
+### Digital Solutions & Technology Page — New Route + Rx Challenger Migration
+
+**Scope:** Created a new `/digital-solutions` page, moved all Rx Challenger content from Academy to the new page, updated navigation (header + footer), updated sitemap and SEO assets, and refocused Academy on Corporate & Business Training.
+
+**Business Context:** IMC operates three business units:
+1. Corporate & Business Training → `/academy`
+2. Athletic Performance (OCTRI) → External link
+3. Digital Solutions & Technology → `/digital-solutions` (Rx Challenger belongs here)
+
+### New Files Created (1)
+| File | Purpose |
+|------|---------|
+| `src/app/digital-solutions/page.tsx` | Full Digital Solutions & Technology page — hero, why digital matters, Rx Challenger flagship product, technology approach (gamification, applied learning, real-world cases, digital learning systems, scalable development), testimonials, developer about, FAQ (8 items), CTA. Exports `metadata` (title, description, OG, twitter, canonical). Uses `WebPageStructuredData`, `FaqStructuredData`, `TestimonialStructuredData`, and new `RxChallengerStructuredData`. |
+
+### Files Modified (8)
+| File | Key Changes |
+|------|-------------|
+| `src/app/academy/page.tsx` | Removed: Digital Solutions Showcase, Rx Challenger flagship, Testimonials, About Developer, Rx Challenger CTA. Added: "Our Approach" section (Structured Curriculum, Applied Learning, Measurable Outcomes, Expert-Led Instruction), "Explore Our Other Business Units" section (links to Digital Solutions + OCTRI). Updated: metadata, hero, FAQ (6 items, no Rx Challenger), CTA. Removed unused `Star`/`StarRating`. |
+| `src/components/layout/header.tsx` | Added `{ href: "/digital-solutions", label: "Digital Solutions" }` to `navLinks` between Academy and Ecosystem |
+| `src/components/layout/footer.tsx` | Added `{ href: "/digital-solutions", label: "Digital Solutions" }` to `product` links |
+| `src/components/sections/ecosystem.tsx` | Changed Digital Solutions pillar link from `/academy` to `/digital-solutions` |
+| `src/app/sitemap.ts` | Added `/digital-solutions` route (monthly, priority 0.8) |
+| `src/app/sitemap/page.tsx` | Added Digital Solutions & Technology card in Programs & Learning section; updated Academy description |
+| `src/components/seo/structured-data.tsx` | Updated `AcademyStructuredData` description; added `RxChallengerStructuredData()` — SoftwareApplication schema with author, aggregateRating, downloadUrl, offer |
+| `public/sw.js` | Added `{ url: '/digital-solutions', revision: '1' }` to precache list |
+
+### Verification
+- `npx next build` — compiled successfully, 16/16 pages, zero errors
+- `grep -rniE 'rx.?challenger' src/` — all references in correct locations only

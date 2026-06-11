@@ -135,7 +135,7 @@ export function AcademyStructuredData() {
     url: `${SITE_URL}/academy`,
     parentOrganization: { "@id": `${SITE_URL}/#organization` },
     description:
-      "IMC Academy is our learning hub showcasing Corporate & Business Training courses and Digital Solutions & Technology products — from gamified EdTech platforms to corporate training programs.",
+      "IMC Academy is our Corporate & Business Training hub — structured learning paths in business readiness, data analysis, AI skills, corporate soft skills, and professional development.",
     course: {
       "@type": "Course",
       name: "Business Readiness Track",
@@ -154,6 +154,40 @@ export function AcademyStructuredData() {
         courseMode: "online",
         courseWorkload: "PT5H",
       },
+    },
+  };
+  return <JsonLd data={data} />;
+}
+
+/* ── SoftwareApplication for Rx Challenger ── */
+export function RxChallengerStructuredData() {
+  const data = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: "Rx Challenger",
+    applicationCategory: "EducationalApplication",
+    operatingSystem: "Android",
+    description:
+      "A gamified mobile application for pharmacy graduates and professionals to master prescription reading using real-world, anonymized patient scenarios with context-rich clinical data.",
+    url: `${SITE_URL}/digital-solutions`,
+    downloadUrl:
+      "https://play.google.com/store/apps/details?id=com.pharmacycafe.goodrx&hl=en",
+    author: {
+      "@type": "Person",
+      name: "Ahmed Ezzat",
+      url: "https://www.linkedin.com/in/ahmed-m-ezzat/",
+    },
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "USD",
+    },
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "5",
+      ratingCount: "4",
+      bestRating: "5",
+      worstRating: "1",
     },
   };
   return <JsonLd data={data} />;

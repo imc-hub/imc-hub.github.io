@@ -25,6 +25,7 @@ precacheAndRoute([
   { url: '/', revision: '2' },
   { url: '/about', revision: '2' },
   { url: '/academy', revision: '2' },
+  { url: '/digital-solutions', revision: '1' },
   { url: '/assessment', revision: '2' },
   { url: '/contact', revision: '2' },
   { url: '/privacy', revision: '2' },
