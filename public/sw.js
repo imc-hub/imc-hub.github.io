@@ -22,14 +22,14 @@ clientsClaim();
 // The __WB_MANIFEST injection is handled by Workbox at build time
 // For static export, we manually define precache entries
 precacheAndRoute([
-  { url: '/', revision: '1' },
-  { url: '/about', revision: '1' },
-  { url: '/academy', revision: '1' },
-  { url: '/assessment', revision: '1' },
-  { url: '/contact', revision: '1' },
-  { url: '/privacy', revision: '1' },
-  { url: '/terms', revision: '1' },
-  { url: '/cookies', revision: '1' },
+  { url: '/', revision: '2' },
+  { url: '/about', revision: '2' },
+  { url: '/academy', revision: '2' },
+  { url: '/assessment', revision: '2' },
+  { url: '/contact', revision: '2' },
+  { url: '/privacy', revision: '2' },
+  { url: '/terms', revision: '2' },
+  { url: '/cookies', revision: '2' },
 ]);
 
 // Navigation requests — NetworkFirst with offline fallback
@@ -55,11 +55,11 @@ setCatchHandler(({ event }) => {
 
 registerRoute(navigationRoute);
 
-// CSS/JS bundles — CacheFirst (hashed filenames = immutable)
+// CSS/JS bundles — StaleWhileRevalidate (hashed filenames = immutable, but check for updates)
 registerRoute(
   ({ request }) =>
     request.destination === 'style' || request.destination === 'script',
-  new CacheFirst({
+  new StaleWhileRevalidate({
     cacheName: 'static-resources',
     plugins: [
       new CacheableResponsePlugin({ statuses: [200] }),

@@ -38,7 +38,15 @@
       "mcp__plugin_semgrep_semgrep__semgrep_scan",
       "Bash(npm audit *)",
       "Bash(identify /home/user/local/imc/website/public/imc.jpeg)",
-      "Bash(xxd)"
+      "Bash(xxd)",
+      "mcp__plugin_playwright_playwright__browser_navigate",
+      "mcp__plugin_playwright_playwright__browser_snapshot",
+      "mcp__plugin_playwright_playwright__browser_fill_form",
+      "mcp__plugin_playwright_playwright__browser_click",
+      "mcp__plugin_playwright_playwright__browser_console_messages",
+      "Bash(gh run *)",
+      "mcp__plugin_playwright_playwright__browser_network_requests",
+      "mcp__plugin_playwright_playwright__browser_run_code_unsafe"
     ]
   },
   "disabledMcpjsonServers": [

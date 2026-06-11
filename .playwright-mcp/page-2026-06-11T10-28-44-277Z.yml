@@ -1,0 +1,158 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "IMC — Intelligent Mastery Coaching — Home" [ref=e4] [cursor=pointer]:
+        - /url: /
+        - img "IMC — Intelligent Mastery Coaching" [ref=e5]
+        - generic [ref=e6]: Intelligent Mastery Coaching
+      - navigation "Primary navigation" [ref=e7]:
+        - link "About" [ref=e8] [cursor=pointer]:
+          - /url: /about
+        - link "Academy" [ref=e9] [cursor=pointer]:
+          - /url: /academy
+        - link "Ecosystem" [ref=e10] [cursor=pointer]:
+          - /url: /#ecosystem
+        - link "How It Works" [ref=e11] [cursor=pointer]:
+          - /url: /#how-it-works
+        - link "Contact" [ref=e12] [cursor=pointer]:
+          - /url: /contact
+      - link "Get Started" [ref=e14] [cursor=pointer]:
+        - /url: /assessment
+  - main [ref=e15]:
+    - generic [ref=e18]:
+      - paragraph [ref=e19]: Contact Us
+      - heading "We're here to help" [level=1] [ref=e20]
+      - paragraph [ref=e21]: Questions about IMC? Want to explore corporate partnerships? Need technical support? Reach out and we'll respond within 24 hours.
+    - generic [ref=e24]:
+      - generic [ref=e25]:
+        - img [ref=e27]
+        - heading "Email Us" [level=3] [ref=e30]
+        - paragraph [ref=e31]: For general inquiries and support
+        - link "imc.hub.eg@gmail.com" [ref=e32] [cursor=pointer]:
+          - /url: mailto:imc.hub.eg@gmail.com
+          - paragraph [ref=e33]: imc.hub.eg@gmail.com
+      - generic [ref=e34]:
+        - img [ref=e36]
+        - heading "Sales & Partnerships" [level=3] [ref=e40]
+        - paragraph [ref=e41]: Corporate training and institutional partnerships
+        - link "imc.hub.eg@gmail.com" [ref=e42] [cursor=pointer]:
+          - /url: mailto:imc.hub.eg@gmail.com
+          - paragraph [ref=e43]: imc.hub.eg@gmail.com
+      - generic [ref=e44]:
+        - img [ref=e46]
+        - heading "Office" [level=3] [ref=e49]
+        - paragraph [ref=e50]: Visit us by appointment
+        - paragraph [ref=e51]: Giza, CA, Egypt
+    - generic [ref=e54]:
+      - generic [ref=e55]:
+        - paragraph [ref=e56]: Send a Message
+        - heading "Fill out the form below" [level=2] [ref=e57]
+      - generic [ref=e58]:
+        - generic [ref=e59]:
+          - generic [ref=e60]:
+            - generic [ref=e61]: First Name
+            - textbox "First Name" [ref=e62]:
+              - /placeholder: Jane
+          - generic [ref=e63]:
+            - generic [ref=e64]: Last Name
+            - textbox "Last Name" [ref=e65]:
+              - /placeholder: Doe
+        - generic [ref=e66]:
+          - generic [ref=e67]: Email
+          - textbox "Email" [ref=e68]:
+            - /placeholder: jane@example.com
+        - generic [ref=e69]:
+          - generic [ref=e70]: Inquiry Type
+          - combobox "Inquiry Type" [ref=e71]:
+            - option "Select an option" [disabled] [selected]
+            - option "General Inquiry"
+            - option "Technical Support"
+            - option "Sales & Partnerships"
+            - option "Enterprise Training"
+            - option "Press & Media"
+            - option "Other"
+        - generic [ref=e72]:
+          - generic [ref=e73]: Message
+          - textbox "Message" [ref=e74]:
+            - /placeholder: Tell us how we can help...
+        - button "Send Message" [ref=e75]:
+          - img
+          - text: Send Message
+        - paragraph [ref=e76]: We typically respond within 24 hours. For urgent matters, email us directly at imc.hub.eg@gmail.com.
+    - generic [ref=e79]:
+      - generic [ref=e80]:
+        - paragraph [ref=e81]: FAQ
+        - heading "Frequently asked questions" [level=2] [ref=e82]
+      - generic [ref=e83]:
+        - generic [ref=e84]:
+          - heading "How do I get started with IMC?" [level=3] [ref=e85]
+          - paragraph [ref=e86]: Take our free 15-minute career assessment. It will identify your strengths, gaps, and recommend the best learning path for your goals. No credit card required.
+        - generic [ref=e87]:
+          - heading "Is IMC suitable for high school students?" [level=3] [ref=e88]
+          - paragraph [ref=e89]: Yes. Our Career Discovery track is designed specifically for pupils aged 13-18. It helps identify academic and professional identity before university decisions.
+        - generic [ref=e90]:
+          - heading "Can my company use IMC for employee training?" [level=3] [ref=e91]
+          - paragraph [ref=e92]: Absolutely. We offer corporate plans with team management, custom training assignments, analytics dashboards, and enterprise SSO integration. Contact our sales team for a demo.
+        - generic [ref=e93]:
+          - heading "What is the Corporate Readiness Score?" [level=3] [ref=e94]
+          - paragraph [ref=e95]: It's a proprietary metric (0-100) that measures your preparedness for corporate environments based on skills, applied program performance, course completion, project experience, and engagement.
+        - generic [ref=e96]:
+          - heading "Do you offer refunds?" [level=3] [ref=e97]
+          - paragraph [ref=e98]: Yes. We offer a 14-day refund window for paid subscriptions, provided you haven't accessed premium content. Enterprise clients have custom refund terms.
+        - generic [ref=e99]:
+          - heading "How do the Corporate Solutions programs work?" [level=3] [ref=e100]
+          - paragraph [ref=e101]: You're placed in realistic business scenarios where you make strategic decisions, manage teams, and compete on leaderboards. Each program has multiple decision points with real financial consequences.
+  - contentinfo [ref=e102]:
+    - generic [ref=e103]:
+      - generic [ref=e104]:
+        - generic [ref=e105]:
+          - link "IMC — Home" [ref=e106] [cursor=pointer]:
+            - /url: /
+            - img "IMC — Intelligent Mastery Coaching" [ref=e107]
+            - generic [ref=e108]: IMC
+          - paragraph [ref=e109]: Close the gap between human potential and corporate reality.
+        - navigation "Product links" [ref=e110]:
+          - heading "Product" [level=3] [ref=e111]
+          - list [ref=e112]:
+            - listitem [ref=e113]:
+              - link "Academy" [ref=e114] [cursor=pointer]:
+                - /url: /academy
+            - listitem [ref=e115]:
+              - link "Ecosystem" [ref=e116] [cursor=pointer]:
+                - /url: /#ecosystem
+            - listitem [ref=e117]:
+              - link "How It Works" [ref=e118] [cursor=pointer]:
+                - /url: /#how-it-works
+            - listitem [ref=e119]:
+              - link "Pricing" [ref=e120] [cursor=pointer]:
+                - /url: /#pricing
+        - navigation "Company links" [ref=e121]:
+          - heading "Company" [level=3] [ref=e122]
+          - list [ref=e123]:
+            - listitem [ref=e124]:
+              - link "About Us" [ref=e125] [cursor=pointer]:
+                - /url: /about
+            - listitem [ref=e126]:
+              - link "FAQ" [ref=e127] [cursor=pointer]:
+                - /url: /faq
+            - listitem [ref=e128]:
+              - link "Contact" [ref=e129] [cursor=pointer]:
+                - /url: /contact
+        - navigation "Legal links" [ref=e130]:
+          - heading "Legal" [level=3] [ref=e131]
+          - list [ref=e132]:
+            - listitem [ref=e133]:
+              - link "Terms of Service" [ref=e134] [cursor=pointer]:
+                - /url: /terms
+            - listitem [ref=e135]:
+              - link "Privacy Policy" [ref=e136] [cursor=pointer]:
+                - /url: /privacy
+            - listitem [ref=e137]:
+              - link "Cookie Declaration" [ref=e138] [cursor=pointer]:
+                - /url: /cookies
+            - listitem [ref=e139]:
+              - link "Sitemap" [ref=e140] [cursor=pointer]:
+                - /url: /sitemap
+      - generic [ref=e141]:
+        - paragraph [ref=e142]: © 2026 IMC — Intelligent Mastery Coaching. All rights reserved.
+        - paragraph [ref=e143]: Mastery Meets Market.
