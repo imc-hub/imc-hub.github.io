@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { OrganizationStructuredData, WebsiteStructuredData } from "@/components/seo/structured-data";
 import InstallPrompt from "@/components/pwa/install-prompt";
+import UpdateToast from "@/components/pwa/update-toast";
 
 const inter = Inter({
   variable: "--font-sans",
@@ -142,6 +143,7 @@ export default function RootLayout({
       <body className="min-h-screen flex flex-col bg-background text-foreground">
         {children}
         <InstallPrompt />
+        <UpdateToast />
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -149,6 +151,23 @@ export default function RootLayout({
                 window.addEventListener('load', function() {
                   navigator.serviceWorker.register('/sw.js', { scope: '/' })
                     .catch(function() {});
+
+                  // Reload page when a new service worker takes control
+                  var refreshing = false;
+                  navigator.serviceWorker.addEventListener('controllerchange', function() {
+                    if (!refreshing) {
+                      refreshing = true;
+                      window.location.reload();
+                    }
+                  });
+
+                  // Also check: if the page loaded from a stale cache (no SW yet),
+                  // reload once after SW activates so future navigations are fresh
+                  if (!navigator.serviceWorker.controller) {
+                    navigator.serviceWorker.ready.then(function() {
+                      window.location.reload();
+                    });
+                  }
                 });
               }
             `,

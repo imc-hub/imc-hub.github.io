@@ -301,12 +301,33 @@ PWA is fully implemented and deployed. Install prompt works on Android Chrome. O
 - `<InstallPrompt />` component after `{children}` in body
 
 ### Caching Strategy
-- HTML pages: NetworkFirst (1hr TTL, offline fallback to cached `/`)
-- CSS/JS bundles: CacheFirst (1yr, hashed filenames = immutable)
+- HTML pages: NetworkFirst (5min TTL, offline fallback to cached `/`) — short TTL ensures fresh content on every visit
+- CSS/JS bundles: StaleWhileRevalidate (1day, hashed filenames = immutable) — checks for updates in background
 - Images: CacheFirst (30 days)
 - Google Fonts CSS: StaleWhileRevalidate (7 days)
 - Google Fonts files: CacheFirst (1yr)
 - EmailJS API: NetworkOnly (never cache)
+
+### Update Flow (Critical)
+When new content is deployed:
+1. Browser detects new service worker via `updatefound` event
+2. `UpdateToast` component shows "Update Available" banner
+3. User clicks "Refresh Now" → page sends `SKIP_WAITING` message → SW activates → reload
+4. `controllerchange` listener auto-reloads when new SW takes control
+5. Precache revisions bumped on every deploy to force cache refresh
+
+### New PWA Files
+
+| File | Purpose |
+|------|---------|
+| `src/components/pwa/update-toast.tsx` | "Update Available" banner — polls for new SW every 5min, shows dismissible prompt to refresh |
+
+### SW Registration Changes (`layout.tsx`)
+- Added `controllerchange` listener: auto-reloads page when new SW activates
+- Added initial reload check if no SW was controlling the page
+- This ensures users always see fresh content after a deploy without manually clearing cache
+
+### iOS Gotchas (Critical — Do NOT Re-introduce These)
 
 ### Pages Precached (8 routes)
 `/`, `/about`, `/academy`, `/digital-solutions`, `/assessment`, `/contact`, `/privacy`, `/terms`
