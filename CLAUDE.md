@@ -450,3 +450,39 @@ Repositioned the entire website from "Corporate Simulator / Simulation" to "Corp
 **Verification:**
 - `npx next build` — compiled successfully, 15/15 pages, zero errors
 - Full codebase grep for `simulation|simulator|simulated|P&L.*Engine|business simulation|corporate simulation` — zero matches
+
+## Session Changes (2026-06-11)
+
+### LinkedIn Links on About Page
+Added LinkedIn profile links to team member cards on the About page:
+- **Mohamed Talaat** (CEO) → `https://www.linkedin.com/in/mohamed-talaat-hagrass/`
+- **Ahmed Ezzat** (CTO) → `https://www.linkedin.com/in/ahmed-m-ezzat/`
+
+Each link renders as a 32×32px LinkedIn-branded icon button below the member's description, with `target="_blank"`, `rel="noopener noreferrer"`, `aria-label`, hover/focus states. Uses inline SVG (no lucide-react LinkedIn icon exists). Only renders when `member.linkedin` is defined (other members unaffected).
+
+### Contact Form EmailJS Fix
+**Problem**: Contact form showed "Email service is not configured" on the live GitHub Pages site.
+
+**Root Cause**: The GitHub Actions CI workflow (`.github/workflows/deploy.yml`) does NOT have access to `.env.local`. `NEXT_PUBLIC_*` env vars were only present in the local build environment. During CI builds, `process.env.NEXT_PUBLIC_EMAILJS_*` was `undefined`, so Next.js emitted runtime lookups (`a.default.env.NEXT_PUBLIC_EMAILJS_*`) that resolved to `undefined` in the browser, falling back to `""` and triggering the error.
+
+**Fix**: Hardcoded the three EmailJS credentials directly in `src/app/contact/page.tsx`:
+```typescript
+const EMAILJS_PUBLIC_KEY = "AteCKovi3Grb7o0eM";
+const EMAILJS_SERVICE_ID = "service_9adw98r";
+const EMAILJS_TEMPLATE_ID = "template_2d2xcc4";
+```
+These are public client-side keys (the `NEXT_PUBLIC_` prefix means they're intentionally exposed), so hardcoding is safe. Removed the runtime config check that showed the error message.
+
+**Lesson**: Never rely on `process.env.NEXT_PUBLIC_*` for values that must work in CI/CD builds unless those env vars are explicitly set in the workflow. For third-party public keys (EmailJS, Firebase, etc.), hardcoding is acceptable and more reliable.
+
+### Service Worker Cache Fix
+**Problem**: Old service worker was serving stale JS bundles that didn't have the EmailJS credentials.
+
+**Fix** (`public/sw.js`):
+1. Bumped all precache revisions from `'1'` to `'2'` to force cache refresh
+2. Changed JS/CSS bundle strategy from `CacheFirst` to `StaleWhileRevalidate` so future deployments are picked up automatically
+
+### Key Pattern: CI Builds ≠ Local Builds
+- `.env.local` is NOT available in GitHub Actions
+- `NEXT_PUBLIC_*` env vars must be set as GitHub Secrets and passed via `env:` in the workflow, OR hardcoded if they're public keys
+- Always verify the deployed JS bundles contain expected values: `curl -s https://imc-hub.github.io/_next/static/chunks/*.js | grep 'KEY_NAME'`
