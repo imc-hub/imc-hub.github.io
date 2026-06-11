@@ -13,7 +13,7 @@ import { WebPageStructuredData } from "@/components/seo/structured-data";
 export const metadata: Metadata = {
   title: "Close the Gap Between Human Potential & Corporate Reality",
   description:
-    "IMC helps students, career changers, and companies build real-world readiness through structured coaching, business simulations, skill development, and corporate training programs.",
+    "IMC helps students, career changers, and companies build real-world readiness through structured coaching, corporate solutions, skill development, and corporate training programs.",
   alternates: {
     canonical: "/",
   },
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     siteName: "IMC — Intelligent Mastery Coaching",
     title: "IMC — Close the Gap Between Human Potential & Corporate Reality",
     description:
-      "IMC helps students, career changers, and companies build real-world readiness through structured coaching, business simulations, skill development, and corporate training programs.",
+      "IMC helps students, career changers, and companies build real-world readiness through structured coaching, corporate solutions, skill development, and corporate training programs.",
     images: [
       {
         url: "https://imc-hub.github.io/og-image.png",
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "IMC — Close the Gap Between Human Potential & Corporate Reality",
     description:
-      "IMC helps students, career changers, and companies build real-world readiness through structured coaching, business simulations, skill development, and corporate training programs.",
+      "IMC helps students, career changers, and companies build real-world readiness through structured coaching, corporate solutions, skill development, and corporate training programs.",
     images: ["https://imc-hub.github.io/og-image.png"],
   },
 };
@@ -47,7 +47,7 @@ export default function HomePage() {
     <>
       <WebPageStructuredData
         title="IMC — Intelligent Mastery Coaching | Mastery Meets Market"
-        description="Close the gap between human potential and corporate reality with IMC's structured coaching, simulations, and skill development."
+        description="Close the gap between human potential and corporate reality with IMC's structured coaching, corporate solutions, and skill development."
         url="https://imc-hub.github.io/"
       />
       <Header />

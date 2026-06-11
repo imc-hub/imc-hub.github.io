@@ -13,7 +13,7 @@ const inter = Inter({
 const SITE_URL = "https://imc-hub.github.io";
 const SITE_NAME = "IMC — Intelligent Mastery Coaching";
 const SITE_DESCRIPTION =
-  "Close the gap between human potential and corporate reality. IMC helps students, career changers, and companies build real-world readiness through structured coaching, simulations, and skill development.";
+  "Close the gap between human potential and corporate reality. IMC helps students, career changers, and companies build real-world readiness through structured coaching, corporate solutions, and skill development.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -26,12 +26,12 @@ export const metadata: Metadata = {
     "career coaching",
     "corporate readiness",
     "skills training",
-    "business simulation",
+    "corporate solutions",
     "career development",
     "professional training",
     "pharmacy education",
     "Rx Challenger",
-    "corporate simulator",
+    "corporate training",
     "career assessment",
     "workplace readiness",
     "IMC Academy",
@@ -84,7 +84,7 @@ export const metadata: Metadata = {
   verification: {
     google: process.env.GOOGLE_SITE_VERIFICATION || "",
     other: {
-      me: ["hello@imc-hub.com"],
+      me: ["imc.hub.eg@gmail.com"],
     },
   },
   appleWebApp: {

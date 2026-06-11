@@ -1,7 +1,7 @@
 const stats = [
   { value: "73%", label: "of graduates lack corporate readiness", source: "Industry Report 2025" },
   { value: "$41B", label: "spent annually on corporate retraining", source: "Training Industry" },
-  { value: "3x", label: "faster skill acquisition with simulations", source: "IMC Research" },
+  { value: "3x", label: "faster skill acquisition with applied learning", source: "IMC Research" },
   { value: "89%", label: "of IMC learners report higher confidence", source: "User Survey" },
 ];
 

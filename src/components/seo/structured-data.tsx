@@ -27,7 +27,7 @@ export function OrganizationStructuredData() {
     },
     image: `${SITE_URL}/og-image.png`,
     description:
-      "IMC helps students, career changers, and companies build real-world readiness through structured coaching, simulations, and skill development.",
+      "IMC helps students, career changers, and companies build real-world readiness through structured coaching, corporate solutions, and skill development.",
     foundingLocation: {
       "@type": "Place",
       address: {
@@ -40,14 +40,14 @@ export function OrganizationStructuredData() {
       {
         "@type": "ContactPoint",
         contactType: "customer service",
-        email: "hello@imc-hub.com",
+        email: "imc.hub.eg@gmail.com",
         areaServed: "Worldwide",
         availableLanguage: ["English"],
       },
       {
         "@type": "ContactPoint",
         contactType: "sales",
-        email: "sales@imc-hub.com",
+        email: "imc.hub.eg@gmail.com",
       },
     ],
     sameAs: [
@@ -67,7 +67,7 @@ export function WebsiteStructuredData() {
     url: SITE_URL,
     name: "IMC — Intelligent Mastery Coaching",
     description:
-      "Close the gap between human potential and corporate reality. Structured coaching, simulations, and skill development.",
+      "Close the gap between human potential and corporate reality. Structured coaching, corporate solutions, and skill development.",
     publisher: { "@id": `${SITE_URL}/#organization` },
     inLanguage: "en-US",
     potentialAction: [

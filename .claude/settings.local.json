@@ -36,7 +36,9 @@
       "WebFetch(domain:rxchallenger.github.io)",
       "Bash(npx next *)",
       "mcp__plugin_semgrep_semgrep__semgrep_scan",
-      "Bash(npm audit *)"
+      "Bash(npm audit *)",
+      "Bash(identify /home/user/local/imc/website/public/imc.jpeg)",
+      "Bash(xxd)"
     ]
   },
   "disabledMcpjsonServers": [

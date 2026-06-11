@@ -22,15 +22,15 @@ const pillars = [
   },
   {
     icon: Building2,
-    name: "Corporate Simulator",
-    tagline: "Real-World Business Scenarios",
+    name: "Corporate Solutions",
+    tagline: "Business Transformation Programs",
     description:
-      "Make real P&L decisions in simulated environments. Lead teams through competitive challenges. Build a portfolio of proven business outcomes.",
+      "Applied corporate development programs that build real business capabilities. Lead teams through structured challenges. Build a portfolio of proven organizational outcomes.",
     features: [
-      "P&L Simulation Engine",
-      "Team-Based Challenges",
-      "Industry-Specific Scenarios",
-      "Competitive Leaderboards",
+      "Corporate Performance Framework",
+      "Team-Based Development",
+      "Industry-Specific Programs",
+      "Performance Benchmarking",
       "Case Study Competitions",
     ],
     color: "text-imc-gold",
@@ -68,7 +68,7 @@ export function EcosystemSection() {
             Three pillars. One readiness platform.
           </h2>
           <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-            Academy, Simulator, and OCTRI work together to build the complete
+            Academy, Corporate Solutions, and OCTRI work together to build the complete
             professional — technically skilled, business-ready, and mentally
             resilient.
           </p>

@@ -45,7 +45,7 @@ const sections = [
     id: "acceptance",
     title: "1. Acceptance of Terms",
     content: [
-      "By accessing or using the IMC (Intelligent Mastery Coaching) platform, including the IMC Academy, Corporate Simulator, and OCTRI programs (collectively, the 'Service'), you agree to be bound by these Terms of Service ('Terms'). If you do not agree to these Terms, you may not access or use the Service.",
+      "By accessing or using the IMC (Intelligent Mastery Coaching) platform, including the IMC Academy, Corporate Solutions, and OCTRI programs (collectively, the 'Service'), you agree to be bound by these Terms of Service ('Terms'). If you do not agree to these Terms, you may not access or use the Service.",
       "These Terms constitute a legally binding agreement between you and IMC Inc. ('IMC,' 'we,' 'us,' or 'our'). Your use of the Service is also governed by our Privacy Policy, which is incorporated into these Terms by reference.",
       "We reserve the right to modify these Terms at any time. Material changes will be communicated via email or prominent notice on the platform. Continued use after changes constitutes acceptance.",
     ],
@@ -83,10 +83,10 @@ const sections = [
     id: "content",
     title: "5. Content and Intellectual Property",
     content: [
-      "All content provided through the Service, including courses, simulations, assessments, text, graphics, logos, software, and other materials ('Platform Content'), is the property of IMC or its licensors and is protected by copyright, trademark, and other intellectual property laws.",
+      "All content provided through the Service, including courses, corporate solutions, assessments, text, graphics, logos, software, and other materials ('Platform Content'), is the property of IMC or its licensors and is protected by copyright, trademark, and other intellectual property laws.",
       "Subject to your compliance with these Terms, we grant you a limited, non-exclusive, non-transferable, revocable license to access and use Platform Content solely for your personal or internal business purposes.",
       "You may not copy, modify, distribute, sell, lease, sublicense, or create derivative works from Platform Content without our prior written consent. You may not use any data mining, robots, or similar data gathering methods on Platform Content.",
-      "User-generated content, including simulation results, project submissions, and community posts ('User Content'), remains your property. By submitting User Content, you grant IMC a non-exclusive, worldwide, royalty-free license to use, display, and distribute such content for the purpose of operating and improving the Service.",
+      "User-generated content, including program results, project submissions, and community posts ('User Content'), remains your property. By submitting User Content, you grant IMC a non-exclusive, worldwide, royalty-free license to use, display, and distribute such content for the purpose of operating and improving the Service.",
     ],
   },
   {
@@ -99,12 +99,12 @@ const sections = [
     ],
   },
   {
-    id: "simulations",
-    title: "7. Corporate Simulator Specific Terms",
+    id: "corporate_solutions",
+    title: "7. Corporate Solutions Terms",
     content: [
-      "The Corporate Simulator provides educational business scenarios. Simulation results, scores, and readiness assessments are for developmental purposes only and do not constitute professional certification unless explicitly stated.",
-      "Leaderboard rankings are based on simulation performance algorithms determined solely by IMC. We reserve the right to adjust rankings if we detect cheating, manipulation, or algorithmic anomalies.",
-      "Certificates issued for simulation completion represent completion of IMC's internal curriculum and are not accredited by external educational institutions unless specifically noted.",
+      "The Corporate Solutions programs provide applied business development scenarios. Program results, scores, and readiness assessments are for developmental purposes only and do not constitute professional certification unless explicitly stated.",
+      "Leaderboard rankings are based on program performance algorithms determined solely by IMC. We reserve the right to adjust rankings if we detect cheating, manipulation, or algorithmic anomalies.",
+      "Certificates issued for program completion represent completion of IMC's internal curriculum and are not accredited by external educational institutions unless specifically noted.",
     ],
   },
   {
@@ -158,7 +158,7 @@ const sections = [
     title: "13. Contact Information",
     content: [
       "For questions about these Terms, please contact us:",
-      "Email: legal@imc-hub.com",
+      "Email: imc.hub.eg@gmail.com",
       "Mailing Address: IMC Inc., Attn: Legal Department, Giza, CA, Egypt",
     ],
   },

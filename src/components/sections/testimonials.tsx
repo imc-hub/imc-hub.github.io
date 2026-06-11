@@ -3,7 +3,7 @@ import { Star } from "lucide-react";
 const testimonials = [
   {
     quote:
-      "IMC transformed my approach to business. The simulator gave me confidence I never got from textbooks. I walked into my first job ready to contribute from day one.",
+      "IMC transformed my approach to business. The corporate solutions program gave me confidence I never got from textbooks. I walked into my first job ready to contribute from day one.",
     name: "Emad Anas",
     role: "Data Analyst",
     segment: "University Student",

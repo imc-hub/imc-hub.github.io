@@ -77,7 +77,7 @@ const team = [
     name: "Ahmed Ezzat",
     role: "Chief Technology Officer",
     description:
-      "Digital solutions, software development, website, and mobile application development powered by gamification and simulation.",
+      "Digital solutions, software development, website, and mobile application development powered by gamification and applied learning.",
     color: "text-imc-gold",
     bgColor: "bg-imc-gold/10",
   },
@@ -126,7 +126,7 @@ export default function AboutPage() {
             <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-slate-300 sm:text-lg">
               IMC exists because the gap between what people learn and what
               companies need is widening. We&apos;re here to close it — with
-              structured coaching, real simulations, and measurable outcomes.
+              structured coaching, real-world corporate solutions, and measurable outcomes.
             </p>
           </div>
         </div>
@@ -149,7 +149,7 @@ export default function AboutPage() {
                 for what awaits them. Meanwhile, companies spend billions
                 retraining hires who should have been ready from day one. IMC
                 bridges this gap with a platform that combines structured
-                learning, real-world simulations, and measurable skill
+                learning, applied corporate programs, and measurable skill
                 verification.
               </p>
             </div>
@@ -165,7 +165,7 @@ export default function AboutPage() {
               <p className="mt-4 text-base leading-relaxed text-muted-foreground">
                 We envision a future where the IMC Corporate Readiness Score is
                 as recognized as a university degree. Where employers trust
-                simulation outcomes as much as GPAs. Where career changers can
+                capability assessments as much as GPAs. Where career changers can
                 prove their capabilities before they ever walk into an interview.
               </p>
             </div>

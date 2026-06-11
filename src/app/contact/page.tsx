@@ -25,15 +25,15 @@ const contactMethods = [
     icon: Mail,
     title: "Email Us",
     description: "For general inquiries and support",
-    detail: "hello@imc-hub.com",
-    action: "mailto:hello@imc-hub.com",
+    detail: "imc.hub.eg@gmail.com",
+    action: "mailto:imc.hub.eg@gmail.com",
   },
   {
     icon: Building2,
     title: "Sales & Partnerships",
     description: "Corporate training and institutional partnerships",
-    detail: "sales@imc-hub.com",
-    action: "mailto:sales@imc-hub.com",
+    detail: "imc.hub.eg@gmail.com",
+    action: "mailto:imc.hub.eg@gmail.com",
   },
   {
     icon: MapPin,
@@ -63,7 +63,7 @@ const faqs = [
   {
     question: "What is the Corporate Readiness Score?",
     answer:
-      "It's a proprietary metric (0-100) that measures your preparedness for corporate environments based on skills, simulation performance, course completion, project experience, and engagement.",
+      "It's a proprietary metric (0-100) that measures your preparedness for corporate environments based on skills, applied program performance, course completion, project experience, and engagement.",
   },
   {
     question: "Do you offer refunds?",
@@ -71,9 +71,9 @@ const faqs = [
       "Yes. We offer a 14-day refund window for paid subscriptions, provided you haven't accessed premium content. Enterprise clients have custom refund terms.",
   },
   {
-    question: "How does the Corporate Simulator work?",
+    question: "How do the Corporate Solutions programs work?",
     answer:
-      "You're placed in realistic business scenarios where you make P&L decisions, manage teams, and compete on leaderboards. Each simulation has multiple decision points with real financial consequences.",
+      "You're placed in realistic business scenarios where you make strategic decisions, manage teams, and compete on leaderboards. Each program has multiple decision points with real financial consequences.",
   },
 ];
 
@@ -113,7 +113,7 @@ export default function ContactPage() {
     }
 
     if (!EMAILJS_PUBLIC_KEY || !EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID) {
-      showToast("Email service is not configured. Please contact us directly at hello@imc-hub.com.", "error");
+      showToast("Email service is not configured. Please contact us directly at imc.hub.eg@gmail.com.", "error");
       setIsSending(false);
       return;
     }
@@ -137,7 +137,7 @@ ${message}`;
           reply_to: email,
           inquiry_type: inquiryType,
           message: fullMessage,
-          to_email: "hello@imc-hub.com",
+          to_email: "imc.hub.eg@gmail.com",
           to_name: "IMC Team",
         },
         EMAILJS_PUBLIC_KEY
@@ -147,7 +147,7 @@ ${message}`;
       form.reset();
     } catch (error) {
       console.error("EmailJS send failed:", error);
-      showToast("Failed to send message. Please try again or email us directly at hello@imc-hub.com.", "error");
+      showToast("Failed to send message. Please try again or email us directly at imc.hub.eg@gmail.com.", "error");
     } finally {
       setIsSending(false);
     }
@@ -319,7 +319,7 @@ ${message}`;
 
               <p className="text-center text-xs text-muted-foreground">
                 We typically respond within 24 hours. For urgent matters, email
-                us directly at hello@imc-hub.com.
+                us directly at imc.hub.eg@gmail.com.
               </p>
             </form>
           </div>

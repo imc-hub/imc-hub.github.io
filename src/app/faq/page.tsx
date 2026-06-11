@@ -42,7 +42,7 @@ const allQuestions = [
   {
     question: "What is IMC — Intelligent Mastery Coaching?",
     answer:
-      "IMC (Intelligent Mastery Coaching) is a modern coaching platform that closes the gap between what people learn and what companies actually need. We combine structured learning paths, real-world simulations, and skill assessments to prepare students, career changers, and professionals for workplace success. Our flagship programs include the IMC Academy, the Corporate Readiness Assessment, and specialized simulations like Rx Challenger for pharmacy professionals.",
+      "IMC (Intelligent Mastery Coaching) is a modern coaching platform that closes the gap between what people learn and what companies actually need. We combine structured learning paths, applied corporate programs, and skill assessments to prepare students, career changers, and professionals for workplace success. Our flagship programs include the IMC Academy, the Corporate Readiness Assessment, and specialized solutions like Rx Challenger for pharmacy professionals.",
   },
   {
     question: "Who is IMC designed for?",
@@ -52,7 +52,7 @@ const allQuestions = [
   {
     question: "What makes IMC different from other online learning platforms?",
     answer:
-      "Unlike traditional platforms that focus on passive video content, IMC uses an active learning approach built around three pillars: structured coaching, real-world simulations, and measurable outcomes. Every program leads to a verified result — whether that is a Corporate Readiness Score, a simulation completion badge, or a course certificate. We do not measure success by content consumed; we measure it by skills demonstrated and outcomes achieved.",
+      "Unlike traditional platforms that focus on passive video content, IMC uses an active learning approach built around three pillars: structured coaching, applied corporate solutions, and measurable outcomes. Every program leads to a verified result — whether that is a Corporate Readiness Score, a program completion badge, or a course certificate. We do not measure success by content consumed; we measure it by skills demonstrated and outcomes achieved.",
   },
   {
     question: "Where is IMC based?",
@@ -62,7 +62,7 @@ const allQuestions = [
   {
     question: "What programs does IMC offer?",
     answer:
-      "IMC offers three core programs: (1) IMC Academy — structured, industry-built courses for professional skill development, starting with the Rx Challenger prescription-deciphering course for pharmacy professionals; (2) Corporate Readiness Assessment — a 20-question evaluation across five competency areas that generates a personalized readiness score and improvement roadmap; and (3) Simulation-based learning — immersive scenarios where professionals practice real workplace tasks in a risk-free environment. Each program is designed to deliver measurable skill improvement.",
+      "IMC offers three core programs: (1) IMC Academy — structured, industry-built courses for professional skill development, starting with the Rx Challenger prescription-deciphering course for pharmacy professionals; (2) Corporate Readiness Assessment — a 20-question evaluation across five competency areas that generates a personalized readiness score and improvement roadmap; and (3) Experiential Corporate Learning — immersive applied scenarios where professionals practice real workplace tasks in a risk-free environment. Each program is designed to deliver measurable skill improvement.",
   },
   {
     question: "What is the IMC Corporate Readiness Assessment?",
@@ -82,17 +82,17 @@ const allQuestions = [
   {
     question: "Is IMC free to use?",
     answer:
-      "Yes. The IMC Corporate Readiness Assessment is completely free, and the foundational content in IMC Academy — including Rx Challenger — is available at no cost. We believe everyone deserves access to quality career preparation tools regardless of their financial situation. As we expand our course catalog and introduce premium simulation features, those advanced modules will have associated pricing, but core readiness tools will remain free.",
+      "Yes. The IMC Corporate Readiness Assessment is completely free, and the foundational content in IMC Academy — including Rx Challenger — is available at no cost. We believe everyone deserves access to quality career preparation tools regardless of their financial situation. As we expand our course catalog and introduce premium corporate solutions, those advanced modules will have associated pricing, but core readiness tools will remain free.",
   },
   {
     question: "Will there be paid programs in the future?",
     answer:
-      "We are developing advanced simulation modules and specialized certification tracks that will be offered as paid premium programs. These will provide deeper, more personalized learning experiences with features such as mentor feedback, advanced analytics, and industry-recognized credentials. Free offerings — including the Corporate Readiness Assessment and foundational Academy content — will always remain available. Paid programs will be clearly labeled, and pricing information will be published on the relevant program pages before launch.",
+      "We are developing advanced corporate solutions and specialized certification tracks that will be offered as paid premium programs. These will provide deeper, more personalized learning experiences with features such as mentor feedback, advanced analytics, and industry-recognized credentials. Free offerings — including the Corporate Readiness Assessment and foundational Academy content — will always remain available. Paid programs will be clearly labeled, and pricing information will be published on the relevant program pages before launch.",
   },
   {
     question: "How does billing work for corporate accounts?",
     answer:
-      "Corporate and B2B billing is handled on a custom basis depending on the size of your organization, the number of users, and the specific programs you need. We offer annual subscription packages and per-seat pricing models. Contact our sales team at sales@imc-hub.com to receive a tailored proposal for your organization.",
+      "Corporate and B2B billing is handled on a custom basis depending on the size of your organization, the number of users, and the specific programs you need. We offer annual subscription packages and per-seat pricing models. Contact our sales team at imc.hub.eg@gmail.com to receive a tailored proposal for your organization.",
   },
   {
     question: "How are IMC courses delivered?",
@@ -107,7 +107,7 @@ const allQuestions = [
   {
     question: "Do I receive a certificate or credential after completing a program?",
     answer:
-      "Yes. Upon completing an IMC Academy course or passing a simulation module, you receive a digital certificate of completion that you can share on LinkedIn or include in your professional portfolio. Corporate Readiness Assessment results can also be shared with employers as a verified readiness benchmark. As we expand, we are working toward industry-recognized credentials that carry weight with hiring managers and HR departments globally.",
+      "Yes. Upon completing an IMC Academy course or passing a corporate solutions module, you receive a digital certificate of completion that you can share on LinkedIn or include in your professional portfolio. Corporate Readiness Assessment results can also be shared with employers as a verified readiness benchmark. As we expand, we are working toward industry-recognized credentials that carry weight with hiring managers and HR departments globally.",
   },
   {
     question: "Can I access IMC programs on my phone?",
@@ -117,7 +117,7 @@ const allQuestions = [
   {
     question: "How do I get help if I have a technical issue?",
     answer:
-      "For technical issues, reach out to us at hello@imc-hub.com with a description of the problem, the device and browser you are using, and any screenshots that might help us diagnose the issue. We aim to respond within one business day. You can also use the Contact form on our website for a structured support request.",
+      "For technical issues, reach out to us at imc.hub.eg@gmail.com with a description of the problem, the device and browser you are using, and any screenshots that might help us diagnose the issue. We aim to respond within one business day. You can also use the Contact form on our website for a structured support request.",
   },
   {
     question: "Is there a community or peer support available?",
@@ -127,7 +127,7 @@ const allQuestions = [
   {
     question: "How do I provide feedback or suggest new features?",
     answer:
-      "We welcome and actively encourage user feedback. You can submit suggestions through our Contact page, email us directly at hello@imc-hub.com, or use any feedback forms within the platform. Every piece of feedback is reviewed by our team, and the most requested features are prioritized in our development roadmap.",
+      "We welcome and actively encourage user feedback. You can submit suggestions through our Contact page, email us directly at imc.hub.eg@gmail.com, or use any feedback forms within the platform. Every piece of feedback is reviewed by our team, and the most requested features are prioritized in our development roadmap.",
   },
   {
     question: "How does IMC handle my personal data?",
@@ -137,7 +137,7 @@ const allQuestions = [
   {
     question: "Can I delete my account and data?",
     answer:
-      "Yes. You have full control over your data. You can request complete account deletion at any time by emailing us at hello@imc-hub.com with the subject line \"Account Deletion Request.\" We will permanently remove your account, assessment history, and all associated personal data within 30 days, in compliance with applicable data protection regulations.",
+      "Yes. You have full control over your data. You can request complete account deletion at any time by emailing us at imc.hub.eg@gmail.com with the subject line \"Account Deletion Request.\" We will permanently remove your account, assessment history, and all associated personal data within 30 days, in compliance with applicable data protection regulations.",
   },
   {
     question: "Is my assessment data shared with employers?",
@@ -147,12 +147,12 @@ const allQuestions = [
   {
     question: "How can I contact the IMC team?",
     answer:
-      "You can reach us through several channels: (1) Email us at hello@imc-hub.com for general inquiries or support; (2) Email sales@imc-hub.com for corporate and B2B inquiries; (3) Use the Contact form on our website for structured messages; or (4) Connect with us through the Google Play listing for Rx Challenger. We aim to respond to all inquiries within one business day.",
+      "You can reach us through several channels: (1) Email us at imc.hub.eg@gmail.com for general inquiries or support; (2) Email imc.hub.eg@gmail.com for corporate and B2B inquiries; (3) Use the Contact form on our website for structured messages; or (4) Connect with us through the Google Play listing for Rx Challenger. We aim to respond to all inquiries within one business day.",
   },
   {
     question: "Do you offer phone or video consultations?",
     answer:
-      "Currently, our primary communication channels are email and the website contact form. For corporate and B2B inquiries, we can arrange video consultations to discuss your organization's specific needs. Reach out to sales@imc-hub.com to schedule a call.",
+      "Currently, our primary communication channels are email and the website contact form. For corporate and B2B inquiries, we can arrange video consultations to discuss your organization's specific needs. Reach out to imc.hub.eg@gmail.com to schedule a call.",
   },
   {
     question:

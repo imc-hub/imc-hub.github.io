@@ -26,7 +26,7 @@ const SITE_URL = "https://imc-hub.github.io";
 const assessmentQuizData: JsonLdData = {
   "@context": "https://schema.org",
   "@type": "Quiz",
-  name: "IMC Corporate Readiness Assessment",
+  name: "IMC Corporate Capability Assessment",
   description:
     "20 multiple-choice questions across 5 key areas. Get your Corporate Readiness Score and personalized recommendations.",
   url: `${SITE_URL}/assessment`,

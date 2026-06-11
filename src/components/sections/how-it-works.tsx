@@ -14,15 +14,15 @@ const steps = [
     icon: GraduationCap,
     title: "Train",
     description:
-      "Build skills through structured courses, real-world simulations, and hands-on projects.",
-    detail: "Academy + Simulator + OCTRI",
+      "Build skills through structured courses, applied corporate programs, and hands-on projects.",
+    detail: "Academy + Corporate Solutions + OCTRI",
   },
   {
     step: 3,
     icon: Trophy,
     title: "Compete",
     description:
-      "Test yourself against peers in competitive simulations and climb the readiness leaderboard.",
+      "Benchmark your capabilities against peers and climb the corporate readiness leaderboard.",
     detail: "Global & company rankings",
   },
   {

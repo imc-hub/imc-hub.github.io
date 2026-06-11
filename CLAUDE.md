@@ -42,8 +42,8 @@ src/
 │   ├── sections/
 │   │   ├── hero.tsx        # Hero with gradient bg, CTA, pillar cards, logos
 │   │   ├── stats.tsx       # 4 stats on navy background
-│   │   ├── ecosystem.tsx   # 3 pillar cards (Academy, Simulator, OCTRI)
-│   │   ├── pricing.tsx     # 3 pricing cards (Academy free, Simulator, OCTRI)
+│   │   ├── ecosystem.tsx   # 3 pillar cards (Academy, Corporate Solutions, OCTRI)
+│   │   ├── pricing.tsx     # 3 pricing cards (Academy free, Corporate Solutions, OCTRI)
 │   │   ├── how-it-works.tsx# 4-step process with icons
 │   │   ├── testimonials.tsx# 3 testimonial cards with stars
 │   │   └── cta.tsx         # Final CTA with buttons
@@ -414,3 +414,39 @@ Logo/preview not showing in Google Search, WhatsApp, Facebook, LinkedIn, X/Twitt
 2. Test with Facebook Sharing Debugger, LinkedIn Post Inspector, Twitter Card Validator.
 3. Consider a dedicated square logo (512×512) for Google Knowledge Panel.
 4. Add more social profiles to `sameAs` when available (LinkedIn, X/Twitter, etc.).
+
+## Session Changes (2026-06-11)
+
+### Business Email Update
+All business contact emails changed from `hello@imc-hub.com`, `sales@imc-hub.com`, `privacy@imc-hub.com`, `legal@imc-hub.com`, `dpo@imc-hub.com` → `imc.hub.eg@gmail.com` across 8 files. Excluded (unchanged): `RxChallenger.app@gmail.com`, `ahmed_m_ezzat@outlook.com`. Contact form `to_email` parameter updated.
+
+### Corporate Repositioning: Simulator → Solutions
+Repositioned the entire website from "Corporate Simulator / Simulation" to "Corporate Solutions". Company offerings are now: Corporate Solutions, Business Transformation Solutions, Organizational Development Solutions, Workforce Development Solutions, Talent Development Solutions, Corporate Training Solutions, Performance Improvement Solutions, and Business Capability Building Solutions.
+
+**Files modified (17):**
+
+| File | Key Changes |
+|------|-------------|
+| `hero.tsx` | "Real simulations" → "Real solutions"; pillar card renamed |
+| `stats.tsx` | "simulations" → "applied learning" |
+| `ecosystem.tsx` | Entire Simulator pillar → Corporate Solutions (name, tagline, description, 5 features) |
+| `pricing.tsx` | Simulator plan → Corporate Solutions plan (tagline, description, features, CTA "Get Started") |
+| `how-it-works.tsx` | Step 2 & 3 text updated |
+| `testimonials.tsx` | Quote updated |
+| `src/app/page.tsx` | Metadata descriptions updated |
+| `src/app/about/page.tsx` | Mission, vision, CTO description updated |
+| `src/app/assessment/data.ts` | Recommendation text updated |
+| `src/app/assessment/layout.tsx` | Metadata updated |
+| `src/app/faq/faq-content.tsx` | 6 FAQ references updated |
+| `src/app/faq/page.tsx` | Same 6 changes for structured data |
+| `src/app/contact/page.tsx` | FAQ question + answer updated |
+| `src/app/privacy/page.tsx` | 5 references updated |
+| `src/app/terms/page.tsx` | Section 7 renamed + 4 content references updated |
+| `src/app/cookies/page.tsx` | Introduction updated |
+| `src/components/seo/structured-data.tsx` | Organization + WebSite descriptions updated |
+| `src/components/seo/client-structured-data.tsx` | Quiz name: "Corporate Readiness" → "Corporate Capability" |
+| `src/app/layout.tsx` | Site description + keywords updated |
+
+**Verification:**
+- `npx next build` — compiled successfully, 15/15 pages, zero errors
+- Full codebase grep for `simulation|simulator|simulated|P&L.*Engine|business simulation|corporate simulation` — zero matches

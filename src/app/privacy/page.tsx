@@ -45,7 +45,7 @@ const sections = [
     id: "introduction",
     title: "1. Introduction",
     content: [
-      "IMC Inc. ('IMC,' 'we,' 'us,' or 'our') is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your personal information when you use our platform, including the IMC Academy, Corporate Simulator, and OCTRI programs (collectively, the 'Service').",
+      "IMC Inc. ('IMC,' 'we,' 'us,' or 'our') is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your personal information when you use our platform, including the IMC Academy, Corporate Solutions, and OCTRI programs (collectively, the 'Service').",
       "This policy applies to all users of the Service, including individual learners, corporate employees, mentors, and administrators. By using the Service, you consent to the practices described in this Privacy Policy.",
       "We process personal data in accordance with applicable data protection laws, including the General Data Protection Regulation (GDPR), the California Consumer Privacy Act (CCPA), and other relevant regulations.",
     ],
@@ -55,7 +55,7 @@ const sections = [
     title: "2. Information We Collect",
     content: [
       "2.1 Information You Provide:",
-      "Account Information: Name, email address, password (hashed), phone number, date of birth, country, and profile photo. Professional Information: Job title, department, company name, university, school, and career goals. Assessment Responses: Answers to career discovery quizzes, skills assessments, and personality evaluations. Simulation Data: Decisions made, scores achieved, and performance metrics within the Corporate Simulator. Communication Data: Messages sent through our platform, support requests, and feedback submissions.",
+      "Account Information: Name, email address, password (hashed), phone number, date of birth, country, and profile photo. Professional Information: Job title, department, company name, university, school, and career goals. Assessment Responses: Answers to career discovery quizzes, skills assessments, and personality evaluations. Program Data: Decisions made, scores achieved, and performance metrics within the Corporate Solutions programs. Communication Data: Messages sent through our platform, support requests, and feedback submissions.",
       "2.2 Information Collected Automatically:",
       "Usage Data: Pages visited, features used, time spent on content, click patterns, and navigation paths. Device Information: Browser type, operating system, device type, screen resolution, and language preferences. Log Data: IP address (hashed), access times, error logs, and referral URLs. Cookies and Similar Technologies: Session identifiers, preference cookies, and analytics cookies as described in our Cookie Policy.",
       "2.3 Information from Third Parties:",
@@ -67,7 +67,7 @@ const sections = [
     title: "3. How We Use Your Information",
     content: [
       "We use the information we collect for the following purposes:",
-      "Service Delivery: To provide, maintain, and improve the Service, including course delivery, simulation functionality, and gamification features. Personalization: To recommend learning paths, assessments, and content based on your profile, interests, and performance. Assessment Scoring: To calculate your Corporate Readiness Score, skill levels, and simulation rankings. Communication: To send service-related notifications, respond to inquiries, and provide customer support (with your consent, for marketing communications). Analytics: To understand usage patterns, improve our platform, and conduct research (using aggregated and anonymized data where possible). Security: To detect and prevent fraud, abuse, and unauthorized access. Legal Compliance: To comply with applicable laws, regulations, and legal processes.",
+      "Service Delivery: To provide, maintain, and improve the Service, including course delivery, corporate solutions functionality, and gamification features. Personalization: To recommend learning paths, assessments, and content based on your profile, interests, and performance. Assessment Scoring: To calculate your Corporate Readiness Score, skill levels, and program performance rankings. Communication: To send service-related notifications, respond to inquiries, and provide customer support (with your consent, for marketing communications). Analytics: To understand usage patterns, improve our platform, and conduct research (using aggregated and anonymized data where possible). Security: To detect and prevent fraud, abuse, and unauthorized access. Legal Compliance: To comply with applicable laws, regulations, and legal processes.",
     ],
   },
   {
@@ -83,8 +83,8 @@ const sections = [
     title: "5. Data Retention",
     content: [
       "We retain your personal information for as long as your account is active or as needed to provide the Service. Specific retention periods:",
-      "Account Data: Retained while your account is active. Upon deletion request, data is anonymized within 30 days. Assessment Results: Retained for the lifetime of your account to track progress over time. Simulation Data: Retained for the lifetime of your account for leaderboard and certification purposes. Usage Logs: Retained for 12 months for security and analytics, then anonymized. Payment Records: Retained for 7 years as required by financial regulations.",
-      "You may request deletion of your account and associated data at any time by contacting privacy@imc-hub.com or using the account deletion feature in your settings.",
+      "Account Data: Retained while your account is active. Upon deletion request, data is anonymized within 30 days. Assessment Results: Retained for the lifetime of your account to track progress over time. Program Data: Retained for the lifetime of your account for leaderboard and certification purposes. Usage Logs: Retained for 12 months for security and analytics, then anonymized. Payment Records: Retained for 7 years as required by financial regulations.",
+      "You may request deletion of your account and associated data at any time by contacting imc.hub.eg@gmail.com or using the account deletion feature in your settings.",
     ],
   },
   {
@@ -102,7 +102,7 @@ const sections = [
     content: [
       "Depending on your jurisdiction, you may have the following rights regarding your personal data:",
       "Right of Access: You can request a copy of the personal data we hold about you. Right to Rectification: You can request correction of inaccurate or incomplete data. Right to Erasure: You can request deletion of your personal data, subject to legal retention requirements. Right to Restriction: You can request that we limit the processing of your data in certain circumstances. Right to Data Portability: You can request your data in a structured, machine-readable format. Right to Object: You can object to processing based on legitimate interests or for direct marketing purposes. Right to Withdraw Consent: Where processing is based on consent, you can withdraw consent at any time.",
-      "To exercise any of these rights, contact us at privacy@imc-hub.com. We will respond within 30 days (or within the timeframe required by applicable law). We may need to verify your identity before processing your request.",
+      "To exercise any of these rights, contact us at imc.hub.eg@gmail.com. We will respond within 30 days (or within the timeframe required by applicable law). We may need to verify your identity before processing your request.",
     ],
   },
   {
@@ -143,8 +143,8 @@ const sections = [
     title: "12. Contact Us",
     content: [
       "If you have questions about this Privacy Policy or wish to exercise your data rights, please contact us:",
-      "Email: privacy@imc-hub.com",
-      "Data Protection Officer: dpo@imc-hub.com",
+      "Email: imc.hub.eg@gmail.com",
+      "Data Protection Officer: imc.hub.eg@gmail.com",
       "Mailing Address: IMC Inc., Attn: Privacy Team, Giza, CA, Egypt",
       "If you are not satisfied with our response, you have the right to lodge a complaint with your local data protection authority.",
     ],

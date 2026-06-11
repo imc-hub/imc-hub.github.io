@@ -22,7 +22,7 @@ export function HeroSection() {
 
           <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-slate-300 sm:text-lg">
             IMC replaces theoretical entrepreneurship illusions with structured
-            corporate readiness. Real simulations. Real skills. Real outcomes.
+            corporate readiness. Real solutions. Real skills. Real outcomes.
           </p>
 
           <div className="mt-10 flex items-center justify-center">
@@ -47,8 +47,8 @@ export function HeroSection() {
               color: "bg-imc-teal/10 border-imc-teal/20 text-imc-teal",
             },
             {
-              label: "Corporate Simulator",
-              desc: "Real-world business scenarios",
+              label: "Corporate Solutions",
+              desc: "Business transformation programs",
               color: "bg-imc-gold/10 border-imc-gold/20 text-imc-gold",
             },
             {

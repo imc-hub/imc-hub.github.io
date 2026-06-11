@@ -294,7 +294,7 @@ export function getReadinessLevel(percentage: number): {
     return {
       level: "Corporate Ready",
       description: "Excellent! You demonstrate strong corporate readiness across key areas.",
-      recommendation: "You're well-prepared. Consider our Corporate Simulator to sharpen your skills further or OCTRI to build mental resilience.",
+      recommendation: "You're well-prepared. Consider our Corporate Solutions programs to sharpen your skills further or OCTRI to build mental resilience.",
     };
   }
   if (percentage >= 65) {
