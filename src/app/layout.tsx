@@ -13,7 +13,7 @@ const inter = Inter({
 const SITE_URL = "https://imc-hub.github.io";
 const SITE_NAME = "IMC — Intelligent Mastery Coaching";
 const SITE_DESCRIPTION =
-  "Close the gap between human potential and corporate reality. IMC helps students, career changers, and companies build real-world readiness through structured coaching, corporate solutions, and skill development.";
+  "IMC is a tech-enabled ecosystem that builds human potential through three business units: Corporate & Business Training, Athletic Performance (OCTRI), and Digital Solutions & Technology.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -23,18 +23,22 @@ export const metadata: Metadata = {
   },
   description: SITE_DESCRIPTION,
   keywords: [
-    "career coaching",
-    "corporate readiness",
-    "skills training",
-    "corporate solutions",
-    "career development",
-    "professional training",
-    "pharmacy education",
-    "Rx Challenger",
     "corporate training",
+    "capability development",
+    "career readiness",
+    "corporate solutions",
+    "business transformation",
+    "workforce development",
+    "talent development",
+    "athletic performance",
+    "triathlon training",
+    "mental toughness",
+    "EdTech platforms",
+    "gamified learning",
+    "digital solutions",
+    "professional development",
     "career assessment",
-    "workplace readiness",
-    "IMC Academy",
+    "organizational development",
   ],
   authors: [{ name: "IMC — Intelligent Mastery Coaching", url: SITE_URL }],
   creator: "IMC — Intelligent Mastery Coaching",

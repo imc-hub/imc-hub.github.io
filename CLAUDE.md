@@ -486,3 +486,66 @@ These are public client-side keys (the `NEXT_PUBLIC_` prefix means they're inten
 - `.env.local` is NOT available in GitHub Actions
 - `NEXT_PUBLIC_*` env vars must be set as GitHub Secrets and passed via `env:` in the workflow, OR hardcoded if they're public keys
 - Always verify the deployed JS bundles contain expected values: `curl -s https://imc-hub.github.io/_next/static/chunks/*.js | grep 'KEY_NAME'`
+
+## Session Changes (2026-06-11)
+
+### FAQ Page — Corporate Repositioning
+
+**Scope**: Modified ONLY the FAQ page (`src/app/faq/page.tsx` and `src/app/faq/faq-content.tsx`). No other pages were changed.
+
+**Objective**: Remove all Rx Challenger-specific content from the FAQ and reposition it as a company-level business FAQ representing IMC's full corporate offerings.
+
+**FAQ Entries Removed (1):**
+- "What is Rx Challenger?" — entire product-specific question deleted
+
+**FAQ Entries Rewritten (9):**
+| Question | Change |
+|----------|--------|
+| "What is IMC?" | Removed Rx Challenger as flagship example; now references corporate training programs |
+| "Who is IMC designed for?" | Renamed to "Who are your solutions designed for?" |
+| "What programs does IMC offer?" | **Replaced** with "What services does IMC provide?" — lists 8 service areas (Corporate Solutions, Business Transformation, Workforce Development, Talent Development, Organizational Development, Corporate Training, Performance Improvement, Consulting & Advisory) |
+| "Do you offer corporate or B2B training?" | Expanded with customization detail |
+| "Is IMC free to use?" | Removed Rx Challenger references |
+| "How are IMC courses delivered?" | Removed Rx Challenger / Google Play references |
+| "How long does it take?" | Removed Rx Challenger timeframes |
+| "Can I access on my phone?" | Removed native app references |
+| "How can I contact?" | Removed Google Play listing reference |
+| "How do I stay informed?" | Removed Google Play listing reference |
+
+**FAQ Entries Added (4):**
+1. "Do you offer customized corporate solutions?" — tailored programs, organizational needs
+2. "How do your training and development programs work?" — structured delivery approach
+3. "How can organizations work with the IMC team?" — engagement models for companies
+4. "Does IMC work with partners and resellers?" — partnerships question
+
+**Categories Renamed:**
+| Old | New |
+|-----|-----|
+| "Services" | "Corporate Solutions & Services" |
+| "Projects & Delivery" | "Programs & Delivery" |
+| "Account & Contact Information" | "Contact & Partnerships" |
+
+**Result:**
+- 26 FAQ entries across 7 categories (up from 22)
+- Zero Rx Challenger references remain in FAQ files
+- `grep -rniE 'rx[\s_-]?challenger' src/app/faq/` — no matches
+- `npx next build` — 15/15 pages, zero errors
+- Only 2 files modified: `src/app/faq/page.tsx` and `src/app/faq/faq-content.tsx`
+
+## Session Changes (2026-06-11)
+
+### Athletic & EdTech Positioning — SEO Keywords + Structured Data
+
+**Scope:** Final SEO pass — updated global keywords and client-side assessment structured data to reflect IMC's three business units (Corporate & Business Training, Athletic Performance/OCTRI, Digital Solutions & Technology).
+
+**Keywords Updated (`src/app/layout.tsx`):**
+- Removed: "career coaching", "skills training", "pharmacy education", "Rx Challenger", "corporate readiness", "workplace readiness", "IMC Academy"
+- Added: "athletic performance", "triathlon training", "mental toughness", "EdTech platforms", "gamified learning", "digital solutions", "capability development", "business transformation", "workforce development", "talent development", "organizational development"
+
+**Client-Side Structured Data Updated (`src/components/seo/client-structured-data.tsx`):**
+- Quiz name: "IMC Corporate Capability Assessment" → "IMC Capability & Readiness Assessment"
+- Description expanded to list 5 competency areas (business acumen, professional skills, technical literacy, workplace communication, corporate mindset)
+- Added `assesses` field matching server-side `AssessmentStructuredData`
+
+**Verification:**
+- `npx next build` — compiled successfully, 15/15 pages, zero errors

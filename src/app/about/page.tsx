@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import { PageLayout } from "@/components/layout/page-layout";
-import { Target, Eye, Users, TrendingUp, Crown, Code, GraduationCap, Megaphone } from "lucide-react";
+import { Target, Eye, Users, TrendingUp, Crown, Code, GraduationCap, Megaphone, Dumbbell, MonitorSmartphone } from "lucide-react";
 import { WebPageStructuredData } from "@/components/seo/structured-data";
 
 export const metadata: Metadata = {
   title: "About Us — Mission, Vision & Team",
   description:
-    "Learn about IMC's mission to close the gap between human potential and corporate reality. Meet our leadership team and discover how we build corporate readiness.",
+    "Learn about IMC's mission to close the gap between education and market reality. Discover our three business units: Corporate & Business Training, Athletic Performance (OCTRI), and Digital Solutions & Technology.",
   alternates: {
     canonical: "/about",
   },
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     siteName: "IMC — Intelligent Mastery Coaching",
     title: "About Us — IMC Intelligent Mastery Coaching",
     description:
-      "Learn about IMC's mission, vision, principles, and the team building corporate readiness solutions.",
+      "IMC is a tech-enabled ecosystem with three business units: Corporate & Business Training, Athletic Performance (OCTRI), and Digital Solutions & Technology.",
     images: [
       {
         url: "https://imc-hub.github.io/og-image.png",
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "About Us — IMC Intelligent Mastery Coaching",
     description:
-      "Learn about IMC's mission, vision, principles, and the team building corporate readiness solutions.",
+      "IMC is a tech-enabled ecosystem with three business units: Corporate & Business Training, Athletic Performance (OCTRI), and Digital Solutions & Technology.",
     images: ["https://imc-hub.github.io/og-image.png"],
   },
 };
@@ -62,13 +62,40 @@ const values = [
   },
 ];
 
+const businessUnits = [
+  {
+    icon: GraduationCap,
+    name: "Corporate & Business Training",
+    description:
+      "B2C and B2B training empowering high school pupils, university students, career changers, and corporate teams. Covers data analysis, AI tools, business skills, professional development, soft skills, and career readiness.",
+    color: "text-imc-teal",
+    bgColor: "bg-imc-teal/10",
+  },
+  {
+    icon: Dumbbell,
+    name: "Athletic Performance — OCTRI",
+    description:
+      "A specialized sports academy focused on mental toughness, physical endurance, triathlon training, and executive performance. Building resilience, discipline, and elite performance capacity.",
+    color: "text-emerald-500",
+    bgColor: "bg-emerald-500/10",
+  },
+  {
+    icon: MonitorSmartphone,
+    name: "Digital Solutions & Technology",
+    description:
+      "Gamified EdTech platforms, mobile applications, digital learning systems, and organizational development tools — built on real-world case simulations and applied learning methodologies.",
+    color: "text-imc-gold",
+    bgColor: "bg-imc-gold/10",
+  },
+];
+
 const team = [
   {
     icon: Crown,
     name: "Mohamed Talaat",
     role: "Chief Executive Officer",
     description:
-      "Strategic vision, project management, and direct oversight of the sports & physical endurance sector (OCTRI integration).",
+      "Strategic vision, project management, and direct oversight of the Athletic Performance unit (OCTRI integration).",
     color: "text-imc-teal",
     bgColor: "bg-imc-teal/10",
     linkedin: "https://www.linkedin.com/in/mohamed-talaat-hagrass/",
@@ -78,7 +105,7 @@ const team = [
     name: "Ahmed Ezzat",
     role: "Chief Technology Officer",
     description:
-      "Digital solutions, software development, website, and mobile application development powered by gamification and applied learning.",
+      "Digital solutions & technology — gamified EdTech platforms, mobile applications, digital learning systems, and technology-enabled learning solutions.",
     color: "text-imc-gold",
     bgColor: "bg-imc-gold/10",
     linkedin: "https://www.linkedin.com/in/ahmed-m-ezzat/",
@@ -88,7 +115,7 @@ const team = [
     name: "Mostafa Alam",
     role: "Learning & Development Director",
     description:
-      "Educational & training content creation, and corporate training program management (B2B).",
+      "Corporate & Business Training — educational content creation, training program management, and B2B corporate training delivery.",
     color: "text-emerald-500",
     bgColor: "bg-emerald-500/10",
   },
@@ -97,7 +124,7 @@ const team = [
     name: "Mohamed Ramadan",
     role: "Chief Commercial Officer",
     description:
-      "Marketing, sales, commercial partnerships, and corporate contract acquisition.",
+      "Marketing, sales, commercial partnerships, and corporate contract acquisition across all three business units.",
     color: "text-sky-500",
     bgColor: "bg-sky-500/10",
   },
@@ -108,7 +135,7 @@ export default function AboutPage() {
     <PageLayout>
       <WebPageStructuredData
         title="About Us — IMC Intelligent Mastery Coaching"
-        description="Learn about IMC's mission to close the gap between human potential and corporate reality. Meet our team."
+        description="Learn about IMC's mission to close the gap between education and market reality. Meet our team and discover our three business units."
         url="https://imc-hub.github.io/about"
         breadcrumb={[
           { name: "Home", item: "https://imc-hub.github.io/" },
@@ -123,12 +150,14 @@ export default function AboutPage() {
               About IMC
             </p>
             <h1 className="mt-4 text-4xl font-extrabold tracking-tight text-white sm:text-5xl">
-              We build corporate readiness.
+              We build capability. We close gaps.
             </h1>
             <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-slate-300 sm:text-lg">
-              IMC exists because the gap between what people learn and what
-              companies need is widening. We&apos;re here to close it — with
-              structured coaching, real-world corporate solutions, and measurable outcomes.
+              IMC exists because the gap between what people learn and what the
+              market actually needs is widening. We&apos;re here to close it —
+              through an integrated ecosystem of Corporate &amp; Business
+              Training, Athletic Performance, and Digital Solutions &amp;
+              Technology.
             </p>
           </div>
         </div>
@@ -143,16 +172,17 @@ export default function AboutPage() {
                 Our Mission
               </p>
               <h2 className="mt-3 text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
-                Replace theoretical entrepreneurship illusions with structured
-                corporate readiness.
+                Close the gap between education and market reality.
               </h2>
               <p className="mt-4 text-base leading-relaxed text-muted-foreground">
                 Every year, millions of graduates enter the workforce unprepared
                 for what awaits them. Meanwhile, companies spend billions
                 retraining hires who should have been ready from day one. IMC
-                bridges this gap with a platform that combines structured
-                learning, applied corporate programs, and measurable skill
-                verification.
+                bridges this gap with an integrated ecosystem that combines
+                structured learning, applied corporate programs, athletic
+                performance development, and technology-enabled solutions —
+                producing measurable readiness for academic, professional,
+                entrepreneurial, and corporate success.
               </p>
             </div>
 
@@ -165,18 +195,61 @@ export default function AboutPage() {
                 perform.
               </h2>
               <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-                We envision a future where the IMC Corporate Readiness Score is
-                as recognized as a university degree. Where employers trust
-                capability assessments as much as GPAs. Where career changers can
-                prove their capabilities before they ever walk into an interview.
+                We envision a future where organized minds master systems, tools,
+                and execution — where capability is measured by demonstrated
+                outcomes, not generic certificates. Where employers trust
+                readiness assessments as much as GPAs. Where career changers and
+                organizations alike can prove and develop capabilities through
+                our integrated ecosystem.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Values */}
+      {/* Three Business Units */}
       <section className="bg-secondary/30 py-20 sm:py-28">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-2xl text-center">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-imc-teal">
+              Our Business Units
+            </p>
+            <h2 className="mt-3 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+              Three units. One ecosystem.
+            </h2>
+            <p className="mt-4 text-base leading-relaxed text-muted-foreground">
+              IMC integrates Corporate &amp; Business Training, Athletic
+              Performance, and Digital Solutions &amp; Technology to build
+              complete human potential.
+            </p>
+          </div>
+
+          <div className="mt-16 grid grid-cols-1 gap-6 lg:grid-cols-3">
+            {businessUnits.map((unit) => {
+              const Icon = unit.icon;
+              return (
+                <div
+                  key={unit.name}
+                  className="rounded-xl border border-border/60 bg-card p-6 sm:p-8"
+                >
+                  <div className={`inline-flex h-12 w-12 items-center justify-center rounded-xl ${unit.bgColor}`}>
+                    <Icon className={`h-6 w-6 ${unit.color}`} />
+                  </div>
+                  <h3 className="mt-4 text-lg font-bold text-foreground">
+                    {unit.name}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                    {unit.description}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Values */}
+      <section className="bg-background py-20 sm:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-imc-teal">
@@ -212,7 +285,7 @@ export default function AboutPage() {
       </section>
 
       {/* Team */}
-      <section className="bg-background py-20 sm:py-28">
+      <section className="bg-secondary/30 py-20 sm:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-imc-teal">
@@ -271,11 +344,11 @@ export default function AboutPage() {
       <section className="bg-imc-navy py-16 sm:py-20">
         <div className="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
-            Ready to build corporate readiness?
+            Ready to build capability?
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-slate-300">
-            Whether you&apos;re a student, career changer, or HR leader — IMC
-            has a path for you.
+            Whether you&apos;re a student, career changer, HR leader, or
+            organization — IMC has a path for you.
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <a

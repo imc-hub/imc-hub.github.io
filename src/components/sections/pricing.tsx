@@ -5,12 +5,12 @@ import { Card } from "@/components/ui/card";
 
 const plans = [
   {
-    name: "IMC Academy",
-    tagline: "Structured Learning",
+    name: "Corporate & Business Training",
+    tagline: "B2C & B2B Capability Building",
     price: "Free",
     priceNote: "to start",
     description:
-      "Access career discovery, learning paths, and foundational skills training.",
+      "Access career discovery, learning paths, and foundational skills training. Upgrade for advanced corporate programs and team development.",
     features: [
       "Career Discovery Assessment",
       "Business Readiness Track",
@@ -26,21 +26,20 @@ const plans = [
     bgColor: "bg-imc-teal",
   },
   {
-    name: "Corporate Solutions",
-    tagline: "Business Transformation",
-    price: "EGP 999",
-    priceNote: "/month",
+    name: "Corporate Solutions — B2B",
+    tagline: "Organizational Development",
+    price: "Custom",
+    priceNote: "pricing",
     description:
-      "Applied corporate development — lead teams, build capabilities, and drive measurable business outcomes.",
+      "Tailored corporate development programs — workforce development, talent development, organizational transformation, and performance improvement.",
     features: [
-      "Corporate Performance Framework",
-      "Team-Based Development",
-      "Industry-Specific Programs",
-      "Performance Benchmarking",
-      "Case Study Competitions",
-      "Corporate Readiness Score",
+      "Custom corporate training programs",
+      "Team-based development & benchmarking",
+      "Workforce & talent development",
+      "Organizational development consulting",
+      "Performance improvement frameworks",
     ],
-    cta: "Get Started",
+    cta: "Contact Sales",
     href: "/#get-started",
     external: false,
     highlight: true,
@@ -48,19 +47,18 @@ const plans = [
     bgColor: "bg-imc-gold",
   },
   {
-    name: "OCTRI",
-    tagline: "Endurance & Performance",
+    name: "OCTRI — Athletic Performance",
+    tagline: "Endurance & Mental Toughness",
     price: "From EGP 500",
     priceNote: "/month",
     description:
-      "Build mental toughness and physical resilience through structured triathlon and fitness programs.",
+      "Build mental toughness and physical resilience through structured triathlon preparation, executive performance programs, and fitness coaching.",
     features: [
       "Single Sport Training — EGP 1,500/mo",
       "Two Sports Combo — EGP 2,500/mo",
       "Full Triathlon (3 Sports) — EGP 3,000/mo",
       "Fitness Only — EGP 800/mo",
       "Nutrition Coaching — EGP 500/mo",
-      "Private 1-on-1 Session — EGP 1,000",
     ],
     cta: "View All Plans",
     href: "https://www.octri-egypt.com/services-offers/offers",
@@ -83,8 +81,8 @@ export function PricingSection() {
             Transparent pricing. No hidden fees.
           </h2>
           <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-            Start free with the Academy. Upgrade when you&apos;re ready to
-            simulate, compete, or train.
+            Start free with Corporate &amp; Business Training. Scale with custom
+            corporate solutions or OCTRI athletic performance programs.
           </p>
         </div>
 

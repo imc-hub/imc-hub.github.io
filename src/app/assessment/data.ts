@@ -292,28 +292,28 @@ export function getReadinessLevel(percentage: number): {
 } {
   if (percentage >= 85) {
     return {
-      level: "Corporate Ready",
-      description: "Excellent! You demonstrate strong corporate readiness across key areas.",
-      recommendation: "You're well-prepared. Consider our Corporate Solutions programs to sharpen your skills further or OCTRI to build mental resilience.",
+      level: "Highly Capable",
+      description: "Excellent! You demonstrate strong capability across key readiness areas.",
+      recommendation: "You're well-prepared. Consider our Corporate Solutions programs to sharpen skills further, OCTRI to build mental resilience, or explore our Digital Solutions platforms.",
     };
   }
   if (percentage >= 65) {
     return {
       level: "Developing",
       description: "Good foundation with room for growth in specific areas.",
-      recommendation: "Our IMC Academy courses can help you close the gaps. Check out our plans below.",
+      recommendation: "Our Corporate & Business Training courses can help you close the gaps. Explore the Academy for structured learning paths.",
     };
   }
   if (percentage >= 40) {
     return {
       level: "Emerging",
       description: "You have potential but need structured development in several areas.",
-      recommendation: "We recommend starting with IMC Academy's structured learning paths to build your corporate readiness.",
+      recommendation: "We recommend starting with our Corporate & Business Training tracks to build your professional capabilities.",
     };
   }
   return {
     level: "Getting Started",
-    description: "You're at the beginning of your corporate readiness journey.",
-    recommendation: "Start with our free IMC Academy assessment track to identify your strengths and build a personalized learning path.",
+    description: "You're at the beginning of your capability development journey.",
+    recommendation: "Start with our free assessment track to identify your strengths and build a personalized development path across our ecosystem.",
   };
 }

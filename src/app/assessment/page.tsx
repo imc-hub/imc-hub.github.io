@@ -74,10 +74,10 @@ function AssessmentApp() {
               <Target className="h-8 w-8 text-imc-teal" />
             </div>
             <h1 className="mt-6 text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">
-              Corporate Readiness Assessment
+              Capability & Readiness Assessment
             </h1>
             <p className="mx-auto mt-4 max-w-lg text-base leading-relaxed text-muted-foreground">
-              20 multiple-choice questions across 5 key areas. Get your Corporate Readiness Score and personalized recommendations in ~10 minutes.
+              20 multiple-choice questions across 5 key areas. Get your Capability Score and personalized recommendations mapped to our three business units.
             </p>
           </div>
 
@@ -282,7 +282,7 @@ function AssessmentApp() {
             Ready to level up?
           </h2>
           <p className="mx-auto mt-3 max-w-lg text-sm leading-relaxed text-slate-300">
-            Based on your score, we recommend exploring our structured programs to strengthen your corporate readiness.
+            Based on your score, we recommend exploring our three business units — Corporate &amp; Business Training, Athletic Performance (OCTRI), and Digital Solutions &amp; Technology — to strengthen your capabilities.
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Button
@@ -307,7 +307,7 @@ function AssessmentApp() {
         </div>
 
         <p className="mt-8 text-center text-xs text-muted-foreground">
-          Share your score: <span className="font-bold text-imc-teal">{score.percentage}/100</span> — IMC Corporate Readiness Assessment
+          Share your score: <span className="font-bold text-imc-teal">{score.percentage}/100</span> — IMC Capability &amp; Readiness Assessment
         </p>
       </main>
     </div>

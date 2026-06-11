@@ -1,12 +1,12 @@
-import { ClipboardCheck, GraduationCap, Trophy, Briefcase } from "lucide-react";
+import { ClipboardCheck, GraduationCap, Dumbbell, MonitorSmartphone } from "lucide-react";
 
 const steps = [
   {
     step: 1,
     icon: ClipboardCheck,
-    title: "Discover",
+    title: "Assess",
     description:
-      "Take our free career assessment to identify your strengths, gaps, and ideal professional path.",
+      "Take our free capability assessment to identify your strengths, development areas, and optimal path across our three business units.",
     detail: "15-minute adaptive assessment",
   },
   {
@@ -14,24 +14,24 @@ const steps = [
     icon: GraduationCap,
     title: "Train",
     description:
-      "Build skills through structured courses, applied corporate programs, and hands-on projects.",
-    detail: "Academy + Corporate Solutions + OCTRI",
+      "Build professional capabilities through structured corporate training — data analysis, AI tools, business skills, and career readiness.",
+    detail: "Corporate & Business Training",
   },
   {
     step: 3,
-    icon: Trophy,
-    title: "Compete",
+    icon: Dumbbell,
+    title: "Strengthen",
     description:
-      "Benchmark your capabilities against peers and climb the corporate readiness leaderboard.",
-    detail: "Global & company rankings",
+      "Develop mental toughness and physical resilience through OCTRI's athletic performance and executive endurance programs.",
+    detail: "Athletic Performance — OCTRI",
   },
   {
     step: 4,
-    icon: Briefcase,
-    title: "Perform",
+    icon: MonitorSmartphone,
+    title: "Scale",
     description:
-      "Graduate with a corporate readiness score, verified certifications, and a portfolio of real outcomes.",
-    detail: "Job-ready and certified",
+      "Leverage our digital solutions — gamified platforms, mobile apps, and technology-enabled systems — to accelerate development at scale.",
+    detail: "Digital Solutions & Technology",
   },
 ];
 
@@ -50,8 +50,8 @@ export function HowItWorksSection() {
             From assessment to readiness in four steps
           </h2>
           <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-            A structured path that takes you from uncertainty to corporate
-            readiness — with measurable proof of your capabilities.
+            A structured path across our three business units — taking you from
+            uncertainty to measurable readiness with proof of your capabilities.
           </p>
         </div>
 

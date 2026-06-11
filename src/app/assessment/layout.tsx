@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Career Readiness Assessment — Free 10-Min Quiz",
+  title: "Capability & Readiness Assessment — Free 10-Min Quiz",
   description:
-    "Take IMC's free Corporate Capability Assessment. 20 multiple-choice questions across 5 key areas. Get your score and personalized recommendations in ~10 minutes.",
+    "Take IMC's free Capability & Readiness Assessment. 20 multiple-choice questions across 5 key areas. Get your score and personalized recommendations mapped to our three business units.",
   alternates: {
     canonical: "/assessment",
   },
@@ -11,23 +11,23 @@ export const metadata: Metadata = {
     type: "website",
     url: "https://imc-hub.github.io/assessment",
     siteName: "IMC — Intelligent Mastery Coaching",
-    title: "Career Readiness Assessment — Free 10-Min Quiz",
+    title: "Capability & Readiness Assessment — Free 10-Min Quiz",
     description:
-      "Take IMC's free Corporate Capability Assessment. 20 multiple-choice questions across 5 key areas. Get your score and personalized recommendations.",
+      "Take IMC's free Capability & Readiness Assessment. 20 MCQs across 5 key areas. Get your score and recommendations mapped to our three business units.",
     images: [
       {
         url: "https://imc-hub.github.io/og-image.png",
         width: 1200,
         height: 630,
-        alt: "IMC Career Readiness Assessment",
+        alt: "IMC Capability & Readiness Assessment",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Career Readiness Assessment — Free 10-Min Quiz",
+    title: "Capability & Readiness Assessment — Free 10-Min Quiz",
     description:
-      "Take IMC's free Corporate Capability Assessment. 20 multiple-choice questions across 5 key areas.",
+      "Take IMC's free Capability & Readiness Assessment. 20 MCQs across 5 key areas.",
     images: ["https://imc-hub.github.io/og-image.png"],
   },
 };

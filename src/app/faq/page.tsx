@@ -9,7 +9,7 @@ import { FaqContent } from "./faq-content";
 export const metadata: Metadata = {
   title: "Frequently Asked Questions (FAQ)",
   description:
-    "Find answers to common questions about IMC — Intelligent Mastery Coaching. Learn about our services, pricing, programs, support, privacy, and how to get started.",
+    "Find answers to common questions about IMC — Intelligent Mastery Coaching. Learn about our three business units: Corporate & Business Training, Athletic Performance (OCTRI), and Digital Solutions & Technology.",
   alternates: {
     canonical: "/faq",
   },
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     siteName: "IMC — Intelligent Mastery Coaching",
     title: "FAQ — IMC Intelligent Mastery Coaching",
     description:
-      "Find answers to common questions about IMC's coaching programs, pricing, services, and more.",
+      "Find answers to common questions about IMC's corporate solutions, assessments, training programs, and more.",
     images: [
       {
         url: "https://imc-hub.github.io/og-image.png",
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "FAQ — IMC Intelligent Mastery Coaching",
     description:
-      "Find answers to common questions about IMC's coaching programs, pricing, services, and more.",
+      "Find answers to common questions about IMC's corporate solutions, assessments, training programs, and more.",
     images: ["https://imc-hub.github.io/og-image.png"],
   },
 };
@@ -42,17 +42,18 @@ const allQuestions = [
   {
     question: "What is IMC — Intelligent Mastery Coaching?",
     answer:
-      "IMC (Intelligent Mastery Coaching) is a modern coaching platform that closes the gap between what people learn and what companies actually need. We combine structured learning paths, applied corporate programs, and skill assessments to prepare students, career changers, and professionals for workplace success. Our flagship programs include the IMC Academy, the Corporate Readiness Assessment, and specialized solutions like Rx Challenger for pharmacy professionals.",
+      "IMC (Intelligent Mastery Coaching) is a tech-enabled ecosystem that closes the gap between education and market reality. We integrate three business units — Corporate & Business Training (B2C & B2B), Athletic Performance (OCTRI), and Digital Solutions & Technology — to build human potential through strategic intellect, digital mastery, and physical & mental endurance.",
   },
   {
-    question: "Who is IMC designed for?",
+    question: "Who are your solutions designed for?",
     answer:
-      "IMC serves three primary audiences: (1) Students and recent graduates who want to enter the workforce with practical, job-ready skills; (2) Career changers transitioning into new industries who need to quickly build relevant competencies; and (3) Companies and HR departments looking for measurable ways to assess and develop employee readiness. Whether you are preparing for your first corporate role or pivoting mid-career, IMC provides the structure and tools to accelerate your growth.",
+      "IMC serves three primary audiences: (1) Students and recent graduates who want to enter the workforce with practical, job-ready skills; (2) Career changers transitioning into new industries who need to quickly build relevant competencies; and (3) Companies, HR departments, and training teams looking for measurable ways to assess and develop employee readiness. Whether you are preparing for your first corporate role or pivoting mid-career, IMC provides the structure and tools to accelerate your growth.",
   },
   {
-    question: "What makes IMC different from other online learning platforms?",
+    question:
+      "What makes IMC different from other learning and development platforms?",
     answer:
-      "Unlike traditional platforms that focus on passive video content, IMC uses an active learning approach built around three pillars: structured coaching, applied corporate solutions, and measurable outcomes. Every program leads to a verified result — whether that is a Corporate Readiness Score, a program completion badge, or a course certificate. We do not measure success by content consumed; we measure it by skills demonstrated and outcomes achieved.",
+      "Unlike traditional platforms that focus on passive video content, IMC is a technology-enabled ecosystem integrating three business units: Corporate & Business Training, Athletic Performance (OCTRI), and Digital Solutions & Technology. We use gamified EdTech platforms, real-world case simulations, and applied learning methodologies to build capability — not just deliver content.",
   },
   {
     question: "Where is IMC based?",
@@ -60,29 +61,29 @@ const allQuestions = [
       "IMC is headquartered in Giza, Egypt, and serves a worldwide audience. Our team operates globally, and all of our programs are delivered online, making them accessible to learners and organizations in any time zone.",
   },
   {
-    question: "What programs does IMC offer?",
+    question: "What services does IMC provide?",
     answer:
-      "IMC offers three core programs: (1) IMC Academy — structured, industry-built courses for professional skill development, starting with the Rx Challenger prescription-deciphering course for pharmacy professionals; (2) Corporate Readiness Assessment — a 20-question evaluation across five competency areas that generates a personalized readiness score and improvement roadmap; and (3) Experiential Corporate Learning — immersive applied scenarios where professionals practice real workplace tasks in a risk-free environment. Each program is designed to deliver measurable skill improvement.",
+      "IMC provides a comprehensive suite of corporate development services: (1) Corporate Solutions — tailored programs addressing specific organizational needs; (2) Business Transformation Solutions — strategic initiatives to drive organizational change; (3) Workforce Development — programs that build practical, job-ready skills across teams; (4) Talent Development — targeted growth paths for high-potential employees; (5) Organizational Development — culture, structure, and capability building; (6) Corporate Training — role-specific and industry-specific training modules; (7) Business Performance Improvement — data-driven approaches to measurable outcomes; and (8) Consulting & Advisory Services — expert guidance on learning strategy and capability building.",
   },
   {
-    question: "What is the IMC Corporate Readiness Assessment?",
+    question: "What is the IMC Capability & Readiness Assessment?",
     answer:
-      "The Corporate Readiness Assessment is a free, 20-question multiple-choice quiz that evaluates your preparedness across five key areas: business acumen, professional skills, technical literacy, workplace communication, and corporate mindset. The assessment takes approximately 10 minutes to complete and produces a personalized Corporate Readiness Score along with specific, actionable recommendations for improvement. It is designed for students, job seekers, and working professionals who want an honest benchmark of their workplace readiness.",
+      "The Capability & Readiness Assessment is a free, 20-question multiple-choice quiz that evaluates preparedness across five key areas: business acumen, professional skills, technical literacy, workplace communication, and corporate mindset. It produces a personalized Capability Score and actionable recommendations mapped to our three business units.",
   },
   {
-    question: "What is Rx Challenger?",
+    question: "Do you offer customized corporate solutions?",
     answer:
-      'Rx Challenger is an advanced educational tool designed for pharmacy graduates and practicing pharmacists to master prescription reading. Using real-world, anonymized prescription scenarios, users develop skills in drug recognition, dosage interpretation, clinical decision-making, and patient diagnosis analysis. It is available as a mobile application on Google Play and is also offered as a featured course within the IMC Academy platform. The "Rx" format supports progressive difficulty levels, making it suitable for both beginners and experienced professionals looking to sharpen their skills.',
+      "Yes. IMC works directly with companies, HR departments, and training teams to design and deliver customized programs aligned to specific organizational goals. These include bulk assessment access for talent acquisition, tailored learning paths for specific roles, team-level reporting on skill gaps and progress, and integrated development programs that align with your business strategy. Every solution is scoped to your organization's unique needs, size, and industry context.",
   },
   {
-    question: "Do you offer corporate or B2B training programs?",
+    question: "How do your training and development programs work?",
     answer:
-      "Yes. IMC works directly with companies, HR departments, and training departments to deliver customized corporate readiness programs. These include bulk assessment access for talent acquisition, tailored learning paths aligned to specific roles, and team-level reporting on skill gaps and progress. If you are interested in a corporate partnership, please reach out through our Contact page to schedule a consultation.",
+      "Our training programs follow a structured approach: we begin with an assessment of current capabilities, identify gaps against desired outcomes, design a targeted development path, deliver the program through our online platform, and measure results against defined KPIs. Programs can be delivered as self-paced online learning, facilitated virtual workshops, blended learning experiences, or fully customized corporate engagements depending on your organization's preferences.",
   },
   {
     question: "Is IMC free to use?",
     answer:
-      "Yes. The IMC Corporate Readiness Assessment is completely free, and the foundational content in IMC Academy — including Rx Challenger — is available at no cost. We believe everyone deserves access to quality career preparation tools regardless of their financial situation. As we expand our course catalog and introduce premium corporate solutions, those advanced modules will have associated pricing, but core readiness tools will remain free.",
+      "Yes. The IMC Corporate Readiness Assessment is completely free, and foundational content in IMC Academy is available at no cost. We believe everyone deserves access to quality career preparation tools regardless of their financial situation. As we expand our corporate solutions and premium programs, advanced modules will have associated pricing, but core readiness tools will remain free.",
   },
   {
     question: "Will there be paid programs in the future?",
@@ -92,27 +93,33 @@ const allQuestions = [
   {
     question: "How does billing work for corporate accounts?",
     answer:
-      "Corporate and B2B billing is handled on a custom basis depending on the size of your organization, the number of users, and the specific programs you need. We offer annual subscription packages and per-seat pricing models. Contact our sales team at imc.hub.eg@gmail.com to receive a tailored proposal for your organization.",
+      "Corporate and B2B billing is handled on a custom basis depending on the size of your organization, the number of users, and the specific programs you need. We offer annual subscription packages and per-seat pricing models. Contact our team at imc.hub.eg@gmail.com to receive a tailored proposal for your organization.",
   },
   {
-    question: "How are IMC courses delivered?",
+    question: "How can organizations work with the IMC team?",
     answer:
-      "All IMC courses and assessments are delivered online through our web platform and mobile applications. There is no requirement for in-person attendance or scheduled class times. You progress through material at your own pace, on your own schedule. The platform tracks your progress, scores, and completion status so you can pick up where you left off at any time. For mobile-first experiences like Rx Challenger, courses are available as native apps on Google Play.",
+      "Organizations can engage with IMC in several ways: (1) Start with our free Corporate Readiness Assessment to benchmark your team's capabilities; (2) Contact us through our Contact page to schedule a consultation and discuss your specific needs; (3) Request a tailored proposal for corporate training, workforce development, or organizational development programs; or (4) Explore our Academy for immediate access to foundational learning content. We work with organizations of all sizes, from startups to enterprises.",
+  },
+  {
+    question: "How are IMC programs delivered?",
+    answer:
+      "All IMC programs and assessments are delivered online through our web platform. There is no requirement for in-person attendance or scheduled class times for self-paced offerings. You progress through material at your own pace, on your own schedule. The platform tracks your progress, scores, and completion status so you can pick up where you left off at any time. For corporate engagements, we also offer facilitated virtual workshops and blended learning formats.",
   },
   {
     question: "How long does it take to complete a program?",
     answer:
-      "Program length varies by offering. The Corporate Readiness Assessment takes approximately 10 minutes. Individual IMC Academy courses range from 1 to 10 hours of active learning, depending on the topic and depth. Rx Challenger is designed for ongoing practice — users can complete individual scenarios in 5 to 15 minutes and continue building skills over weeks or months. Each course page includes an estimated completion time so you can plan accordingly.",
+      "Program length varies by offering. The Corporate Readiness Assessment takes approximately 10 minutes. Individual IMC Academy courses range from 1 to 10 hours of active learning, depending on the topic and depth. Corporate training programs are scoped based on organizational needs and can range from single-session workshops to multi-week development journeys. Each program page includes an estimated completion time so you can plan accordingly.",
   },
   {
-    question: "Do I receive a certificate or credential after completing a program?",
+    question:
+      "Do I receive a certificate or credential after completing a program?",
     answer:
       "Yes. Upon completing an IMC Academy course or passing a corporate solutions module, you receive a digital certificate of completion that you can share on LinkedIn or include in your professional portfolio. Corporate Readiness Assessment results can also be shared with employers as a verified readiness benchmark. As we expand, we are working toward industry-recognized credentials that carry weight with hiring managers and HR departments globally.",
   },
   {
     question: "Can I access IMC programs on my phone?",
     answer:
-      "Yes. The IMC website and Academy platform are fully responsive and work on smartphones, tablets, laptops, and desktops. Rx Challenger is available as a native Android app via Google Play. We are also developing iOS support and Progressive Web App (PWA) capabilities for offline access to course materials, ensuring you can learn wherever you are.",
+      "Yes. The IMC website and Academy platform are fully responsive and work on smartphones, tablets, laptops, and desktops. We also offer Progressive Web App (PWA) capabilities for offline access to course materials, ensuring you can learn wherever you are.",
   },
   {
     question: "How do I get help if I have a technical issue?",
@@ -147,7 +154,7 @@ const allQuestions = [
   {
     question: "How can I contact the IMC team?",
     answer:
-      "You can reach us through several channels: (1) Email us at imc.hub.eg@gmail.com for general inquiries or support; (2) Email imc.hub.eg@gmail.com for corporate and B2B inquiries; (3) Use the Contact form on our website for structured messages; or (4) Connect with us through the Google Play listing for Rx Challenger. We aim to respond to all inquiries within one business day.",
+      "You can reach us through several channels: (1) Email us at imc.hub.eg@gmail.com for general inquiries or support; (2) Use the Contact form on our website for structured messages; or (3) Reach out through our Contact page to schedule a consultation for corporate and B2B inquiries. We aim to respond to all inquiries within one business day.",
   },
   {
     question: "Do you offer phone or video consultations?",
@@ -158,7 +165,12 @@ const allQuestions = [
     question:
       "How do I stay informed about new programs and updates?",
     answer:
-      "New course announcements, feature updates, and program launches are communicated through our website and email newsletter. You can also follow our Google Play listing for Rx Challenger updates. The best way to stay current is to visit our Academy page regularly, where new courses are published as they become available.",
+      "New program announcements, feature updates, and service launches are communicated through our website and email newsletter. The best way to stay current is to visit our Academy and Corporate Solutions pages regularly, where new offerings are published as they become available.",
+  },
+  {
+    question: "Does IMC work with partners and resellers?",
+    answer:
+      "Yes. IMC is open to partnerships with training organizations, consulting firms, educational institutions, and corporate training departments that want to integrate our assessments and programs into their offerings. If you are interested in a partnership, please contact us at imc.hub.eg@gmail.com to discuss how we can work together.",
   },
 ];
 
@@ -167,7 +179,7 @@ export default function FaqPage() {
     <PageLayout>
       <WebPageStructuredData
         title="Frequently Asked Questions — IMC Intelligent Mastery Coaching"
-        description="Find answers to common questions about IMC's coaching programs, pricing, services, privacy, and how to get started."
+        description="Find answers to common questions about IMC's corporate solutions, assessments, training programs, partnerships, and how to get started."
         url="https://imc-hub.github.io/faq"
         breadcrumb={[
           { name: "Home", item: "https://imc-hub.github.io/" },

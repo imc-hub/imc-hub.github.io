@@ -27,7 +27,7 @@ export function OrganizationStructuredData() {
     },
     image: `${SITE_URL}/og-image.png`,
     description:
-      "IMC helps students, career changers, and companies build real-world readiness through structured coaching, corporate solutions, and skill development.",
+      "IMC is a tech-enabled ecosystem that builds human potential through three business units: Corporate & Business Training, Athletic Performance (OCTRI), and Digital Solutions & Technology.",
     foundingLocation: {
       "@type": "Place",
       address: {
@@ -67,7 +67,7 @@ export function WebsiteStructuredData() {
     url: SITE_URL,
     name: "IMC — Intelligent Mastery Coaching",
     description:
-      "Close the gap between human potential and corporate reality. Structured coaching, corporate solutions, and skill development.",
+      "Close the gap between education and market reality. Three business units: Corporate & Business Training, Athletic Performance (OCTRI), and Digital Solutions & Technology.",
     publisher: { "@id": `${SITE_URL}/#organization` },
     inLanguage: "en-US",
     potentialAction: [
@@ -82,7 +82,7 @@ export function WebsiteStructuredData() {
       {
         "@type": "AssessAction",
         target: `${SITE_URL}/assessment`,
-        description: "Take the free Corporate Readiness Assessment",
+        description: "Take the free Capability & Readiness Assessment",
       },
     ],
   };
@@ -135,24 +135,24 @@ export function AcademyStructuredData() {
     url: `${SITE_URL}/academy`,
     parentOrganization: { "@id": `${SITE_URL}/#organization` },
     description:
-      "IMC Academy delivers industry-built courses that bridge the gap between academic knowledge and workplace performance.",
+      "IMC Academy is our learning hub showcasing Corporate & Business Training courses and Digital Solutions & Technology products — from gamified EdTech platforms to corporate training programs.",
     course: {
       "@type": "Course",
-      name: "Rx Challenger — Prescription Deciphering",
+      name: "Business Readiness Track",
       description:
-        "Master prescription reading with real-world, anonymized scenarios. Built for pharmacy graduates and professionals.",
+        "Structured learning path covering workplace fundamentals, professional communication, and corporate culture navigation.",
       provider: { "@id": `${SITE_URL}/#organization` },
       educationalLevel: "Professional",
       teaches: [
-        "Prescription reading",
-        "Drug recognition",
-        "Clinical decision-making",
-        "Patient diagnosis interpretation",
+        "Professional communication",
+        "Workplace fundamentals",
+        "Corporate culture navigation",
+        "Business readiness",
       ],
       hasCourseInstance: {
         "@type": "CourseInstance",
         courseMode: "online",
-        courseWorkload: "PT1H",
+        courseWorkload: "PT5H",
       },
     },
   };
@@ -197,9 +197,9 @@ export function TestimonialStructuredData({
   const reviewSchema = {
     "@context": "https://schema.org",
     "@type": "Product",
-    name: "Rx Challenger",
+    name: "IMC Digital Solutions",
     description:
-      "An advanced educational tool for pharmacy professionals to master prescription reading.",
+      "Gamified EdTech platforms and mobile learning applications built on real-world case simulations and applied learning methodologies.",
     aggregateRating: {
       "@type": "AggregateRating",
       ratingValue: avgRating.toFixed(1),
@@ -230,14 +230,14 @@ export function AssessmentStructuredData() {
   const data = {
     "@context": "https://schema.org",
     "@type": "Quiz",
-    name: "IMC Corporate Readiness Assessment",
+    name: "IMC Capability & Readiness Assessment",
     description:
-      "20 multiple-choice questions across 5 key areas. Get your Corporate Readiness Score and personalized recommendations in ~10 minutes.",
+      "20 multiple-choice questions across 5 key areas. Get your Capability Score and personalized recommendations mapped to IMC's three business units.",
     url: `${SITE_URL}/assessment`,
     creator: { "@id": `${SITE_URL}/#organization` },
     educationalLevel: "Intermediate",
     assesses: [
-      "Corporate readiness",
+      "Capability assessment",
       "Business acumen",
       "Professional skills",
       "Technical literacy",

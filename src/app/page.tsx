@@ -11,9 +11,9 @@ import { CTASection } from "@/components/sections/cta";
 import { WebPageStructuredData } from "@/components/seo/structured-data";
 
 export const metadata: Metadata = {
-  title: "Close the Gap Between Human Potential & Corporate Reality",
+  title: "Close the Gap Between Education & Market Reality",
   description:
-    "IMC helps students, career changers, and companies build real-world readiness through structured coaching, corporate solutions, skill development, and corporate training programs.",
+    "IMC is a tech-enabled ecosystem that builds human potential through three business units: Corporate & Business Training, Athletic Performance (OCTRI), and Digital Solutions & Technology.",
   alternates: {
     canonical: "/",
   },
@@ -21,23 +21,23 @@ export const metadata: Metadata = {
     type: "website",
     url: "https://imc-hub.github.io/",
     siteName: "IMC — Intelligent Mastery Coaching",
-    title: "IMC — Close the Gap Between Human Potential & Corporate Reality",
+    title: "IMC — Close the Gap Between Education & Market Reality",
     description:
-      "IMC helps students, career changers, and companies build real-world readiness through structured coaching, corporate solutions, skill development, and corporate training programs.",
+      "IMC is a tech-enabled ecosystem with three business units: Corporate & Business Training, Athletic Performance (OCTRI), and Digital Solutions & Technology.",
     images: [
       {
         url: "https://imc-hub.github.io/og-image.png",
         width: 1200,
         height: 630,
-        alt: "IMC — Close the gap between human potential and corporate reality",
+        alt: "IMC — Close the gap between education and market reality",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "IMC — Close the Gap Between Human Potential & Corporate Reality",
+    title: "IMC — Close the Gap Between Education & Market Reality",
     description:
-      "IMC helps students, career changers, and companies build real-world readiness through structured coaching, corporate solutions, skill development, and corporate training programs.",
+      "IMC is a tech-enabled ecosystem with three business units: Corporate & Business Training, Athletic Performance (OCTRI), and Digital Solutions & Technology.",
     images: ["https://imc-hub.github.io/og-image.png"],
   },
 };
@@ -46,8 +46,8 @@ export default function HomePage() {
   return (
     <>
       <WebPageStructuredData
-        title="IMC — Intelligent Mastery Coaching | Mastery Meets Market"
-        description="Close the gap between human potential and corporate reality with IMC's structured coaching, corporate solutions, and skill development."
+        title="IMC — Intelligent Mastery Coaching | Close the Gap"
+        description="Close the gap between education and market reality with IMC's three business units: Corporate & Business Training, Athletic Performance (OCTRI), and Digital Solutions & Technology."
         url="https://imc-hub.github.io/"
       />
       <Header />

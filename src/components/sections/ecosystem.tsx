@@ -1,58 +1,58 @@
-import { BookOpen, Building2, Dumbbell, ArrowRight } from "lucide-react";
-import { Card } from "@/components/ui/card";
 import Link from "next/link";
+import { ArrowRight, GraduationCap, Dumbbell, MonitorSmartphone } from "lucide-react";
+import { Card } from "@/components/ui/card";
 
 const pillars = [
   {
-    icon: BookOpen,
-    name: "IMC Academy",
-    tagline: "Structured Learning Paths",
+    icon: GraduationCap,
+    name: "Corporate & Business Training",
+    tagline: "B2C & B2B Capability Building",
     description:
-      "Career discovery, business readiness, data analysis, AI skills, and soft skills — built by industry practitioners, not academics.",
+      "From high school pupils discovering their academic fit to corporate teams building modern business capabilities. Training covers data analysis, AI tools, business skills, professional development, and career readiness.",
     features: [
-      "Career Discovery Assessment",
-      "Business Readiness Track",
-      "Data Analysis & AI Skills",
-      "Corporate Soft Skills",
-      "Industry Certifications",
+      "Career Discovery for students & pupils",
+      "University training & real-world projects",
+      "Career changer upskilling programs",
+      "Corporate team development (B2B)",
+      "Data Analysis, AI Tools & Business Skills",
     ],
     color: "text-imc-teal",
     bgColor: "bg-imc-teal/8",
     borderColor: "hover:border-imc-teal/30",
   },
   {
-    icon: Building2,
-    name: "Corporate Solutions",
-    tagline: "Business Transformation Programs",
-    description:
-      "Applied corporate development programs that build real business capabilities. Lead teams through structured challenges. Build a portfolio of proven organizational outcomes.",
-    features: [
-      "Corporate Performance Framework",
-      "Team-Based Development",
-      "Industry-Specific Programs",
-      "Performance Benchmarking",
-      "Case Study Competitions",
-    ],
-    color: "text-imc-gold",
-    bgColor: "bg-imc-gold/8",
-    borderColor: "hover:border-imc-gold/30",
-  },
-  {
     icon: Dumbbell,
-    name: "OCTRI",
-    tagline: "Mental & Physical Endurance",
+    name: "Athletic Performance — OCTRI",
+    tagline: "Mental Toughness & Physical Endurance",
     description:
-      "Build mental toughness and physical resilience through structured triathlon preparation and executive performance programs.",
+      "A specialized sports academy building resilience, discipline, and elite performance capacity through triathlon preparation, mental toughness training, and executive performance programs.",
     features: [
-      "Triathlon Preparation",
-      "Mental Toughness Training",
-      "Executive Performance",
-      "Endurance Tracking",
-      "Community Events",
+      "Triathlon preparation & coaching",
+      "Mental toughness development",
+      "Executive performance programs",
+      "Physical endurance tracking",
+      "High-performance habits & discipline",
     ],
     color: "text-emerald-500",
     bgColor: "bg-emerald-500/8",
     borderColor: "hover:border-emerald-500/30",
+  },
+  {
+    icon: MonitorSmartphone,
+    name: "Digital Solutions & Technology",
+    tagline: "Gamified EdTech & Learning Platforms",
+    description:
+      "Technology-enabled learning solutions including gamified EdTech platforms, mobile applications, and digital learning systems — built on real-world case simulations and applied learning methodologies.",
+    features: [
+      "Gamified EdTech platforms",
+      "Mobile learning applications",
+      "Digital learning systems",
+      "Real-world case simulations",
+      "Organizational development tools",
+    ],
+    color: "text-imc-gold",
+    bgColor: "bg-imc-gold/8",
+    borderColor: "hover:border-imc-gold/30",
   },
 ];
 
@@ -65,10 +65,11 @@ export function EcosystemSection() {
             The IMC Ecosystem
           </p>
           <h2 className="mt-3 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-            Three pillars. One readiness platform.
+            Three business units. One integrated ecosystem.
           </h2>
           <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-            Academy, Corporate Solutions, and OCTRI work together to build the complete
+            Corporate &amp; Business Training, Athletic Performance, and Digital
+            Solutions &amp; Technology work together to build the complete
             professional — technically skilled, business-ready, and mentally
             resilient.
           </p>
@@ -114,11 +115,11 @@ export function EcosystemSection() {
 
                 <div className="mt-auto pt-6">
                   <Link
-                    href={pillar.name === "OCTRI" ? "https://www.octri-egypt.com/" : pillar.name === "IMC Academy" ? "/academy" : "/#get-started"}
-                    {...(pillar.name === "OCTRI" ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                    href={pillar.name.includes("OCTRI") ? "https://www.octri-egypt.com/" : pillar.name.includes("Corporate") ? "/#get-started" : "/academy"}
+                    {...(pillar.name.includes("OCTRI") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                     className={`inline-flex items-center gap-1.5 text-sm font-medium ${pillar.color} transition-all hover:gap-2.5`}
                   >
-                    Explore {pillar.name}
+                    Explore {pillar.name.split("—")[0].trim()}
                     <ArrowRight className="h-3.5 w-3.5" />
                   </Link>
                 </div>

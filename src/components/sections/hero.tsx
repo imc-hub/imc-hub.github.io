@@ -11,18 +11,20 @@ export function HeroSection() {
       <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8 lg:py-36">
         <div className="mx-auto max-w-3xl text-center">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-imc-teal sm:text-sm">
-            Mastery Meets Market
+            Intelligent Mastery Coaching
           </p>
 
           <h1 className="mt-4 text-4xl font-extrabold leading-[1.1] tracking-tight text-white sm:text-5xl lg:text-6xl">
             Close the gap between{" "}
-            <span className="text-imc-teal">human potential</span> and{" "}
-            <span className="text-imc-gold">corporate reality</span>.
+            <span className="text-imc-teal">education</span> and{" "}
+            <span className="text-imc-gold">market reality</span>.
           </h1>
 
           <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-slate-300 sm:text-lg">
-            IMC replaces theoretical entrepreneurship illusions with structured
-            corporate readiness. Real solutions. Real skills. Real outcomes.
+            IMC is a tech-enabled ecosystem that builds human potential through
+            strategic intellect, digital mastery, and physical &amp; mental
+            endurance — preparing individuals and organizations for measurable
+            success.
           </p>
 
           <div className="mt-10 flex items-center justify-center">
@@ -39,22 +41,22 @@ export function HeroSection() {
           </div>
         </div>
 
-        <div className="mt-16 grid grid-cols-1 gap-4 sm:grid-cols-3 lg:mx-auto lg:max-w-3xl">
+        <div className="mt-16 grid grid-cols-1 gap-4 sm:grid-cols-3 lg:mx-auto lg:max-w-4xl">
           {[
             {
-              label: "IMC Academy",
-              desc: "Structured learning paths",
+              label: "Corporate & Business Training",
+              desc: "B2C & B2B capability building",
               color: "bg-imc-teal/10 border-imc-teal/20 text-imc-teal",
             },
             {
-              label: "Corporate Solutions",
-              desc: "Business transformation programs",
-              color: "bg-imc-gold/10 border-imc-gold/20 text-imc-gold",
+              label: "Athletic Performance — OCTRI",
+              desc: "Mental toughness & physical endurance",
+              color: "bg-emerald-500/10 border-emerald-500/20 text-emerald-400",
             },
             {
-              label: "OCTRI",
-              desc: "Mental & physical endurance",
-              color: "bg-emerald-500/10 border-emerald-500/20 text-emerald-400",
+              label: "Digital Solutions & Technology",
+              desc: "Gamified EdTech & learning platforms",
+              color: "bg-imc-gold/10 border-imc-gold/20 text-imc-gold",
             },
           ].map((item) => (
             <div

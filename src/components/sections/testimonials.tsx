@@ -3,10 +3,10 @@ import { Star } from "lucide-react";
 const testimonials = [
   {
     quote:
-      "IMC transformed my approach to business. The corporate solutions program gave me confidence I never got from textbooks. I walked into my first job ready to contribute from day one.",
+      "IMC's corporate training program gave me practical data analysis and AI skills I never got from my degree. I walked into my first job ready to contribute from day one.",
     name: "Emad Anas",
     role: "Data Analyst",
-    segment: "University Student",
+    segment: "Corporate & Business Training",
   },
   {
     quote:
@@ -17,10 +17,31 @@ const testimonials = [
   },
   {
     quote:
-      "We rolled out IMC to 200+ employees. Engagement is 4x higher than our previous L&D platform, and we can actually measure skill improvement.",
+      "We rolled out IMC's corporate solutions to 200+ employees. Engagement is 4x higher than our previous L&D platform, and we can actually measure skill improvement across teams.",
     name: "Ahmed Sabry",
     role: "Head of L&D",
-    segment: "HR Department",
+    segment: "Corporate Solutions — B2B",
+  },
+  {
+    quote:
+      "OCTRI's mental toughness program transformed how I approach high-pressure situations at work. The discipline from triathlon training carries directly into executive performance.",
+    name: "Sarah Mansour",
+    role: "Senior Consultant",
+    segment: "Athletic Performance — OCTRI",
+  },
+  {
+    quote:
+      "The gamified learning platform made our onboarding process 60% more engaging. IMC's digital solutions team built exactly what our organization needed.",
+    name: "Karim Fathy",
+    role: "HR Director",
+    segment: "Digital Solutions & Technology",
+  },
+  {
+    quote:
+      "As a high school student, I had no idea what career path suited me. IMC's assessment and training programs helped me discover my strengths and build real skills before university.",
+    name: "Nour Hassan",
+    role: "University Student",
+    segment: "Career Discovery",
   },
 ];
 
@@ -33,11 +54,15 @@ export function TestimonialsSection() {
             Social Proof
           </p>
           <h2 className="mt-3 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-            Real outcomes from real people
+            Real outcomes across our ecosystem
           </h2>
+          <p className="mt-4 text-base leading-relaxed text-muted-foreground">
+            From corporate training to athletic performance and digital solutions —
+            measurable impact across all three business units.
+          </p>
         </div>
 
-        <div className="mt-16 grid grid-cols-1 gap-6 lg:grid-cols-3">
+        <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {testimonials.map((t) => (
             <div
               key={t.name}

@@ -14,8 +14,9 @@ export function CTASection() {
             Ready to close the gap?
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-slate-300">
-            Take the free career assessment and discover your professional
-            identity. No credit card required. No fluff.
+            Take the free capability assessment and discover where you fit across
+            our three business units — Corporate &amp; Business Training, Athletic
+            Performance, and Digital Solutions &amp; Technology.
           </p>
 
           <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
@@ -35,7 +36,7 @@ export function CTASection() {
               className="w-full border-slate-600 text-slate-300 hover:bg-slate-800 hover:text-white sm:w-auto"
               asChild
             >
-              <Link href="/contact">Talk to Sales</Link>
+              <Link href="/contact">Talk to Our Team</Link>
             </Button>
           </div>
 

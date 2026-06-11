@@ -73,7 +73,7 @@ const faqs = [
   {
     question: "How do the Corporate Solutions programs work?",
     answer:
-      "You're placed in realistic business scenarios where you make strategic decisions, manage teams, and compete on leaderboards. Each program has multiple decision points with real financial consequences.",
+      "Our Corporate Solutions programs follow a structured approach: we assess current capabilities, identify gaps, design targeted development paths, and deliver through online platforms or facilitated workshops. Programs cover workforce development, talent development, organizational transformation, and performance improvement — scoped to your organization's specific needs.",
   },
 ];
 
@@ -163,9 +163,10 @@ ${message}`;
               We&apos;re here to help
             </h1>
             <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-slate-300">
-              Questions about IMC? Want to explore corporate partnerships? Need
-              technical support? Reach out and we&apos;ll respond within 24
-              hours.
+              Questions about our three business units — Corporate &amp; Business
+              Training, Athletic Performance (OCTRI), or Digital Solutions &amp;
+              Technology? Want to explore partnerships? Reach out and we&apos;ll
+              respond within 24 hours.
             </p>
           </div>
         </div>

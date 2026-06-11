@@ -1,8 +1,8 @@
 const stats = [
-  { value: "73%", label: "of graduates lack corporate readiness", source: "Industry Report 2025" },
+  { value: "73%", label: "of graduates lack workplace readiness", source: "Industry Report 2025" },
   { value: "$41B", label: "spent annually on corporate retraining", source: "Training Industry" },
-  { value: "3x", label: "faster skill acquisition with applied learning", source: "IMC Research" },
-  { value: "89%", label: "of IMC learners report higher confidence", source: "User Survey" },
+  { value: "3x", label: "faster capability development with applied learning", source: "IMC Research" },
+  { value: "3", label: "integrated business units driving readiness", source: "Corporate · Athletic · Digital" },
 ];
 
 export function StatsSection() {
@@ -11,8 +11,13 @@ export function StatsSection() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
-            The gap is widening. We&apos;re closing it.
+            The readiness gap is widening. We&apos;re closing it.
           </h2>
+          <p className="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-slate-400">
+            Through three integrated business units — Corporate &amp; Business
+            Training, Athletic Performance, and Digital Solutions &amp;
+            Technology.
+          </p>
         </div>
 
         <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">

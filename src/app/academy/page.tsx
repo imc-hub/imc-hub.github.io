@@ -17,21 +17,21 @@ import {
   Award,
   Briefcase,
   Pill,
-  Clock,
   Sparkles,
-  Lock,
+  MonitorSmartphone,
+  Brain,
+  Dumbbell,
 } from "lucide-react";
 import {
   WebPageStructuredData,
-  AcademyStructuredData,
   FaqStructuredData,
   TestimonialStructuredData,
 } from "@/components/seo/structured-data";
 
 export const metadata: Metadata = {
-  title: "IMC Academy — Courses & Learning Paths for Every Career Stage",
+  title: "IMC Academy — Learning Hub & Digital Solutions Showcase",
   description:
-    "Explore IMC Academy's structured learning paths: Rx Challenger for pharmacy prescription training, business readiness, data analysis & AI skills, corporate soft skills, and industry certifications.",
+    "IMC Academy is our learning hub showcasing courses and digital solutions — from gamified EdTech platforms and mobile apps to corporate training programs in business readiness, data analysis, AI skills, and professional development.",
   alternates: {
     canonical: "/academy",
   },
@@ -39,23 +39,23 @@ export const metadata: Metadata = {
     type: "website",
     url: "https://imc-hub.github.io/academy",
     siteName: "IMC — Intelligent Mastery Coaching",
-    title: "IMC Academy — Courses & Learning Paths for Every Career Stage",
+    title: "IMC Academy — Learning Hub & Digital Solutions Showcase",
     description:
-      "Structured learning paths for pharmacy, business readiness, data analysis, AI skills, and corporate soft skills. Start learning today.",
+      "Explore IMC Academy: gamified EdTech platforms, mobile learning apps, corporate training in business readiness, data analysis, AI skills, and professional development.",
     images: [
       {
         url: "https://imc-hub.github.io/og-image.png",
         width: 1200,
         height: 630,
-        alt: "IMC Academy — Courses & Learning Paths for Every Career Stage",
+        alt: "IMC Academy — Learning Hub & Digital Solutions Showcase",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "IMC Academy — Courses & Learning Paths for Every Career Stage",
+    title: "IMC Academy — Learning Hub & Digital Solutions Showcase",
     description:
-      "Structured learning paths for pharmacy, business readiness, data analysis, AI skills, and corporate soft skills. Start learning today.",
+      "Explore IMC Academy: gamified EdTech platforms, mobile learning apps, corporate training in business readiness, data analysis, AI skills, and professional development.",
     images: ["https://imc-hub.github.io/og-image.png"],
   },
 };
@@ -63,33 +63,11 @@ export const metadata: Metadata = {
 /* ── Courses catalog ── */
 const courses = [
   {
-    icon: Pill,
-    name: "Rx Challenger",
-    tagline: "Prescription Deciphering",
-    status: "Available Now",
-    statusColor: "bg-emerald-500/10 text-emerald-500",
-    description:
-      "Master prescription reading with real-world, anonymized scenarios. Built for pharmacy graduates and professionals.",
-    features: [
-      "Real anonymized prescriptions",
-      "Cloud progress saving",
-      "Tooltip clinical assistance",
-      "Patient history & diagnosis context",
-      "New cases added monthly",
-    ],
-    color: "text-imc-teal",
-    bgColor: "bg-imc-teal/8",
-    borderColor: "hover:border-imc-teal/30",
-    cta: "Explore Rx Challenger",
-    href: "#rx-challenger",
-    badge: "Featured",
-  },
-  {
     icon: Briefcase,
     name: "Business Readiness Track",
     tagline: "Corporate Preparation",
-    status: "Coming Soon",
-    statusColor: "bg-imc-gold/10 text-imc-gold",
+    status: "Available",
+    statusColor: "bg-emerald-500/10 text-emerald-500",
     description:
       "Structured learning path covering workplace fundamentals, professional communication, and corporate culture navigation.",
     features: [
@@ -170,25 +148,25 @@ const courses = [
   },
 ];
 
-/* ── Rx Challenger deep-dive data ── */
-const rxFeatures = [
+/* ── Digital Solutions Showcase — Rx Challenger ── */
+const digitalFeatures = [
   {
     icon: BookOpen,
-    title: "Real, Anonymized Prescriptions",
+    title: "Gamified Learning",
     description:
-      "Authentic yet anonymized prescriptions, carefully curated to reflect the most common diagnoses.",
+      "Built on real-world case simulations and applied learning methodologies — turning complex professional scenarios into engaging, measurable learning experiences.",
   },
   {
     icon: Cloud,
-    title: "Cloud Progress Saving",
+    title: "Cloud-Based Platforms",
     description:
-      "Save your progress securely with cloud storage. Start on one device and pick up where you left off on another.",
+      "Progress saving, cross-device access, and real-time analytics. Our digital solutions are built for scale — from individual learners to enterprise deployments.",
   },
   {
-    icon: HelpCircle,
-    title: "Tooltip Assistance",
+    icon: MonitorSmartphone,
+    title: "Mobile-First Design",
     description:
-      "Decode complex prescriptions with context-specific help: patient history, chief complaints, diagnosis, and lab values.",
+      "Native mobile applications and responsive platforms that let learners build skills anywhere, anytime — on any device.",
   },
 ];
 
@@ -197,19 +175,19 @@ const rxDeepDive = [
     icon: User,
     title: "Patient History",
     description:
-      "Provides a brief, relevant medical history for each patient. This includes chronic conditions, past medications, surgeries, allergies, or other critical factors influencing prescription decisions.",
+      "Provides a brief, relevant medical history for each patient — chronic conditions, past medications, surgeries, allergies, and other critical factors influencing prescription decisions.",
   },
   {
     icon: Stethoscope,
     title: "Chief Complaints",
     description:
-      "Summarizes the primary reasons why the patient sought medical attention, presented as short, clear bullet points. Mimics real-world scenarios where pharmacists must quickly identify and address the patient's primary concerns.",
+      "Summarizes the primary reasons why the patient sought medical attention, presented as short, clear bullet points — mimicking real-world pharmacy scenarios.",
   },
   {
     icon: ClipboardList,
     title: "Diagnosis",
     description:
-      "Displays the doctor's diagnosis based on patient history, symptoms, and lab results. It acts as a bridge between the patient's condition and the prescribed medication.",
+      "Displays the doctor's diagnosis based on patient history, symptoms, and lab results — bridging the gap between patient condition and prescribed medication.",
   },
 ];
 
@@ -218,58 +196,58 @@ const testimonials = [
     name: "Samer",
     role: "Pharmacy Manager",
     rating: 5,
-    text: "Rx Challenger is must for training new hires in our pharmacy. It provides realistic scenarios that help trainees develop confidence in prescription reading and decision-making. The detailed patient data and regular updates make it a must-have in retail setting.",
+    text: "Rx Challenger is a must for training new hires. It provides realistic scenarios that help trainees develop confidence in prescription reading and decision-making. The detailed patient data and regular updates make it invaluable in a retail setting.",
   },
   {
     name: "Saadawy",
     role: "Product Manager",
     rating: 5,
-    text: "As someone who manages pharmacy-related products, I was impressed by Rx Challenger's thoughtful design and user-friendly interface. It's clear that the app was built with deep insight into pharmacy needs, making it a fantastic learning resource.",
+    text: "As someone who manages pharmacy-related products, I was impressed by Rx Challenger's thoughtful design and user-friendly interface. It's clear the app was built with deep insight into pharmacy needs.",
   },
   {
     name: "Andrew",
     role: "Senior Pharmacist",
     rating: 5,
-    text: "Even as a senior pharmacist, I found Rx Challenger an excellent refresher. The app's focus on diagnosis and lab values bridges a critical gap in pharmacy training. I recommend it to anyone looking to stay sharp and mentor younger colleagues more effectively.",
+    text: "Even as a senior pharmacist, I found Rx Challenger an excellent refresher. The app's focus on diagnosis and lab values bridges a critical gap in pharmacy training.",
   },
   {
     name: "Hesham",
     role: "Software Tester",
     rating: 5,
-    text: "Rx Challenger stands out as an educational app with exceptional attention to detail. Testing the app gave me insights into its robust features like cloud sync and tooltips. The seamless user experience reflects the developer commitment to quality and learning outcomes",
+    text: "Rx Challenger stands out as an educational app with exceptional attention to detail. The seamless user experience reflects the developer's commitment to quality and learning outcomes.",
   },
 ];
 
 const faqItems = [
   {
+    question: "What is IMC Academy?",
+    answer:
+      "IMC Academy is our learning hub — showcasing our Corporate & Business Training courses and Digital Solutions & Technology products. It includes structured learning paths, gamified EdTech platforms, and mobile applications designed to accelerate personal and organizational development.",
+  },
+  {
+    question: "What courses are available?",
+    answer:
+      "Our Business Readiness Track is currently available, with Data Analysis & AI Skills, Corporate Soft Skills, and Industry Certifications tracks coming soon. Our Digital Solutions unit also produces gamified learning platforms and mobile apps like Rx Challenger.",
+  },
+  {
     question: "What is Rx Challenger?",
     answer:
-      "Rx Challenger is an advanced educational tool designed to enhance the practical knowledge of pharmacy trainees and professionals. It offers real-life prescription scenarios to help users improve their drug recognition and problem-solving skills.",
+      "Rx Challenger is a flagship Digital Solutions & Technology product — a gamified mobile application for pharmacy professionals to master prescription reading with real-world, anonymized scenarios. It demonstrates our capability in building applied learning technology.",
   },
   {
-    question: "What are the system requirements?",
+    question: "How are IMC Academy courses delivered?",
     answer:
-      "The app is optimized for both Android and Windows devices. Ensure you are running the latest operating system for the best experience.",
+      "All courses and digital solutions are delivered online through our platforms. Self-paced learning tracks are accessible on any device. Corporate training programs can be delivered as facilitated virtual workshops or blended learning experiences.",
   },
   {
-    question: "Is my progress saved?",
+    question: "When will new courses launch?",
     answer:
-      "Yes, Rx Challenger includes a cloud-based progress saving feature. Simply log in to your account to ensure your progress is synced and accessible across devices.",
-  },
-  {
-    question: "How frequently are new cases added?",
-    answer:
-      "New prescription cases are added monthly, ensuring users have fresh content to continue their learning journey.",
-  },
-  {
-    question: "When will other Academy courses launch?",
-    answer:
-      "We're actively developing our Business Readiness, Data Analysis & AI, Corporate Soft Skills, and Industry Certifications tracks. Contact us to get notified when each course becomes available.",
+      "We're actively developing our Data Analysis & AI, Corporate Soft Skills, and Industry Certifications tracks. Contact us to get notified when each course becomes available.",
   },
   {
     question: "How do I get support?",
     answer:
-      "For technical support, reach out via the Contact Us page or email RxChallenger.app@gmail.com. We strive to address all queries within 48 hours.",
+      "For general inquiries, reach out via the Contact Us page or email imc.hub.eg@gmail.com. For Rx Challenger technical support, email RxChallenger.app@gmail.com.",
   },
 ];
 
@@ -290,15 +268,14 @@ export default function AcademyPage() {
   return (
     <PageLayout>
       <WebPageStructuredData
-        title="IMC Academy — Courses & Learning Paths for Every Career Stage"
-        description="Explore IMC Academy's structured learning paths: Rx Challenger for pharmacy, business readiness, data analysis & AI skills, corporate soft skills, and industry certifications."
+        title="IMC Academy — Learning Hub & Digital Solutions Showcase"
+        description="Explore IMC Academy: gamified EdTech platforms, mobile learning apps, corporate training in business readiness, data analysis, AI skills, and professional development."
         url="https://imc-hub.github.io/academy"
         breadcrumb={[
           { name: "Home", item: "https://imc-hub.github.io/" },
           { name: "IMC Academy", item: "https://imc-hub.github.io/academy" },
         ]}
       />
-      <AcademyStructuredData />
       <FaqStructuredData questions={faqItems} />
       <TestimonialStructuredData testimonials={testimonials} />
       {/* ═══════════════════════════════════════════════════════════════════
@@ -312,14 +289,14 @@ export default function AcademyPage() {
               IMC Academy
             </p>
             <h1 className="mt-4 text-4xl font-extrabold tracking-tight text-white sm:text-5xl">
-              Structured learning paths for{" "}
+              Our learning hub for{" "}
               <span className="text-imc-teal">every career stage</span>
             </h1>
             <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-slate-300 sm:text-lg">
-              From pharmacy prescription deciphering to business readiness, data
-              analysis, and soft skills — IMC Academy delivers industry-built
-              courses that bridge the gap between academic knowledge and
-              workplace performance.
+              IMC Academy showcases our Corporate &amp; Business Training courses
+              and Digital Solutions &amp; Technology — from gamified EdTech
+              platforms and mobile apps to structured corporate training programs
+              that bridge the gap between education and workplace performance.
             </p>
             <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <a
@@ -330,10 +307,10 @@ export default function AcademyPage() {
                 Browse Courses
               </a>
               <a
-                href="#rx-challenger"
+                href="#digital-solutions"
                 className="inline-flex h-12 items-center justify-center rounded-lg border border-slate-600 px-6 text-sm font-medium text-slate-300 transition-colors hover:bg-slate-800 hover:text-white"
               >
-                Featured: Rx Challenger
+                Digital Solutions
                 <ArrowRight className="ml-1.5 h-4 w-4" />
               </a>
             </div>
@@ -342,13 +319,13 @@ export default function AcademyPage() {
       </section>
 
       {/* ═══════════════════════════════════════════════════════════════════
-          COURSES & SOLUTIONS CATALOG
+          COURSES CATALOG
       ═══════════════════════════════════════════════════════════════════ */}
       <section id="courses" className="scroll-mt-20 bg-background py-20 sm:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-imc-teal">
-              Courses & Solutions
+              Corporate & Business Training
             </p>
             <h2 className="mt-3 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
               Built by practitioners, not academics
@@ -359,28 +336,14 @@ export default function AcademyPage() {
             </p>
           </div>
 
-          <div className="mt-16 grid grid-cols-1 gap-6 lg:grid-cols-2 lg:gap-8">
+          <div className="mt-16 grid grid-cols-1 gap-6 lg:grid-cols-2">
             {courses.map((course) => {
               const Icon = course.icon;
-              const isFeatured = course.badge !== undefined;
               return (
                 <div
                   key={course.name}
-                  className={`group relative flex flex-col overflow-hidden rounded-xl border bg-card p-6 transition-all duration-300 sm:p-8 ${
-                    isFeatured
-                      ? "border-imc-teal/30 ring-1 ring-imc-teal/10 lg:col-span-2"
-                      : `border-border/60 ${course.borderColor}`
-                  }`}
+                  className={`group relative flex flex-col overflow-hidden rounded-xl border bg-card p-6 transition-all duration-300 sm:p-8 border-border/60 ${course.borderColor}`}
                 >
-                  {isFeatured && (
-                    <div className="absolute top-0 right-0 rounded-bl-xl bg-imc-teal px-3 py-1">
-                      <span className="flex items-center gap-1 text-xs font-bold text-white">
-                        <Sparkles className="h-3 w-3" />
-                        {course.badge}
-                      </span>
-                    </div>
-                  )}
-
                   <div className="flex flex-col gap-6 sm:flex-row sm:items-start">
                     <div
                       className={`inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-xl ${course.bgColor}`}
@@ -440,29 +403,84 @@ export default function AcademyPage() {
       </section>
 
       {/* ═══════════════════════════════════════════════════════════════════
-          RX CHALLENGER DEEP DIVE
+          DIGITAL SOLUTIONS SHOWCASE
       ═══════════════════════════════════════════════════════════════════ */}
       <section
-        id="rx-challenger"
+        id="digital-solutions"
         className="scroll-mt-20 bg-secondary/30 py-20 sm:py-28"
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          {/* Section header */}
+          <div className="mx-auto max-w-3xl text-center">
+            <div className="inline-flex items-center gap-2 rounded-full border border-imc-gold/20 bg-imc-gold/5 px-4 py-1.5">
+              <MonitorSmartphone className="h-4 w-4 text-imc-gold" />
+              <span className="text-xs font-semibold text-imc-gold">
+                Digital Solutions & Technology
+              </span>
+            </div>
+            <h2 className="mt-4 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+              Technology that accelerates capability development
+            </h2>
+            <p className="mt-4 text-base leading-relaxed text-muted-foreground">
+              Our Digital Solutions &amp; Technology unit builds gamified EdTech
+              platforms, mobile applications, and digital learning systems based
+              on real-world case simulations and applied learning methodologies.
+            </p>
+          </div>
+
+          {/* Core capabilities */}
+          <div className="mt-16 grid grid-cols-1 gap-6 lg:grid-cols-3">
+            {digitalFeatures.map((feature, i) => {
+              const Icon = feature.icon;
+              return (
+                <div
+                  key={feature.title}
+                  className="group rounded-xl border border-border/60 bg-card p-6 transition-all duration-300 hover:border-imc-gold/30 sm:p-8"
+                >
+                  <div className="flex items-center gap-4">
+                    <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-imc-gold/8">
+                      <Icon className="h-6 w-6 text-imc-gold" />
+                    </div>
+                    <span className="text-xs font-bold text-imc-gold/60">
+                      0{i + 1}
+                    </span>
+                  </div>
+                  <h3 className="mt-5 text-lg font-bold text-foreground">
+                    {feature.title}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                    {feature.description}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════════════════════════
+          RX CHALLENGER — Flagship Digital Product
+      ═══════════════════════════════════════════════════════════════════ */}
+      <section
+        id="rx-challenger"
+        className="scroll-mt-20 bg-background py-20 sm:py-28"
+      >
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
             <div className="inline-flex items-center gap-2 rounded-full border border-imc-teal/20 bg-imc-teal/5 px-4 py-1.5">
               <Pill className="h-4 w-4 text-imc-teal" />
               <span className="text-xs font-semibold text-imc-teal">
-                Featured Course
+                Flagship Product
               </span>
             </div>
             <h2 className="mt-4 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-              Rx Challenger — Master Prescription Deciphering with{" "}
+              Rx Challenger — Prescription Deciphering with{" "}
               <span className="text-imc-teal">Ease</span>
             </h2>
             <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-              The ultimate tool for pharmacy graduates and professionals seeking
-              to master prescription reading. Real-world scenarios, anonymized
-              data, and powerful learning tools — all in one app.
+              A flagship Digital Solutions &amp; Technology product — an advanced
+              educational mobile application for pharmacy graduates and
+              professionals. Real-world scenarios, anonymized data, and powerful
+              learning tools.
             </p>
             <div className="mt-6 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <a
@@ -484,36 +502,8 @@ export default function AcademyPage() {
             </div>
           </div>
 
-          {/* Core features */}
-          <div id="rx-features" className="mt-16 grid grid-cols-1 gap-6 lg:grid-cols-3">
-            {rxFeatures.map((feature, i) => {
-              const Icon = feature.icon;
-              return (
-                <div
-                  key={feature.title}
-                  className="group rounded-xl border border-border/60 bg-card p-6 transition-all duration-300 hover:border-imc-teal/30 sm:p-8"
-                >
-                  <div className="flex items-center gap-4">
-                    <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-imc-teal/8">
-                      <Icon className="h-6 w-6 text-imc-teal" />
-                    </div>
-                    <span className="text-xs font-bold text-imc-teal/60">
-                      0{i + 1}
-                    </span>
-                  </div>
-                  <h3 className="mt-5 text-lg font-bold text-foreground">
-                    {feature.title}
-                  </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                    {feature.description}
-                  </p>
-                </div>
-              );
-            })}
-          </div>
-
           {/* Deep dive */}
-          <div className="mt-20">
+          <div id="rx-features" className="mt-20">
             <div className="mx-auto max-w-2xl text-center">
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-imc-teal">
                 Deep Dive
@@ -556,19 +546,19 @@ export default function AcademyPage() {
       {/* ═══════════════════════════════════════════════════════════════════
           TESTIMONIALS
       ═══════════════════════════════════════════════════════════════════ */}
-      <section className="bg-background py-20 sm:py-28">
+      <section className="bg-secondary/30 py-20 sm:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-imc-teal">
               Testimonials
             </p>
             <h2 className="mt-3 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-              What they think{" "}
+              What professionals say{" "}
               <span className="text-imc-gold">about Rx Challenger</span>
             </h2>
             <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-              How Rx Challenger has supported pharmacy graduates and
-              professionals…
+              How our flagship digital product has supported pharmacy graduates
+              and professionals.
             </p>
           </div>
 
@@ -604,7 +594,7 @@ export default function AcademyPage() {
       {/* ═══════════════════════════════════════════════════════════════════
           FAQ
       ═══════════════════════════════════════════════════════════════════ */}
-      <section className="bg-secondary/30 py-20 sm:py-28">
+      <section className="bg-background py-20 sm:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-imc-teal">
@@ -636,7 +626,7 @@ export default function AcademyPage() {
       {/* ═══════════════════════════════════════════════════════════════════
           ABOUT RX CHALLENGER DEVELOPER
       ═══════════════════════════════════════════════════════════════════ */}
-      <section className="bg-background py-20 sm:py-28">
+      <section className="bg-secondary/30 py-20 sm:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl">
             <div className="rounded-2xl border border-border/60 bg-card p-8 sm:p-12">
@@ -649,9 +639,9 @@ export default function AcademyPage() {
               <p className="mt-4 text-base leading-relaxed text-muted-foreground">
                 Rx Challenger was developed by{" "}
                 <strong className="text-foreground">Ahmed Ezzat</strong>, a
-                clinical pharmacist with a passion for improving pharmacy
-                education. Based in Alexandria, Egypt, Ahmed aims to empower new
-                graduates with practical skills to excel in their careers.
+                clinical pharmacist and our CTO leading the Digital Solutions
+                &amp; Technology unit. Based in Alexandria, Egypt, Ahmed builds
+                technology that empowers professionals with practical skills.
               </p>
               <div className="mt-6 flex flex-wrap items-center gap-4">
                 <a
@@ -694,8 +684,8 @@ export default function AcademyPage() {
             Ready to start learning?
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-slate-300">
-            Download Rx Challenger today or get notified when new Academy courses
-            launch.
+            Explore our courses, download Rx Challenger, or get notified when new
+            Academy offerings launch.
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <a
