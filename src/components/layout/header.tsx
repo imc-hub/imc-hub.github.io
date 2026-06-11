@@ -65,7 +65,7 @@ export function Header() {
       <div
         className={cn(
           "overflow-hidden transition-all duration-300 md:hidden",
-          mobileOpen ? "max-h-80" : "max-h-0"
+          mobileOpen ? "max-h-[420px]" : "max-h-0"
         )}
       >
         <nav className="flex flex-col gap-1 border-t border-border/60 px-4 py-4">
