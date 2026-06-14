@@ -1,92 +1,129 @@
+"use client";
+
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 
 export function HeroSection() {
+  const sectionRef = useScrollReveal<HTMLElement>();
+
   return (
-    <section className="relative overflow-hidden bg-imc-navy">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--color-imc-teal)_0%,_transparent_50%)] opacity-10" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_var(--color-imc-gold)_0%,_transparent_50%)] opacity-5" />
+    <section
+      ref={sectionRef}
+      aria-label="Hero"
+      className="relative overflow-hidden bg-dark-950 bg-grid"
+    >
+      {/* Background effects */}
+      <div className="absolute inset-0">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-[radial-gradient(ellipse_at_center,_rgba(220,38,38,0.08)_0%,_transparent_70%)]" />
+        <div className="absolute bottom-0 right-0 w-[600px] h-[400px] bg-[radial-gradient(ellipse_at_center,_rgba(245,166,35,0.04)_0%,_transparent_70%)]" />
+      </div>
 
       <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8 lg:py-36">
         <div className="mx-auto max-w-3xl text-center">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-imc-teal sm:text-sm">
-            Intelligent Mastery Coaching
-          </p>
+          {/* Badge */}
+          <div className="reveal inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-white/[0.03] px-4 py-1.5 backdrop-blur-sm">
+            <span className="h-1.5 w-1.5 rounded-full bg-imc-red animate-pulse-subtle" />
+            <span className="text-xs font-medium text-muted-foreground tracking-wide">
+              Intelligent Mastery Coaching
+            </span>
+          </div>
 
-          <h1 className="mt-4 text-4xl font-extrabold leading-[1.1] tracking-tight text-white sm:text-5xl lg:text-6xl">
+          {/* Headline */}
+          <h1 className="reveal delay-100 mt-6 text-4xl font-extrabold leading-[1.08] tracking-tight text-white sm:text-5xl lg:text-6xl xl:text-7xl">
             Close the gap between{" "}
-            <span className="text-imc-teal">education</span> and{" "}
-            <span className="text-imc-gold">market reality</span>.
+            <span className="text-gradient-red">education</span> and{" "}
+            <span className="text-gradient-gold">market reality</span>.
           </h1>
 
-          <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-slate-300 sm:text-lg">
+          {/* Subheadline */}
+          <p className="reveal delay-200 mx-auto mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
             IMC is a tech-enabled ecosystem that builds human potential through
             strategic intellect, digital mastery, and physical &amp; mental
             endurance — preparing individuals and organizations for measurable
             success.
           </p>
 
-          <div className="mt-10 flex items-center justify-center">
+          {/* CTA */}
+          <div className="reveal delay-300 mt-10 flex items-center justify-center">
             <Button
               size="lg"
-              className="w-full bg-imc-teal text-white hover:bg-imc-teal-dark sm:w-auto"
+              className="w-full bg-imc-red text-white hover:bg-imc-red-dark glow-red font-semibold text-base h-12 px-8 sm:w-auto"
               asChild
             >
               <Link href="/assessment">
                 Start Free Assessment
-                <ArrowRight className="ml-1.5 h-4 w-4" />
+                <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
           </div>
         </div>
 
-        <div className="mt-16 grid grid-cols-1 gap-4 sm:grid-cols-3 lg:mx-auto lg:max-w-4xl">
+        {/* Business Unit Cards */}
+        <div className="mt-20 grid grid-cols-1 gap-4 sm:grid-cols-3 lg:mx-auto lg:max-w-4xl">
           {[
             {
               label: "Corporate & Business Training",
               desc: "B2C & B2B capability building",
-              color: "bg-imc-teal/10 border-imc-teal/20 text-imc-teal",
+              gradient: "from-imc-red/10 to-transparent",
+              borderHover: "hover:border-imc-red/20",
+              icon: "🎯",
             },
             {
               label: "Athletic Performance — OCTRI",
               desc: "Mental toughness & physical endurance",
-              color: "bg-emerald-500/10 border-emerald-500/20 text-emerald-400",
+              gradient: "from-emerald-500/10 to-transparent",
+              borderHover: "hover:border-emerald-500/20",
+              icon: "⚡",
             },
             {
               label: "Digital Solutions & Technology",
               desc: "Gamified EdTech & learning platforms",
-              color: "bg-imc-gold/10 border-imc-gold/20 text-imc-gold",
+              gradient: "from-imc-gold/10 to-transparent",
+              borderHover: "hover:border-imc-gold/20",
+              icon: "🚀",
             },
-          ].map((item) => (
+          ].map((item, i) => (
             <div
               key={item.label}
-              className={`rounded-xl border p-4 text-center ${item.color}`}
+              className={`reveal delay-${(i + 3) * 100} group rounded-xl border border-white/[0.06] bg-gradient-to-br ${item.gradient} p-5 text-center backdrop-blur-sm transition-all duration-300 hover-lift ${item.borderHover}`}
             >
-              <p className="text-sm font-semibold">{item.label}</p>
-              <p className="mt-1 text-xs opacity-80">{item.desc}</p>
+              <span className="text-2xl">{item.icon}</span>
+              <p className="mt-2 text-sm font-semibold text-foreground">
+                {item.label}
+              </p>
+              <p className="mt-1 text-xs text-muted-foreground">{item.desc}</p>
             </div>
           ))}
         </div>
 
-        <div className="mt-16 text-center">
-          <p className="text-xs font-medium uppercase tracking-wider text-slate-500">
+        {/* Logo bar */}
+        <div className="reveal delay-600 mt-20 text-center">
+          <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground/40">
             Trusted by forward-thinking organizations
           </p>
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-x-10 gap-y-4 opacity-40">
-            {["TechCorp", "InnovateCo", "DataDriven", "GrowthLab", "NextGen"].map(
-              (name) => (
-                <span
-                  key={name}
-                  className="text-sm font-bold tracking-tight text-slate-300"
-                >
-                  {name}
-                </span>
-              )
-            )}
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-x-10 gap-y-4">
+            {[
+              "TechCorp",
+              "InnovateCo",
+              "DataDriven",
+              "GrowthLab",
+              "NextGen",
+            ].map((name) => (
+              <span
+                key={name}
+                className="text-sm font-bold tracking-tight text-white/10 transition-colors duration-300 hover:text-white/20"
+              >
+                {name}
+              </span>
+            ))}
           </div>
         </div>
       </div>
+
+      {/* Bottom fade */}
+      <div className="absolute bottom-0 inset-x-0 h-24 bg-gradient-to-t from-dark-950 to-transparent" />
     </section>
   );
 }

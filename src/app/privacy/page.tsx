@@ -163,7 +163,10 @@ export default function PrivacyPage() {
           { name: "Privacy Policy", item: "https://imc-hub.github.io/privacy" },
         ]}
       />
-      <section className="bg-imc-navy py-16 sm:py-20">
+      <section
+        aria-label="Privacy policy"
+        className="bg-imc-navy py-16 sm:py-20"
+      >
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">

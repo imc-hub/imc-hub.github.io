@@ -226,12 +226,18 @@ export default function CookiesPage() {
         url="https://imc-hub.github.io/cookies"
         breadcrumb={[
           { name: "Home", item: "https://imc-hub.github.io/" },
-          { name: "Cookie Declaration", item: "https://imc-hub.github.io/cookies" },
+          {
+            name: "Cookie Declaration",
+            item: "https://imc-hub.github.io/cookies",
+          },
         ]}
       />
 
       {/* Hero */}
-      <section className="bg-imc-navy py-16 sm:py-20">
+      <section
+        aria-label="Cookie declaration"
+        className="bg-imc-navy py-16 sm:py-20"
+      >
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-imc-teal">

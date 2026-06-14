@@ -9,7 +9,9 @@ export function PageLayout({ children }: PageLayoutProps) {
   return (
     <>
       <Header />
-      <main className="flex-1">{children}</main>
+      <main id="main-content" className="flex-1">
+        {children}
+      </main>
       <Footer />
     </>
   );

@@ -1,7 +1,10 @@
+"use client";
+
 import Link from "next/link";
 import { Check, ArrowRight, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 
 const plans = [
   {
@@ -22,8 +25,8 @@ const plans = [
     href: "/academy",
     external: false,
     highlight: false,
-    color: "text-imc-teal",
-    bgColor: "bg-imc-teal",
+    color: "text-imc-red",
+    bgColor: "bg-imc-red",
   },
   {
     name: "Corporate Solutions — B2B",
@@ -64,41 +67,51 @@ const plans = [
     href: "https://www.octri-egypt.com/services-offers/offers",
     external: true,
     highlight: false,
-    color: "text-emerald-500",
+    color: "text-emerald-400",
     bgColor: "bg-emerald-500",
   },
 ];
 
 export function PricingSection() {
+  const sectionRef = useScrollReveal<HTMLElement>();
+
   return (
-    <section id="pricing" className="scroll-mt-20 bg-background py-20 sm:py-28">
+    <section
+      ref={sectionRef}
+      id="pricing"
+      aria-label="Pricing plans"
+      className="scroll-mt-20 bg-dark-900 py-20 sm:py-28"
+    >
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
+
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-imc-teal">
+          <p className="reveal text-xs font-semibold uppercase tracking-[0.2em] text-imc-red">
             Plans & Pricing
           </p>
-          <h2 className="mt-3 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-            Transparent pricing. No hidden fees.
+          <h2 className="reveal delay-100 mt-3 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+            Transparent pricing.{" "}
+            <span className="text-gradient-red">No hidden fees.</span>
           </h2>
-          <p className="mt-4 text-base leading-relaxed text-muted-foreground">
+          <p className="reveal delay-200 mt-4 text-base leading-relaxed text-muted-foreground">
             Start free with Corporate &amp; Business Training. Scale with custom
             corporate solutions or OCTRI athletic performance programs.
           </p>
         </div>
 
         <div className="mt-16 grid grid-cols-1 gap-6 lg:grid-cols-3">
-          {plans.map((plan) => (
+          {plans.map((plan, i) => (
             <Card
               key={plan.name}
-              className={`group relative flex flex-col overflow-hidden border p-6 transition-all duration-300 sm:p-8 ${
+              className={`reveal delay-${(i + 2) * 100} group relative flex flex-col overflow-hidden border p-6 transition-all duration-300 sm:p-8 ${
                 plan.highlight
-                  ? "border-imc-gold/30 ring-1 ring-imc-gold/20"
-                  : "border-border/60 hover:border-imc-teal/30"
+                  ? "border-imc-gold/20 ring-1 ring-imc-gold/10 bg-dark-800/80"
+                  : "border-white/[0.06] hover:border-white/[0.12] bg-dark-800/50"
               }`}
             >
               {plan.highlight && (
                 <div className="absolute top-0 right-0 rounded-bl-xl bg-imc-gold px-3 py-1">
-                  <span className="flex items-center gap-1 text-xs font-bold text-white">
+                  <span className="flex items-center gap-1 text-xs font-bold text-dark-950">
                     <Sparkles className="h-3 w-3" />
                     Popular
                   </span>
@@ -110,12 +123,10 @@ export function PricingSection() {
               >
                 {plan.tagline}
               </p>
-              <h3 className="mt-2 text-xl font-bold text-foreground">
-                {plan.name}
-              </h3>
+              <h3 className="mt-2 text-xl font-bold text-white">{plan.name}</h3>
 
               <div className="mt-4 flex items-baseline gap-1">
-                <span className="text-3xl font-extrabold text-foreground">
+                <span className="text-3xl font-extrabold text-white">
                   {plan.price}
                 </span>
                 {plan.priceNote && (
@@ -149,7 +160,7 @@ export function PricingSection() {
                     href={plan.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`inline-flex h-11 w-full items-center justify-center rounded-lg border border-border/60 text-sm font-medium transition-colors hover:bg-secondary ${plan.color}`}
+                    className={`inline-flex h-11 w-full items-center justify-center rounded-lg border border-white/[0.08] text-sm font-medium transition-all duration-200 hover:bg-white/[0.06] hover:border-white/[0.15] ${plan.color}`}
                   >
                     {plan.cta}
                     <ArrowRight className="ml-1.5 h-4 w-4" />
@@ -157,10 +168,10 @@ export function PricingSection() {
                 ) : (
                   <Button
                     size="lg"
-                    className={`w-full ${
+                    className={`w-full font-semibold ${
                       plan.highlight
-                        ? "bg-imc-gold text-white hover:bg-imc-gold-dark"
-                        : "bg-imc-teal text-white hover:bg-imc-teal-dark"
+                        ? "bg-imc-gold text-dark-950 hover:bg-imc-gold-dark"
+                        : "bg-imc-red text-white hover:bg-imc-red-dark glow-red"
                     }`}
                     asChild
                   >
@@ -175,11 +186,11 @@ export function PricingSection() {
           ))}
         </div>
 
-        <p className="mt-10 text-center text-xs text-muted-foreground">
+        <p className="mt-10 text-center text-xs text-muted-foreground/60">
           All prices in EGP. Corporate and enterprise plans available —{" "}
           <Link
             href="/contact"
-            className="text-imc-teal underline hover:no-underline"
+            className="text-imc-red underline hover:no-underline"
           >
             contact sales
           </Link>{" "}

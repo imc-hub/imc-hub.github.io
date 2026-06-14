@@ -157,7 +157,7 @@ const faqCategories: FaqCategory[] = [
       {
         question: "Can I delete my account and data?",
         answer:
-          "Yes. You have full control over your data. You can request complete account deletion at any time by emailing us at imc.hub.eg@gmail.com with the subject line \"Account Deletion Request.\" We will permanently remove your account, assessment history, and all associated personal data within 30 days, in compliance with applicable data protection regulations.",
+          'Yes. You have full control over your data. You can request complete account deletion at any time by emailing us at imc.hub.eg@gmail.com with the subject line "Account Deletion Request." We will permanently remove your account, assessment history, and all associated personal data within 30 days, in compliance with applicable data protection regulations.',
       },
       {
         question: "Is my assessment data shared with employers?",
@@ -181,8 +181,7 @@ const faqCategories: FaqCategory[] = [
           "Currently, our primary communication channels are email and the website contact form. For corporate and B2B inquiries, we can arrange video consultations to discuss your organization's specific needs. Reach out to imc.hub.eg@gmail.com to schedule a call.",
       },
       {
-        question:
-          "How do I stay informed about new programs and updates?",
+        question: "How do I stay informed about new programs and updates?",
         answer:
           "New program announcements, feature updates, and service launches are communicated through our website and email newsletter. The best way to stay current is to visit our Academy and Corporate Solutions pages regularly, where new offerings are published as they become available.",
       },
@@ -345,7 +344,7 @@ export function FaqContent() {
         items: cat.items.filter(
           (item) =>
             item.question.toLowerCase().includes(query) ||
-            item.answer.toLowerCase().includes(query)
+            item.answer.toLowerCase().includes(query),
         ),
       }))
       .filter((cat) => cat.items.length > 0);
@@ -353,7 +352,7 @@ export function FaqContent() {
 
   const totalQuestions = faqCategories.reduce(
     (sum, cat) => sum + cat.items.length,
-    0
+    0,
   );
 
   return (
@@ -395,14 +394,15 @@ export function FaqContent() {
               </div>
               {searchQuery && (
                 <p className="mt-3 text-xs text-slate-400">
-                  Showing {filteredCategories.reduce(
-                    (s, c) => s + c.items.length,
-                    0
-                  )}{" "}
+                  Showing{" "}
+                  {filteredCategories.reduce((s, c) => s + c.items.length, 0)}{" "}
                   result
-                  {filteredCategories.reduce((s, c) => s + c.items.length, 0) !==
-                  1
-                    ? "s" : ""}{" "}
+                  {filteredCategories.reduce(
+                    (s, c) => s + c.items.length,
+                    0,
+                  ) !== 1
+                    ? "s"
+                    : ""}{" "}
                   for &ldquo;{searchQuery}&rdquo;
                 </p>
               )}
@@ -412,7 +412,10 @@ export function FaqContent() {
       </section>
 
       {/* FAQ Content */}
-      <section className="bg-background py-16 sm:py-24">
+      <section
+        aria-label="Frequently asked questions"
+        className="bg-background py-16 sm:py-24"
+      >
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           {/* Controls bar */}
           <div className="mb-8 flex items-center justify-between">
@@ -453,7 +456,10 @@ export function FaqContent() {
       </section>
 
       {/* CTA */}
-      <section className="bg-secondary/30 py-16 sm:py-20">
+      <section
+        aria-label="Get in touch"
+        className="bg-secondary/30 py-16 sm:py-20"
+      >
         <div className="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl">
             <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-imc-navy">

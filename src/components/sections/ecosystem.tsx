@@ -1,6 +1,14 @@
+"use client";
+
 import Link from "next/link";
-import { ArrowRight, GraduationCap, Dumbbell, MonitorSmartphone } from "lucide-react";
+import {
+  ArrowRight,
+  GraduationCap,
+  Dumbbell,
+  MonitorSmartphone,
+} from "lucide-react";
 import { Card } from "@/components/ui/card";
+import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 
 const pillars = [
   {
@@ -16,9 +24,10 @@ const pillars = [
       "Corporate team development (B2B)",
       "Data Analysis, AI Tools & Business Skills",
     ],
-    color: "text-imc-teal",
-    bgColor: "bg-imc-teal/8",
-    borderColor: "hover:border-imc-teal/30",
+    color: "text-imc-red",
+    bgColor: "bg-imc-red/8",
+    borderColor: "hover:border-imc-red/20",
+    glowColor: "group-hover:shadow-[0_0_30px_-10px_rgba(220,38,38,0.15)]",
   },
   {
     icon: Dumbbell,
@@ -33,9 +42,10 @@ const pillars = [
       "Physical endurance tracking",
       "High-performance habits & discipline",
     ],
-    color: "text-emerald-500",
+    color: "text-emerald-400",
     bgColor: "bg-emerald-500/8",
-    borderColor: "hover:border-emerald-500/30",
+    borderColor: "hover:border-emerald-500/20",
+    glowColor: "group-hover:shadow-[0_0_30px_-10px_rgba(16,185,129,0.15)]",
   },
   {
     icon: MonitorSmartphone,
@@ -52,22 +62,31 @@ const pillars = [
     ],
     color: "text-imc-gold",
     bgColor: "bg-imc-gold/8",
-    borderColor: "hover:border-imc-gold/30",
+    borderColor: "hover:border-imc-gold/20",
+    glowColor: "group-hover:shadow-[0_0_30px_-10px_rgba(245,166,35,0.15)]",
   },
 ];
 
 export function EcosystemSection() {
+  const sectionRef = useScrollReveal<HTMLElement>();
+
   return (
-    <section id="ecosystem" className="scroll-mt-20 bg-background py-20 sm:py-28">
+    <section
+      ref={sectionRef}
+      id="ecosystem"
+      aria-label="Our ecosystem"
+      className="scroll-mt-20 bg-dark-950 py-20 sm:py-28"
+    >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-imc-teal">
+          <p className="reveal text-xs font-semibold uppercase tracking-[0.2em] text-imc-red">
             The IMC Ecosystem
           </p>
-          <h2 className="mt-3 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-            Three business units. One integrated ecosystem.
+          <h2 className="reveal delay-100 mt-3 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+            Three business units.{" "}
+            <span className="text-gradient-red">One integrated ecosystem.</span>
           </h2>
-          <p className="mt-4 text-base leading-relaxed text-muted-foreground">
+          <p className="reveal delay-200 mt-4 text-base leading-relaxed text-muted-foreground">
             Corporate &amp; Business Training, Athletic Performance, and Digital
             Solutions &amp; Technology work together to build the complete
             professional — technically skilled, business-ready, and mentally
@@ -76,20 +95,20 @@ export function EcosystemSection() {
         </div>
 
         <div className="mt-16 grid grid-cols-1 gap-6 lg:grid-cols-3">
-          {pillars.map((pillar) => {
+          {pillars.map((pillar, i) => {
             const Icon = pillar.icon;
             return (
               <Card
                 key={pillar.name}
-                className={`group relative flex flex-col overflow-hidden border border-border/60 p-6 transition-all duration-300 ${pillar.borderColor} sm:p-8`}
+                className={`reveal delay-${(i + 2) * 100} group relative flex flex-col overflow-hidden border border-white/[0.06] p-6 transition-all duration-300 ${pillar.borderColor} ${pillar.glowColor} sm:p-8`}
               >
                 <div
-                  className={`inline-flex h-12 w-12 items-center justify-center rounded-xl ${pillar.bgColor}`}
+                  className={`inline-flex h-12 w-12 items-center justify-center rounded-xl ${pillar.bgColor} ring-1 ring-white/[0.06]`}
                 >
                   <Icon className={`h-6 w-6 ${pillar.color}`} />
                 </div>
 
-                <h3 className="mt-5 text-xl font-bold text-foreground">
+                <h3 className="mt-5 text-xl font-bold text-white">
                   {pillar.name}
                 </h3>
                 <p className={`mt-1 text-sm font-medium ${pillar.color}`}>
@@ -115,9 +134,17 @@ export function EcosystemSection() {
 
                 <div className="mt-auto pt-6">
                   <Link
-                    href={pillar.name.includes("OCTRI") ? "https://www.octri-egypt.com/" : pillar.name.includes("Digital") ? "/digital-solutions" : "/#get-started"}
-                    {...(pillar.name.includes("OCTRI") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                    className={`inline-flex items-center gap-1.5 text-sm font-medium ${pillar.color} transition-all hover:gap-2.5`}
+                    href={
+                      pillar.name.includes("OCTRI")
+                        ? "https://www.octri-egypt.com/"
+                        : pillar.name.includes("Digital")
+                          ? "/digital-solutions"
+                          : "/#get-started"
+                    }
+                    {...(pillar.name.includes("OCTRI")
+                      ? { target: "_blank", rel: "noopener noreferrer" }
+                      : {})}
+                    className={`inline-flex items-center gap-1.5 text-sm font-medium ${pillar.color} transition-all duration-200 hover:gap-2.5`}
                   >
                     Explore {pillar.name.split("—")[0].trim()}
                     <ArrowRight className="h-3.5 w-3.5" />

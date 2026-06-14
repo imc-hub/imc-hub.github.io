@@ -10,12 +10,36 @@
   --font-sans: var(--font-sans);
   --font-mono: var(--font-geist-mono);
 
+  /* ── IMC Brand — Dark Premium Palette ── */
   --color-imc-navy: #0b1d3a;
   --color-imc-navy-light: #132a4a;
   --color-imc-teal: #00b4d8;
   --color-imc-teal-dark: #0096b8;
   --color-imc-gold: #f5a623;
   --color-imc-gold-dark: #d48e1c;
+
+  /* ── Dark Theme Core ── */
+  --color-dark-950: #050507;
+  --color-dark-900: #0a0a0f;
+  --color-dark-800: #0f0f16;
+  --color-dark-700: #16161f;
+  --color-dark-600: #1e1e2a;
+  --color-dark-500: #2a2a3a;
+  --color-dark-400: #3a3a4f;
+  --color-dark-300: #5a5a72;
+
+  /* ── Accent Red ── */
+  --color-imc-red: #dc2626;
+  --color-imc-red-dark: #b91c1c;
+  --color-imc-red-light: #ef4444;
+  --color-imc-red-glow: rgba(220, 38, 38, 0.15);
+
+  /* ── Surface Tokens ── */
+  --color-surface-0: var(--color-dark-950);
+  --color-surface-1: var(--color-dark-900);
+  --color-surface-2: var(--color-dark-800);
+  --color-surface-3: var(--color-dark-700);
+  --color-surface-4: var(--color-dark-600);
 
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
@@ -52,6 +76,7 @@
   --radius-xl: calc(var(--radius) * 1.4);
 }
 
+/* ── Light Mode (kept for system preference, but dark is default) ── */
 :root {
   --background: #fafbfc;
   --foreground: #0f172a;
@@ -79,41 +104,298 @@
   --radius: 0.5rem;
 }
 
+/* ── Dark Mode — Premium Black/Red/White ── */
 .dark {
-  --background: #0b1d3a;
-  --foreground: #e2e8f0;
-  --card: #132a4a;
-  --card-foreground: #e2e8f0;
-  --popover: #132a4a;
-  --popover-foreground: #e2e8f0;
-  --primary: #e2e8f0;
-  --primary-foreground: #0b1d3a;
-  --secondary: #1a3050;
-  --secondary-foreground: #e2e8f0;
-  --muted: #1a3050;
-  --muted-foreground: #94a3b8;
-  --accent: #00b4d8;
+  --background: var(--color-dark-950);
+  --foreground: #f0f0f5;
+  --card: var(--color-dark-800);
+  --card-foreground: #f0f0f5;
+  --popover: var(--color-dark-800);
+  --popover-foreground: #f0f0f5;
+  --primary: var(--color-imc-red);
+  --primary-foreground: #ffffff;
+  --secondary: var(--color-dark-700);
+  --secondary-foreground: #e0e0e8;
+  --muted: var(--color-dark-700);
+  --muted-foreground: #8888a0;
+  --accent: var(--color-imc-red);
   --accent-foreground: #ffffff;
-  --destructive: #dc2626;
-  --border: #1e3a5f;
-  --input: #1e3a5f;
-  --ring: #00b4d8;
+  --destructive: var(--color-imc-red-light);
+  --border: var(--color-dark-500);
+  --input: var(--color-dark-600);
+  --ring: var(--color-imc-red);
 }
 
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
+  html {
+    @apply font-sans scroll-smooth;
+    overflow-x: hidden;
+  }
   body {
     @apply bg-background text-foreground;
   }
-  html {
-    @apply font-sans scroll-smooth;
+
+  /* ── Scrollbar Styling ── */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-dark-900);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-dark-500);
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-dark-400);
   }
 }
 
+/* ── Animation System ── */
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+
+  /* Screen-reader only — visible on focus for skip links */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+  .focus\:not-sr-only:focus {
+    position: fixed;
+    width: auto;
+    height: auto;
+    padding: 0;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+  }
+
+  /* Scroll reveal — elements start hidden and fade/slide in */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition:
+      opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .reveal-left {
+    opacity: 0;
+    transform: translateX(-32px);
+    transition:
+      opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal-left.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  .reveal-right {
+    opacity: 0;
+    transform: translateX(32px);
+    transition:
+      opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal-right.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  .reveal-scale {
+    opacity: 0;
+    transform: scale(0.92);
+    transition:
+      opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal-scale.visible {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  /* Stagger delays */
+  .delay-100 {
+    transition-delay: 100ms;
+  }
+  .delay-200 {
+    transition-delay: 200ms;
+  }
+  .delay-300 {
+    transition-delay: 300ms;
+  }
+  .delay-400 {
+    transition-delay: 400ms;
+  }
+  .delay-500 {
+    transition-delay: 500ms;
+  }
+  .delay-600 {
+    transition-delay: 600ms;
+  }
+
+  /* Hover lift effect */
+  .hover-lift {
+    transition:
+      transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+      box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px -8px rgba(0, 0, 0, 0.5);
+  }
+
+  /* Glow effect for CTAs */
+  .glow-red {
+    box-shadow:
+      0 0 20px rgba(220, 38, 38, 0.3),
+      0 0 60px rgba(220, 38, 38, 0.1);
+  }
+  .glow-red:hover {
+    box-shadow:
+      0 0 25px rgba(220, 38, 38, 0.4),
+      0 0 80px rgba(220, 38, 38, 0.15);
+  }
+
+  /* Gradient text */
+  .text-gradient-red {
+    background: linear-gradient(135deg, #dc2626 0%, #ef4444 50%, #f87171 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-gold {
+    background: linear-gradient(135deg, #f5a623 0%, #fbbf24 50%, #f5a623 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Subtle grid background */
+  .bg-grid {
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  /* Noise texture overlay */
+  .bg-noise::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Animated gradient border */
+  .border-gradient {
+    position: relative;
+  }
+  .border-gradient::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(
+      135deg,
+      rgba(220, 38, 38, 0.3),
+      rgba(245, 166, 35, 0.2),
+      rgba(220, 38, 38, 0.1)
+    );
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  /* Pulse animation for key elements */
+  @keyframes pulse-subtle {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.7;
+    }
+  }
+  .animate-pulse-subtle {
+    animation: pulse-subtle 3s ease-in-out infinite;
+  }
+
+  /* Float animation */
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-8px);
+    }
+  }
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  /* Shimmer effect */
+  @keyframes shimmer {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+  .animate-shimmer {
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.04) 50%,
+      transparent 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 3s ease-in-out infinite;
+  }
+}
+
+/* ── Reduced Motion ── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal,
+  .reveal-left,
+  .reveal-right,
+  .reveal-scale {
+    opacity: 1;
+    transform: none;
+  }
+  .hover-lift:hover {
+    transform: none;
   }
 }
