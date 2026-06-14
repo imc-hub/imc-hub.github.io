@@ -221,3 +221,21 @@ const EMAILJS_TEMPLATE_ID = "template_2d2xcc4";
 - Both use `alt="Rx Challenger application logo"` for accessibility
 
 **Build:** 17 routes prerendered, zero TypeScript errors, zero build errors
+
+### 2026-06-14 — Rx Challenger Logo Fix
+
+**Problem:** `rx_325x325.png` logo not rendering on Digital Solutions page and Rx Challenger product page.
+
+**Root Cause — Three issues in `<img>` tags:**
+
+1. `width`/`height` HTML attributes were set to the CSS _display_ size (48, 64) instead of the _actual image dimensions_ (325×325). This aspect ratio mismatch caused browsers to miscalculate the image box.
+2. `object-cover` class was applied unnecessarily (logo is already square 325×325). This class is for cropping non-matching aspect ratios and caused rendering failures.
+3. Missing `shrink-0` — flex container could compress the image.
+
+**Fix (commit `a69c198`):**
+
+- Set `width={325} height={325}` (matching actual image dimensions) on both pages
+- Removed `object-cover` class
+- Added `shrink-0` to prevent flex compression
+
+**Lesson:** When using `<img>` with explicit `width`/`height` attributes, always set them to the _actual image pixel dimensions_, not the CSS display size. Use CSS (`w-*`, `h-*`) for visual sizing. Avoid `object-cover` on square images.
