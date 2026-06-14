@@ -165,9 +165,9 @@ export function RxChallengerPageContent() {
               <img
                 src="/rx-challenger/rx_325x325.png"
                 alt="Rx Challenger application logo"
-                className="h-14 w-14 rounded-xl object-cover ring-1 ring-white/[0.1] sm:h-16 sm:w-16"
-                width={64}
-                height={64}
+                className="h-14 w-14 shrink-0 rounded-xl ring-1 ring-white/[0.1] sm:h-16 sm:w-16"
+                width={325}
+                height={325}
               />
               <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">
                 Rx <span className="text-gradient-gold">Challenger</span>

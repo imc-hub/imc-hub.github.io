@@ -176,9 +176,9 @@ export function DigitalSolutionsContent() {
               <img
                 src="/rx-challenger/rx_325x325.png"
                 alt="Rx Challenger application logo"
-                className="h-10 w-10 rounded-lg object-cover ring-1 ring-white/[0.1] sm:h-12 sm:w-12"
-                width={48}
-                height={48}
+                className="h-10 w-10 shrink-0 rounded-lg ring-1 ring-white/[0.1] sm:h-12 sm:w-12"
+                width={325}
+                height={325}
               />
               <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
                 Rx Challenger —{" "}
