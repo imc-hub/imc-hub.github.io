@@ -150,7 +150,11 @@
       "Bash(start chrome *)",
       "Bash(curl *)",
       "Bash(npm ci *)",
-      "Bash(npx eslint *)"
+      "Bash(npx eslint *)",
+      "Bash(git credential-manager *)",
+      "Bash(identify E:/imc/website/public/rx-challenger/rx_325x325.png)",
+      "Bash(python -c \"from PIL import Image; img=Image.open\\('E:/imc/website/public/rx-challenger/rx_325x325.png'\\); print\\(f'Size: {img.size}, Mode: {img.mode}, Format: {img.format}'\\)\")",
+      "Bash(taskkill /PID 12024 /F)"
     ]
   },
   "disabledMcpjsonServers": []
