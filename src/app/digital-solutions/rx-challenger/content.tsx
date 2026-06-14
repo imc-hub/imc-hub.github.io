@@ -161,9 +161,18 @@ export function RxChallengerPageContent() {
                 IMC Digital Solutions
               </span>
             </div>
-            <h1 className="reveal delay-100 mt-4 text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">
-              Rx <span className="text-gradient-gold">Challenger</span>
-            </h1>
+            <div className="reveal delay-100 mt-4 flex flex-col items-center gap-4 sm:flex-row sm:gap-5">
+              <img
+                src="/rx-challenger/rx_325x325.png"
+                alt="Rx Challenger application logo"
+                className="h-14 w-14 rounded-xl object-cover ring-1 ring-white/[0.1] sm:h-16 sm:w-16"
+                width={64}
+                height={64}
+              />
+              <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">
+                Rx <span className="text-gradient-gold">Challenger</span>
+              </h1>
+            </div>
             <p className="reveal delay-200 mt-3 text-lg font-medium text-imc-gold/80 sm:text-xl">
               Master Prescription Deciphering with Ease!
             </p>

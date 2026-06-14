@@ -172,12 +172,21 @@ export function DigitalSolutionsContent() {
             <p className="reveal text-xs font-semibold uppercase tracking-[0.2em] text-imc-gold">
               Flagship Product
             </p>
-            <h2 className="reveal delay-100 mt-3 text-3xl font-bold tracking-tight text-white sm:text-4xl">
-              Rx Challenger —{" "}
-              <span className="text-gradient-gold">
-                Gamified Pharmacy Training
-              </span>
-            </h2>
+            <div className="reveal delay-100 mt-3 flex items-center justify-center gap-3 sm:gap-4">
+              <img
+                src="/rx-challenger/rx_325x325.png"
+                alt="Rx Challenger application logo"
+                className="h-10 w-10 rounded-lg object-cover ring-1 ring-white/[0.1] sm:h-12 sm:w-12"
+                width={48}
+                height={48}
+              />
+              <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+                Rx Challenger —{" "}
+                <span className="text-gradient-gold">
+                  Gamified Pharmacy Training
+                </span>
+              </h2>
+            </div>
             <p className="reveal delay-200 mt-4 text-base leading-relaxed text-muted-foreground">
               Our flagship mobile application helps pharmacy professionals
               master prescription reading through real-world scenarios, adaptive
