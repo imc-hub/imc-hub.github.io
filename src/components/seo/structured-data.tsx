@@ -50,9 +50,7 @@ export function OrganizationStructuredData() {
         email: "imc.hub.eg@gmail.com",
       },
     ],
-    sameAs: [
-      "https://github.com/imc-hub",
-    ],
+    sameAs: ["https://github.com/imc-hub"],
   };
   return <JsonLd data={data} />;
 }
@@ -168,7 +166,7 @@ export function RxChallengerStructuredData() {
     operatingSystem: "Android",
     description:
       "A gamified mobile application for pharmacy graduates and professionals to master prescription reading using real-world, anonymized patient scenarios with context-rich clinical data.",
-    url: `${SITE_URL}/digital-solutions`,
+    url: `${SITE_URL}/digital-solutions/rx-challenger`,
     downloadUrl:
       "https://play.google.com/store/apps/details?id=com.pharmacycafe.goodrx&hl=en",
     author: {

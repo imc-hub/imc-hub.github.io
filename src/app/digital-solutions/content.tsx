@@ -221,6 +221,15 @@ export function DigitalSolutionsContent() {
               );
             })}
           </div>
+          <div className="reveal delay-500 mt-10 text-center">
+            <a
+              href="/digital-solutions/rx-challenger"
+              className="inline-flex h-12 items-center justify-center gap-2 rounded-lg bg-imc-gold/10 border border-imc-gold/20 px-6 text-sm font-semibold text-imc-gold transition-all hover:bg-imc-gold/20"
+            >
+              Explore Rx Challenger
+              <ArrowRight className="h-4 w-4" />
+            </a>
+          </div>
         </div>
       </section>
 
