@@ -168,3 +168,56 @@ const EMAILJS_TEMPLATE_ID = "template_2d2xcc4";
 - Fixed infinite page refresh bug: removed auto-reload SW registration script from layout (the `/sw.js` was reloading on every first visit)
 
 **Build:** 12 routes prerendered, zero TypeScript errors, zero build errors
+
+### 2026-06-14 — Rx Challenger Dedicated Product Page
+
+**New Route:** `/digital-solutions/rx-challenger`
+
+- Created `src/app/digital-solutions/rx-challenger/page.tsx` (server component with metadata, OG/Twitter cards, canonical URL, breadcrumb + FAQ JSON-LD)
+- Created `src/app/digital-solutions/rx-challenger/content.tsx` (client component) with 10 sections:
+  - Hero (logo + title + tagline + CTA + platform badges)
+  - Product Overview (description + app screenshot + tech badges)
+  - Key Features (6 cards: prescriptions, cloud save, tooltips, patient history, chief complaints, diagnosis)
+  - Benefits (6 cards: training, education, gamification, skill levels, analytics, cross-platform)
+  - Learning Experience (3-step methodology)
+  - Testimonials (4 cards with author photos + 5-star ratings)
+  - Mobile Application (Android + Windows download cards)
+  - IMC Ecosystem Positioning (links back to Digital Solutions + About)
+  - FAQ (6 questions, schema-enabled)
+  - CTA (Download Free + Contact Us)
+
+**Digital Solutions Page Updates:**
+
+- Added "Explore Rx Challenger" CTA button in the Flagship Product section linking to the new page
+- Added Rx Challenger logo (`rx_325x325.png`) beside the flagship product title
+
+**SEO & Schema:**
+
+- Title: `Rx Challenger | Mobile Learning Application | IMC Digital Solutions`
+- Updated `RxChallengerStructuredData` URL to `/digital-solutions/rx-challenger`
+- Added `/digital-solutions/rx-challenger` to sitemap (priority 0.7)
+- Breadcrumb schema: Home → Digital Solutions → Rx Challenger
+
+**Assets — Rx Challenger Product Images (13 files in `public/rx-challenger/`):**
+
+- `rx_325x325.png` — Product logo (325×325 PNG, 5 KB, sRGB), used beside titles on both pages
+- `left-image.png` — App screenshot (55 KB), used in product overview
+- `googleplay.png` — Google Play badge (16 KB)
+- `windows.png` — Windows download badge (7 KB)
+- `testimonial-author-1-4.png` — Testimonial author photos (4 files)
+- `features-icon-1-3.png` — Feature icons (3 files, available for future use)
+- `about-icon-01-03.png` — About icons (3 files, available for future use)
+
+**Internal Linking:**
+
+- Digital Solutions → Rx Challenger via "Explore Rx Challenger" button
+- Rx Challenger → Digital Solutions via "Explore Digital Solutions" in ecosystem section
+- Rx Challenger → About / Contact via ecosystem + CTA sections
+
+**Logo Integration:**
+
+- Digital Solutions page flagship section: logo (`h-10 w-10` mobile → `h-12 w-12` desktop) inline beside "Rx Challenger — Gamified Pharmacy Training"
+- Rx Challenger product page hero: logo (`h-14 w-14` mobile → `h-16 w-16` desktop) stacked above title on mobile, inline on desktop (`sm:flex-row`)
+- Both use `alt="Rx Challenger application logo"` for accessibility
+
+**Build:** 17 routes prerendered, zero TypeScript errors, zero build errors
