@@ -239,3 +239,20 @@ const EMAILJS_TEMPLATE_ID = "template_2d2xcc4";
 - Added `shrink-0` to prevent flex compression
 
 **Lesson:** When using `<img>` with explicit `width`/`height` attributes, always set them to the _actual image pixel dimensions_, not the CSS display size. Use CSS (`w-*`, `h-*`) for visual sizing. Avoid `object-cover` on square images.
+
+### 2026-06-16 — "This page couldn't load" Fix
+
+**Problem:** Intermittent "This page couldn't load" error (with Reload/Back buttons) when navigating between pages on GitHub Pages.
+
+**Root Cause — Two issues:**
+
+1. **`scripts/postbuild.mjs` was too aggressive:** It deleted `__next.*` junk files from subdirectories, then removed the entire subdirectory if empty. When applied to ALL directories (or to root-level), it deleted `__next.*` files that Next.js needs for client-side navigation, breaking hydration on subsequent pages.
+
+2. **`public/sw.js` masked real errors:** The service worker used `NetworkFirst` with a 3-second timeout for navigation, plus a `setCatchHandler` that served cached `/` (the homepage) for ANY navigation failure. When a real 404/network error occurred, the SW silently served stale homepage HTML at the wrong URL, causing the browser to show "This page couldn't load" instead of the actual error.
+
+**Fix:**
+
+- `scripts/postbuild.mjs`: Rewrote to only delete `__next.*` files from a known list of route subdirectories. Never touches root-level `__next.*` files or the `_next/` directory. Never deletes the subdirectory itself (only its junk contents).
+- `public/sw.js`: Replaced `NetworkFirst` + `setCatchHandler` with `NetworkOnly` for navigation requests. This ensures the browser always gets a fresh response from the server, and real 404/500 errors bubble up correctly. Updated precache list to use `.html` suffixes matching the actual build output.
+
+**Lesson:** When writing a postbuild cleanup script, be explicit about which directories to clean — don't glob or recurse. When using Workbox for a fully static site, `NetworkOnly` for navigation is safer than `NetworkFirst` + `setCatchHandler` because stale fallbacks can mask real errors.
