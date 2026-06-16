@@ -154,7 +154,23 @@
       "Bash(git credential-manager *)",
       "Bash(identify E:/imc/website/public/rx-challenger/rx_325x325.png)",
       "Bash(python -c \"from PIL import Image; img=Image.open\\('E:/imc/website/public/rx-challenger/rx_325x325.png'\\); print\\(f'Size: {img.size}, Mode: {img.mode}, Format: {img.format}'\\)\")",
-      "Bash(taskkill /PID 12024 /F)"
+      "Bash(taskkill /PID 12024 /F)",
+      "Bash(npx serve *)",
+      "Bash(Start-Sleep -Seconds 3)",
+      "Bash(Select-String -Pattern \"script src\")",
+      "Bash(Select-Object -First 20)",
+      "Bash(Start-Process *)",
+      "Bash(cmd *)",
+      "Bash(Select-String -Pattern \"\\\\.html$\")",
+      "Bash(Select-String \"digital-solutions\")",
+      "Bash(Select-String \"15orcrkp\")",
+      "Bash(findstr /i \"15orcrkp\")",
+      "Bash(Get-ChildItem *)",
+      "Bash(Select-String -Path out\\\\about.html -Pattern \"AboutPage\")",
+      "Bash(Select-Object -First 5)",
+      "Bash(Sort-Object -Unique)",
+      "Bash(Test-Path *)",
+      "Bash(Select-Object -Unique)"
     ]
   },
   "disabledMcpjsonServers": []

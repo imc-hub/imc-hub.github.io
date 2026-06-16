@@ -216,7 +216,7 @@ export function RxChallengerPageContent() {
                 />
               </a>
               <a
-                href="https://rxchallenger.github.io/download/rxchallenger%20v1.0.0.2.exe"
+                href="https://github.com/rxchallenger/rxchallenger.github.io/raw/refs/heads/main/download/rxchallenger.exe"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="transition-opacity hover:opacity-80"
@@ -569,7 +569,7 @@ export function RxChallengerPageContent() {
               </p>
               <div className="mt-6">
                 <a
-                  href="https://rxchallenger.github.io/download/rxchallenger%20v1.0.0.2.exe"
+                  href="https://github.com/rxchallenger/rxchallenger.github.io/raw/refs/heads/main/download/rxchallenger.exe"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 text-sm font-medium text-sky-400 transition-all duration-200 hover:gap-3"
