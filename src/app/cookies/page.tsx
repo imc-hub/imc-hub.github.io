@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { PageLayout } from "@/components/layout/page-layout";
 import { WebPageStructuredData } from "@/components/seo/structured-data";
-import { PreferenceCenter } from "@/components/cookie-consent/preference-center";
 
 export const metadata: Metadata = {
   title: "Cookie Declaration",
@@ -367,16 +366,6 @@ export default function CookiesPage() {
               imc.hub.eg@gmail.com
             </a>
           </p>
-        </div>
-      </section>
-
-      {/* Preference Center */}
-      <section
-        id="preference-center"
-        className="scroll-mt-24 bg-background py-8"
-      >
-        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-          <PreferenceCenter />
         </div>
       </section>
     </PageLayout>

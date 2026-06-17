@@ -5,7 +5,6 @@ import {
   useContext,
   useState,
   useCallback,
-  useMemo,
   type ReactNode,
 } from "react";
 import {
@@ -27,7 +26,6 @@ interface ConsentContextValue {
       Omit<CookieConsentState, "necessary" | "timestamp" | "version">
     >,
   ) => void;
-  closeBanner: () => void;
 }
 
 const ConsentContext = createContext<ConsentContextValue | null>(null);
@@ -40,12 +38,15 @@ export function useConsent(): ConsentContextValue {
   return ctx;
 }
 
-export function ConsentProvider({ children }: { children: ReactNode }) {
-  const [consent, setConsent] = useState<CookieConsentState | null>(() =>
-    getConsentState(),
-  );
+// Module-level: read localStorage once on the client, before any component renders.
+// On the server (SSR/static export build), typeof window is undefined, so consent stays null.
+// On the client, this runs immediately when the module loads.
+const initialConsent = typeof window !== "undefined" ? getConsentState() : null;
 
-  const isBannerVisible = useMemo(() => consent === null, [consent]);
+export function ConsentProvider({ children }: { children: ReactNode }) {
+  const [consent, setConsent] = useState<CookieConsentState | null>(
+    initialConsent,
+  );
 
   const acceptAll = useCallback(() => {
     const state = acceptAllConsent();
@@ -79,10 +80,8 @@ export function ConsentProvider({ children }: { children: ReactNode }) {
     [],
   );
 
-  const closeBanner = useCallback(() => {
-    setConsent(getDefaultConsent());
-    setConsentState(getDefaultConsent());
-  }, []);
+  // Banner visible only when no consent record exists
+  const isBannerVisible = consent === null;
 
   return (
     <ConsentContext.Provider
@@ -92,7 +91,6 @@ export function ConsentProvider({ children }: { children: ReactNode }) {
         acceptAll,
         rejectAll,
         updateConsent,
-        closeBanner,
       }}
     >
       {children}

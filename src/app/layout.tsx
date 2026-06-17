@@ -7,8 +7,6 @@ import {
 } from "@/components/seo/structured-data";
 import InstallPrompt from "@/components/pwa/install-prompt";
 import UpdateToast from "@/components/pwa/update-toast";
-import { ConsentProvider } from "@/components/cookie-consent/consent-provider";
-import { CookieBanner } from "@/components/cookie-consent/banner";
 
 const inter = Inter({
   variable: "--font-sans",
@@ -166,10 +164,7 @@ export default function RootLayout({
         >
           Skip to main content
         </a>
-        <ConsentProvider>
-          {children}
-          <CookieBanner />
-        </ConsentProvider>
+        {children}
         <InstallPrompt />
         <UpdateToast />
         <script
