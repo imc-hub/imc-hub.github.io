@@ -4,7 +4,7 @@ import { useRef, useEffect } from "react";
 import { useConsent } from "./consent-provider";
 
 export function CookieBanner() {
-  const { isBannerVisible, acceptAll, rejectAll, closeBanner } = useConsent();
+  const { isBannerVisible, acceptAll, rejectAll } = useConsent();
   const acceptRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
@@ -36,10 +36,7 @@ export function CookieBanner() {
         <div className="flex shrink-0 items-center gap-2">
           <button
             type="button"
-            onClick={() => {
-              rejectAll();
-              closeBanner();
-            }}
+            onClick={rejectAll}
             className="rounded-lg px-3 py-2 text-xs font-medium text-white/60 hover:bg-white/10 hover:text-white"
           >
             Reject All
@@ -53,10 +50,7 @@ export function CookieBanner() {
           <button
             ref={acceptRef}
             type="button"
-            onClick={() => {
-              acceptAll();
-              closeBanner();
-            }}
+            onClick={acceptAll}
             className="rounded-lg bg-imc-teal px-4 py-2 text-xs font-semibold text-[#0b1d3a] hover:bg-imc-teal-dark"
           >
             Accept All

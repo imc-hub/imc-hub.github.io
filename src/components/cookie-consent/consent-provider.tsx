@@ -5,12 +5,12 @@ import {
   useContext,
   useState,
   useCallback,
+  useMemo,
   type ReactNode,
 } from "react";
 import {
   getConsentState,
   setConsentState,
-  hasConsentRecord,
   acceptAllConsent,
   rejectAllConsent,
   getDefaultConsent,
@@ -41,24 +41,22 @@ export function useConsent(): ConsentContextValue {
 }
 
 export function ConsentProvider({ children }: { children: ReactNode }) {
-  const [consent, setConsentStateInternal] =
-    useState<CookieConsentState | null>(() => getConsentState());
-  const [isBannerVisible, setIsBannerVisible] = useState(
-    () => !hasConsentRecord(),
+  const [consent, setConsent] = useState<CookieConsentState | null>(() =>
+    getConsentState(),
   );
+
+  const isBannerVisible = useMemo(() => consent === null, [consent]);
 
   const acceptAll = useCallback(() => {
     const state = acceptAllConsent();
     setConsentState(state);
-    setConsentStateInternal(state);
-    setIsBannerVisible(false);
+    setConsent(state);
   }, []);
 
   const rejectAll = useCallback(() => {
     const state = rejectAllConsent();
     setConsentState(state);
-    setConsentStateInternal(state);
-    setIsBannerVisible(false);
+    setConsent(state);
   }, []);
 
   const updateConsent = useCallback(
@@ -76,13 +74,14 @@ export function ConsentProvider({ children }: { children: ReactNode }) {
         version: current.version,
       };
       setConsentState(next);
-      setConsentStateInternal(next);
+      setConsent(next);
     },
     [],
   );
 
   const closeBanner = useCallback(() => {
-    setIsBannerVisible(false);
+    setConsent(getDefaultConsent());
+    setConsentState(getDefaultConsent());
   }, []);
 
   return (
