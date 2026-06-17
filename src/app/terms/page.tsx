@@ -149,7 +149,7 @@ const sections = [
     title: "12. Dispute Resolution",
     content: [
       "Any dispute arising out of or relating to these Terms or the Service shall be resolved through binding arbitration administered by the American Arbitration Association under its Commercial Arbitration Rules.",
-      "The arbitration shall be conducted in English in San Francisco, California, unless otherwise agreed by the parties. The arbitrator's decision shall be final and binding.",
+      "The arbitration shall be conducted in English in Giza, Cairo, Egypt, unless otherwise agreed by the parties. The arbitrator's decision shall be final and binding.",
       "You agree that any arbitration shall be conducted on an individual basis and not as a class action or representative action. You waive any right to participate in a class action lawsuit or class-wide arbitration.",
     ],
   },
