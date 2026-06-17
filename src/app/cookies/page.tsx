@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { PageLayout } from "@/components/layout/page-layout";
 import { WebPageStructuredData } from "@/components/seo/structured-data";
+import { PreferenceCenter } from "@/components/cookie-consent/preference-center";
 
 export const metadata: Metadata = {
   title: "Cookie Declaration",
@@ -344,14 +345,12 @@ export default function CookiesPage() {
             take effect immediately.
           </p>
           <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <span
-              className="inline-flex h-10 cursor-pointer items-center justify-center rounded-lg bg-imc-teal px-6 text-sm font-medium text-white transition-colors hover:bg-imc-teal-dark"
-              role="button"
-              tabIndex={0}
-              aria-label="Cookie Preference Center — coming soon"
+            <a
+              href="#preference-center"
+              className="inline-flex h-10 items-center justify-center rounded-lg bg-imc-teal px-6 text-sm font-medium text-[#0b1d3a] transition-colors hover:bg-imc-teal-dark"
             >
               Cookie Preference Center
-            </span>
+            </a>
             <a
               href="/privacy"
               className="inline-flex h-10 items-center justify-center rounded-lg border border-border/60 bg-card px-6 text-sm font-medium text-foreground transition-colors hover:bg-secondary/50"
@@ -368,6 +367,16 @@ export default function CookiesPage() {
               imc.hub.eg@gmail.com
             </a>
           </p>
+        </div>
+      </section>
+
+      {/* Preference Center */}
+      <section
+        id="preference-center"
+        className="scroll-mt-24 bg-background py-8"
+      >
+        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+          <PreferenceCenter />
         </div>
       </section>
     </PageLayout>

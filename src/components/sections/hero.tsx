@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
+import { DownloadButton } from "@/components/pwa/download-button";
 
 export function HeroSection() {
   const sectionRef = useScrollReveal<HTMLElement>();
@@ -12,15 +13,15 @@ export function HeroSection() {
     <section
       ref={sectionRef}
       aria-label="Hero"
-      className="relative overflow-hidden bg-dark-950 bg-grid"
+      className="relative bg-dark-950 bg-grid"
     >
       {/* Background effects */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-[radial-gradient(ellipse_at_center,_rgba(220,38,38,0.08)_0%,_transparent_70%)]" />
         <div className="absolute bottom-0 right-0 w-[600px] h-[400px] bg-[radial-gradient(ellipse_at_center,_rgba(245,166,35,0.04)_0%,_transparent_70%)]" />
       </div>
 
-      <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8 lg:py-36">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8 lg:py-36">
         <div className="mx-auto max-w-3xl text-center">
           {/* Badge */}
           <div className="reveal inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-white/[0.03] px-4 py-1.5 backdrop-blur-sm">
@@ -46,7 +47,7 @@ export function HeroSection() {
           </p>
 
           {/* CTA */}
-          <div className="reveal delay-300 mt-10 flex items-center justify-center">
+          <div className="reveal delay-300 mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <Button
               size="lg"
               className="w-full bg-imc-red text-white hover:bg-imc-red-dark glow-red font-semibold text-base h-12 px-8 sm:w-auto"
@@ -57,6 +58,7 @@ export function HeroSection() {
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
+            <DownloadButton />
           </div>
         </div>
 

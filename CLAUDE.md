@@ -28,6 +28,7 @@ src/app/
 ├── digital-solutions/page.tsx  # Digital Solutions & Technology (Rx Challenger)
 ├── assessment/page.tsx     # Career readiness quiz (client component)
 ├── contact/page.tsx        # Contact form (EmailJS, client component)
+├── cookies/page.tsx        # Cookie Declaration + Preference Center
 ├── privacy/page.tsx        # Privacy Policy
 ├── terms/page.tsx          # Terms of Service
 ├── sitemap.ts              # Dynamic sitemap.xml
@@ -38,9 +39,12 @@ src/components/
 ├── layout/                 # header.tsx, footer.tsx, page-layout.tsx
 ├── sections/               # hero, stats, ecosystem, pricing, how-it-works, testimonials, cta
 ├── seo/                    # structured-data.tsx (server), client-structured-data.tsx
-├── pwa/                    # install-prompt.tsx, update-toast.tsx
+├── pwa/                    # install-prompt.tsx, update-toast.tsx, download-button.tsx
+├── cookie-consent/         # consent-provider.tsx, banner.tsx, preference-center.tsx, category-toggle.tsx
 └── ui/                     # button, card, input, label, textarea, toast
-src/lib/utils.ts            # cn() = twMerge(clsx())
+src/lib/
+├── utils.ts                # cn() = twMerge(clsx())
+└── cookie-consent.ts       # Cookie consent localStorage read/write/validation
 scripts/                    # postbuild.mjs, serve.mjs
 public/                     # favicon.ico, favicon-16/32.png, og-image.png, imc.jpeg,
                             # manifest.json, sw.js, icons/, google62c9fc6ba2ba8b2e.html
@@ -91,6 +95,7 @@ Push to `main` triggers GitHub Actions. Pages source **must** be "GitHub Actions
 - HTML: NetworkFirst (5min), CSS/JS: StaleWhileRevalidate, Images: CacheFirst
 - Install prompt: Android Chrome only (returns `null` on iOS)
 - Update flow: `UpdateToast` → `SKIP_WAITING` → auto-reload
+- **Download App button**: Hero section modal with 5-platform install instructions (Android/iOS/Windows/macOS/Linux); uses `createPortal` + module-level `beforeinstallprompt` capture
 
 ### iOS Gotchas (Do NOT)
 
@@ -144,7 +149,84 @@ const EMAILJS_TEMPLATE_ID = "template_2d2xcc4";
 | Apple Touch | `/icons/apple-touch-icon.png`                                            |
 | GSC Verify  | `/google62c9fc6ba2ba8b2e.html`                                           |
 
+## Cookie Consent System (Live)
+
+### Architecture
+
+```
+src/lib/cookie-consent.ts              # Pure utility: read/write/validate consent state
+src/components/cookie-consent/
+├── consent-provider.tsx               # React context + provider for shared consent state
+├── banner.tsx                         # First-visit bottom banner (z-[9997])
+├── preference-center.tsx              # Full preference panel (embedded on /cookies page)
+└── category-toggle.tsx                # Accessible toggle switch for each category
+```
+
+### localStorage Schema
+
+- **Key:** `"imc-cookie-consent"`
+- **Fields:** `necessary` (always true), `functional`, `analytics`, `performance`, `marketing` (all boolean), `timestamp` (ISO string), `version` (number, currently 1)
+- All localStorage access wrapped in try-catch (private browsing / quota errors)
+
+### Cookie Banner (`src/components/cookie-consent/banner.tsx`)
+
+- `fixed bottom-0 z-[9997]` — sits below PWA InstallPrompt (`z-[9999]`) and UpdateToast (`z-[9998]`)
+- Three actions: "Reject All" (ghost), "Customize" (links to `/cookies#preference-center`), "Accept All" (teal)
+- Auto-focuses "Accept All" on appear; `role="dialog"` `aria-label="Cookie consent"` `aria-live="polite"`
+- Hidden after any consent choice; state persisted in localStorage
+
+### Preference Center (`src/components/cookie-consent/preference-center.tsx`)
+
+- Embedded on `/cookies` page at `<section id="preference-center">`
+- 5 categories: Strictly Necessary (disabled, always on), Functional, Analytics, Performance, Marketing
+- "Save Preferences" (writes toggles), "Accept All", "Reject All" buttons
+- Brief "Preferences saved ✓" feedback on save (3s auto-hide)
+
+### Integration Points
+
+- `src/app/layout.tsx`: `<ConsentProvider>` wraps `{children}` + `<CookieBanner />`; `<InstallPrompt />` and `<UpdateToast />` are siblings after the provider
+- `src/app/cookies/page.tsx`: Non-functional "coming soon" span replaced with working `<PreferenceCenter />` + anchor link from CTA banner
+
+### PWA Prompt Overlap Strategy
+
+- Cookie banner: `z-[9997]`, PWA InstallPrompt: `z-[9999]`, UpdateToast: `z-[9998]`
+- When both visible, PWA prompt overlays the cookie banner (higher z-index). User dismisses PWA prompt first, then interacts with cookie banner.
+
+### Lessons
+
+- `beforeinstallprompt` fires **once** on page load — must capture at module level (outside React components) before any component mounts, or the event is lost
+- `transform` (even `translateY(0)`) and `backdrop-blur` create new stacking contexts — modals inside such trees get trapped. Use `createPortal` to render modals directly into `document.body`
+- `overflow-hidden` on a parent creates a new stacking context that traps all children — move it to inner decorative wrappers instead
+
 ## Session Notes
+
+### 2026-06-17 — Cookie Consent System & PWA Download Button
+
+**Cookie Consent Implementation:**
+
+- Created full cookie consent system: first-visit banner + preference center on `/cookies`
+- Banner at `z-[9997]` with Reject All / Customize / Accept All
+- Preference Center embedded at `#preference-center` on the cookies page
+- "Customize" in banner links to `/cookies#preference-center` (scrolls to section)
+- Consent state stored in localStorage with schema versioning
+- All components are `"use client"` (client-side only, static export compatible)
+
+**PWA Download Button (Homepage Hero):**
+
+- Added "Download App" button beside "Start Free Assessment" in hero section
+- Opens a modal (via `createPortal` to `document.body`) with 5 platform tabs: Android, iOS, Windows, macOS, Linux
+- Auto-detects user's platform; shows native install button when `beforeinstallprompt` is available
+- Module-level `beforeinstallprompt` listener captures the event before any component mounts
+- Each tab shows step-by-step manual installation instructions
+- Modal uses `z-[2147483647]` (max 32-bit int) to ensure it's above all content
+
+**Hero Section Stacking Context Fix:**
+
+- Removed `overflow-hidden` from `<section>` (was creating stacking context that trapped children above modals)
+- Moved `overflow-hidden` to inner background effects `<div>` (only needs to clip radial gradients)
+- Added `z-10` to content wrapper to keep it above background
+
+**Build:** 17 routes prerendered, zero TypeScript errors, zero build errors
 
 ### 2026-06-14 — Page Architecture Refactor & Mobile/A11y Audit
 
