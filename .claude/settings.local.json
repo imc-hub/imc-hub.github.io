@@ -170,7 +170,14 @@
       "Bash(Select-Object -First 5)",
       "Bash(Sort-Object -Unique)",
       "Bash(Test-Path *)",
-      "Bash(Select-Object -Unique)"
+      "Bash(Select-Object -Unique)",
+      "Bash(dir *)",
+      "Bash(Select-Object FullName, Length)",
+      "Bash(Format-Table -AutoSize)",
+      "PowerShell(Start-Process \"chrome.exe\" \"http://localhost:3000\")",
+      "Bash(netstat -ano)",
+      "Bash(findstr :3000)",
+      "Bash(Select-Object -First 20 FullName)"
     ]
   },
   "disabledMcpjsonServers": []

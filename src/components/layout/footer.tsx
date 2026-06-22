@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const socialLinks = [
   {
-    href: "https://www.instagram.com/imc1hub?igsh=ZXIzcTV4c3JkcXFo",
+    href: "https://www.instagram.com/imc1hub",
     label: "Follow IMC on Instagram",
     svg: (
       <svg
@@ -22,7 +22,7 @@ const socialLinks = [
     ),
   },
   {
-    href: "https://www.facebook.com/share/18dYFeXKku/",
+    href: "https://www.facebook.com/profile.php?id=61591257352541",
     label: "Follow IMC on Facebook",
     svg: (
       <svg
