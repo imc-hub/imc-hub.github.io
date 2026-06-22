@@ -157,6 +157,32 @@ Cookie consent banner and preference center were implemented but caused page fre
 
 ## Session Notes
 
+### 2026-06-22 — Cache Busting Fix (No CSS on Return Visits)
+
+**Problem:** Returning visitors got HTML with no CSS/JS. Old service worker served stale cached assets that no longer matched the new build's hashed filenames.
+
+**Root Causes:**
+
+1. `StaleWhileRevalidate` for CSS/JS served old cached versions when revalidation failed silently
+2. SW precache revision stuck at `"3"` — never updated, so SW didn't re-precache
+3. Old SW `activate` event didn't purge outdated caches
+4. No cache-busting meta tags on HTML pages
+5. Browser cached HTML pages without revalidating
+
+**Fix:**
+
+- `public/sw.js`:
+  - CSS/JS: Changed from `StaleWhileRevalidate` → `NetworkFirst` (3s timeout). Fresh assets always fetched first; stale cache only as network fallback
+  - Navigation: Changed from `NetworkOnly` → `NetworkFirst` (3s timeout, 1hr expiry) for faster loads with freshness
+  - Added `cleanupOutdatedCaches()` to purge old precache on SW update
+  - Added `activate` handler that immediately deletes ALL old caches
+  - Bumped precache revision from `"3"` → `"4"`
+- `src/app/layout.tsx`:
+  - Added cache-busting meta tags: `Cache-Control: no-cache, no-store, must-revalidate`, `Pragma: no-cache`, `Expires: 0`
+  - SW registration now unregisters ALL existing SWs and clears ALL browser caches before registering fresh SW — ensures returning visitors start clean
+
+**Build:** 17 routes prerendered, zero TypeScript errors, zero build errors
+
 ### 2026-06-22 — Social Media Buttons in Footer
 
 **What:** Added Instagram, Facebook, and LinkedIn icon buttons to the global footer.
