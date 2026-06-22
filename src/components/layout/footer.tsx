@@ -23,7 +23,7 @@ const footerLinks = {
 
 export function Footer() {
   return (
-    <footer className="relative border-t border-white/[0.06] bg-dark-950">
+    <footer className="relative border-t border-white/[0.06] bg-dark-950/80">
       {/* Subtle top gradient line */}
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-imc-red/20 to-transparent" />
 

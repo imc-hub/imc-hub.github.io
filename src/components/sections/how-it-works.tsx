@@ -59,7 +59,7 @@ export function HowItWorksSection() {
       ref={sectionRef}
       id="how-it-works"
       aria-label="How it works"
-      className="scroll-mt-20 bg-dark-950 py-20 sm:py-28"
+      className="scroll-mt-20 bg-dark-950/70 py-20 sm:py-28"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">

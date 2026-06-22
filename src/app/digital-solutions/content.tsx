@@ -120,10 +120,10 @@ export function DigitalSolutionsContent() {
       {/* Hero */}
       <section
         aria-label="Digital Solutions & Technology"
-        className="relative overflow-hidden bg-dark-950 bg-grid py-20 sm:py-28"
+        className="relative overflow-hidden bg-dark-950/60 bg-grid py-20 sm:py-28"
       >
         <div className="absolute inset-0">
-          <div className="absolute top-0 right-0 w-[600px] h-[400px] bg-[radial-gradient(ellipse_at_center,_rgba(245,166,35,0.06)_0%,_transparent_70%)]" />
+          <div className="absolute top-0 right-0 w-[600px] h-[400px] bg-[radial-gradient(ellipse_at_center,_rgba(245,166,35,0.04)_0%,_transparent_70%)]" />
         </div>
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
@@ -159,13 +159,13 @@ export function DigitalSolutionsContent() {
             </div>
           </div>
         </div>
-        <div className="absolute bottom-0 inset-x-0 h-24 bg-gradient-to-t from-dark-950 to-transparent" />
+        <div className="absolute bottom-0 inset-x-0 h-24 bg-gradient-to-t from-dark-950/40 to-transparent" />
       </section>
 
       {/* Flagship Product: Rx Challenger */}
       <section
         aria-label="Flagship product — Rx Challenger"
-        className="bg-dark-900 py-20 sm:py-28"
+        className="bg-dark-900/70 py-20 sm:py-28"
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
@@ -246,7 +246,7 @@ export function DigitalSolutionsContent() {
       <section
         id="offerings"
         aria-label="What we build"
-        className="scroll-mt-20 bg-dark-950 py-20 sm:py-28"
+        className="scroll-mt-20 bg-dark-950/70 py-20 sm:py-28"
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
@@ -308,7 +308,7 @@ export function DigitalSolutionsContent() {
       {/* Tech Stack */}
       <section
         aria-label="Technology stack"
-        className="bg-dark-900 py-20 sm:py-28"
+        className="bg-dark-900/70 py-20 sm:py-28"
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
@@ -343,7 +343,10 @@ export function DigitalSolutionsContent() {
       </section>
 
       {/* Process */}
-      <section aria-label="Our process" className="bg-dark-950 py-20 sm:py-28">
+      <section
+        aria-label="Our process"
+        className="bg-dark-950/70 py-20 sm:py-28"
+      >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
             <p className="reveal text-xs font-semibold uppercase tracking-[0.2em] text-imc-gold">
@@ -377,7 +380,7 @@ export function DigitalSolutionsContent() {
       {/* Other Business Units */}
       <section
         aria-label="Other business units"
-        className="bg-dark-900 py-20 sm:py-28"
+        className="bg-dark-900/70 py-20 sm:py-28"
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
@@ -448,7 +451,7 @@ export function DigitalSolutionsContent() {
       {/* FAQ */}
       <section
         aria-label="Frequently asked questions"
-        className="bg-dark-950 py-20 sm:py-28"
+        className="bg-dark-950/70 py-20 sm:py-28"
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
@@ -499,11 +502,11 @@ export function DigitalSolutionsContent() {
       {/* CTA */}
       <section
         aria-label="Start a project"
-        className="bg-dark-900 py-16 sm:py-20"
+        className="bg-dark-900/70 py-16 sm:py-20"
       >
         <div className="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
           <div className="reveal-scale mx-auto max-w-2xl rounded-2xl border border-white/[0.08] bg-gradient-to-br from-dark-800/80 to-dark-900/90 p-8 sm:p-12 relative overflow-hidden">
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[400px] h-[150px] bg-[radial-gradient(ellipse_at_center,_rgba(245,166,35,0.1)_0%,_transparent_70%)]" />
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[400px] h-[150px] bg-[radial-gradient(ellipse_at_center,_rgba(245,166,35,0.06)_0%,_transparent_70%)]" />
             <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-imc-gold/30 to-transparent" />
             <div className="relative">
               <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">

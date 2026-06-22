@@ -13,7 +13,7 @@ export function CTASection() {
       ref={sectionRef}
       id="get-started"
       aria-label="Get started"
-      className="scroll-mt-20 bg-dark-950 py-20 sm:py-28"
+      className="scroll-mt-20 bg-dark-950/70 py-20 sm:py-28"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="reveal-scale relative mx-auto max-w-3xl rounded-2xl border border-white/[0.08] bg-gradient-to-br from-dark-800/80 via-dark-900/90 to-dark-800/80 p-8 text-center backdrop-blur-sm sm:p-12 overflow-hidden">

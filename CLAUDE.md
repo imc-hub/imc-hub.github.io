@@ -38,6 +38,7 @@ src/app/
 src/components/
 ├── layout/                 # header.tsx, footer.tsx, page-layout.tsx
 ├── sections/               # hero, stats, ecosystem, pricing, how-it-works, testimonials, cta
+├── effects/                # electron-background.tsx (global canvas animation)
 ├── seo/                    # structured-data.tsx (server), client-structured-data.tsx
 ├── pwa/                    # install-prompt.tsx, update-toast.tsx, download-button.tsx
 ├── cookie-consent/         # (unused — banner removed to fix freeze; files kept for reference)
@@ -154,6 +155,43 @@ const EMAILJS_TEMPLATE_ID = "template_2d2xcc4";
 Cookie consent banner and preference center were implemented but caused page freezes due to hydration issues with Next.js static export. Removed from layout and `/cookies` page. Files remain on disk for reference but are no longer imported.
 
 ## Session Notes
+
+### 2026-06-22 — Electron Background Animation (Global)
+
+**What:** Replaced static black background with a dynamic animated electron particle network across all pages.
+
+**Source:** Adapted from `E:\move` (standalone Canvas 2D particle network — 177 lines JS, zero dependencies).
+
+**New Component:** `src/components/effects/electron-background.tsx`
+
+- `"use client"` React component using Canvas 2D API
+- Zero new npm dependencies (pure Canvas 2D)
+- IMC brand colors: red (`#dc2626`), white, soft red (`#ef4444`), soft white (`#e0e0e0`)
+- Particle counts: 70 desktop / 45 tablet / 25 mobile
+- Mouse repulsion interaction (140px radius, force 0.35)
+- Connection lines: low-opacity red/white based on particle pair colors
+- `prefers-reduced-motion` support: stops animation entirely when enabled
+- `pointer-events: none` + `aria-hidden="true"` — never blocks interaction
+- Debounced resize (200ms), passive event listeners, refs for hot state (no re-renders)
+
+**Integration:** `src/app/layout.tsx`
+
+- `<ElectronBackground />` rendered as first child of `<body>` (fixed, z-0)
+- All page content wrapped in `<div className="relative z-10">`
+- Body background set to `transparent`, html background to `#050507`
+
+**Section Background Changes (16 files, ~40 sections):**
+
+- All section-level `bg-dark-950` → `bg-dark-950/70` (or `/60` for hero sections)
+- All section-level `bg-dark-900` → `bg-dark-900/70`
+- Hero bottom fades: `from-dark-950` → `from-dark-950/40`
+- Footer: `bg-dark-950` → `bg-dark-950/80`
+- Card-level backgrounds (`bg-dark-800/50`) already semi-transparent — left as-is
+- Radial gradient glows: reduced opacity by ~30-40% to work with canvas behind
+
+**Pages affected:** Home, About, Academy, Contact, Digital Solutions, Rx Challenger (all 17 routes)
+
+**Build:** 17 routes prerendered, zero TypeScript errors, zero build errors
 
 ### 2026-06-17 — Cookie Consent Removed
 

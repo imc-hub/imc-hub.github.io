@@ -7,6 +7,7 @@ import {
 } from "@/components/seo/structured-data";
 import InstallPrompt from "@/components/pwa/install-prompt";
 import UpdateToast from "@/components/pwa/update-toast";
+import ElectronBackground from "@/components/effects/electron-background";
 
 const inter = Inter({
   variable: "--font-sans",
@@ -164,7 +165,10 @@ export default function RootLayout({
         >
           Skip to main content
         </a>
-        {children}
+        <ElectronBackground />
+        <div className="relative z-10 flex flex-col min-h-screen">
+          {children}
+        </div>
         <InstallPrompt />
         <UpdateToast />
         <script

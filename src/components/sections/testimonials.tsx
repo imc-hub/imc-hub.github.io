@@ -55,7 +55,7 @@ export function TestimonialsSection() {
     <section
       ref={sectionRef}
       aria-label="Testimonials"
-      className="bg-dark-900 py-20 sm:py-28"
+      className="bg-dark-900/70 py-20 sm:py-28"
     >
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
 

@@ -160,7 +160,7 @@ ${message}`;
       <ToastContainer />
 
       {/* Hero */}
-      <section className="relative overflow-hidden bg-dark-950 bg-grid py-16 sm:py-20">
+      <section className="relative overflow-hidden bg-dark-950/60 bg-grid py-16 sm:py-20">
         <div className="absolute inset-0">
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-[radial-gradient(ellipse_at_center,_rgba(220,38,38,0.06)_0%,_transparent_70%)]" />
         </div>
@@ -183,13 +183,13 @@ ${message}`;
             </p>
           </div>
         </div>
-        <div className="absolute bottom-0 inset-x-0 h-16 bg-gradient-to-t from-dark-950 to-transparent" />
+        <div className="absolute bottom-0 inset-x-0 h-16 bg-gradient-to-t from-dark-950/40 to-transparent" />
       </section>
 
       {/* Contact Methods */}
       <section
         aria-label="Contact methods"
-        className="bg-dark-900 py-16 sm:py-20"
+        className="bg-dark-900/70 py-16 sm:py-20"
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
@@ -236,7 +236,10 @@ ${message}`;
       </section>
 
       {/* Contact Form */}
-      <section aria-label="Contact form" className="bg-dark-950 py-16 sm:py-20">
+      <section
+        aria-label="Contact form"
+        className="bg-dark-950/70 py-16 sm:py-20"
+      >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl">
             <div className="text-center">
@@ -352,7 +355,7 @@ ${message}`;
       {/* FAQ */}
       <section
         aria-label="Frequently asked questions"
-        className="bg-dark-900 py-16 sm:py-20"
+        className="bg-dark-900/70 py-16 sm:py-20"
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl">

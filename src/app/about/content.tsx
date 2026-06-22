@@ -116,10 +116,10 @@ export function AboutPageContent() {
       {/* Hero */}
       <section
         aria-label="About IMC"
-        className="relative overflow-hidden bg-dark-950 bg-grid py-20 sm:py-28"
+        className="relative overflow-hidden bg-dark-950/60 bg-grid py-20 sm:py-28"
       >
         <div className="absolute inset-0">
-          <div className="absolute top-0 right-0 w-[600px] h-[400px] bg-[radial-gradient(ellipse_at_center,_rgba(220,38,38,0.06)_0%,_transparent_70%)]" />
+          <div className="absolute top-0 right-0 w-[600px] h-[400px] bg-[radial-gradient(ellipse_at_center,_rgba(220,38,38,0.04)_0%,_transparent_70%)]" />
         </div>
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
@@ -142,13 +142,13 @@ export function AboutPageContent() {
             </p>
           </div>
         </div>
-        <div className="absolute bottom-0 inset-x-0 h-24 bg-gradient-to-t from-dark-950 to-transparent" />
+        <div className="absolute bottom-0 inset-x-0 h-24 bg-gradient-to-t from-dark-950/40 to-transparent" />
       </section>
 
       {/* Mission & Vision */}
       <section
         aria-label="Mission and vision"
-        className="bg-dark-950 py-20 sm:py-28"
+        className="bg-dark-950/70 py-20 sm:py-28"
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
@@ -195,7 +195,7 @@ export function AboutPageContent() {
       {/* Three Business Units */}
       <section
         aria-label="Business units"
-        className="bg-dark-900 py-20 sm:py-28"
+        className="bg-dark-900/70 py-20 sm:py-28"
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
@@ -242,7 +242,7 @@ export function AboutPageContent() {
       {/* Values */}
       <section
         aria-label="Our principles"
-        className="bg-dark-950 py-20 sm:py-28"
+        className="bg-dark-950/70 py-20 sm:py-28"
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
@@ -279,7 +279,7 @@ export function AboutPageContent() {
       </section>
 
       {/* Team */}
-      <section aria-label="Our team" className="bg-dark-900 py-20 sm:py-28">
+      <section aria-label="Our team" className="bg-dark-900/70 py-20 sm:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
             <p className="reveal text-xs font-semibold uppercase tracking-[0.2em] text-imc-red">
@@ -343,7 +343,10 @@ export function AboutPageContent() {
       </section>
 
       {/* CTA */}
-      <section aria-label="Get started" className="bg-dark-950 py-16 sm:py-20">
+      <section
+        aria-label="Get started"
+        className="bg-dark-950/70 py-16 sm:py-20"
+      >
         <div className="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
           <div className="reveal-scale mx-auto max-w-2xl rounded-2xl border border-white/[0.08] bg-gradient-to-br from-dark-800/80 to-dark-900/90 p-8 sm:p-12 relative overflow-hidden">
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[400px] h-[150px] bg-[radial-gradient(ellipse_at_center,_rgba(220,38,38,0.1)_0%,_transparent_70%)]" />

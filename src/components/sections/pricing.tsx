@@ -80,7 +80,7 @@ export function PricingSection() {
       ref={sectionRef}
       id="pricing"
       aria-label="Pricing plans"
-      className="scroll-mt-20 bg-dark-900 py-20 sm:py-28"
+      className="scroll-mt-20 bg-dark-900/70 py-20 sm:py-28"
     >
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
 
@@ -187,7 +187,8 @@ export function PricingSection() {
         </div>
 
         <p className="mt-10 text-center text-xs text-muted-foreground/60">
-          All prices in EGP. Corporate and enterprise plans available —{" "}
+          All prices in Egyptian Pounds. Corporate and enterprise plans
+          available —{" "}
           <Link
             href="/contact"
             className="text-imc-red underline hover:no-underline"

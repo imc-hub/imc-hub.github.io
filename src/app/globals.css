@@ -133,9 +133,11 @@
   html {
     @apply font-sans scroll-smooth;
     overflow-x: hidden;
+    background: #050507;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply text-foreground;
+    background: transparent;
   }
 
   /* ── Scrollbar Styling ── */
