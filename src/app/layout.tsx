@@ -155,6 +155,12 @@ export default function RootLayout({
           httpEquiv="Permissions-Policy"
           content="camera=(), microphone=(), geolocation=(), payment=()"
         />
+        <meta
+          httpEquiv="Cache-Control"
+          content="no-cache, no-store, must-revalidate"
+        />
+        <meta httpEquiv="Pragma" content="no-cache" />
+        <meta httpEquiv="Expires" content="0" />
         <OrganizationStructuredData />
         <WebsiteStructuredData />
       </head>
@@ -175,9 +181,27 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: `
               if ('serviceWorker' in navigator) {
+                // Unregister all existing service workers first to clear stale caches.
+                // This ensures returning visitors get a fresh SW with updated assets.
+                navigator.serviceWorker.getRegistrations().then(function(registrations) {
+                  for (var registration of registrations) {
+                    registration.unregister();
+                  }
+                });
+                // Clear all caches from previous SW versions
+                if (window.caches) {
+                  caches.keys().then(function(names) {
+                    for (var name of names) {
+                      caches.delete(name);
+                    }
+                  });
+                }
+                // Register fresh SW after a brief delay to let unregistration complete
                 window.addEventListener('load', function() {
-                  navigator.serviceWorker.register('/sw.js', { scope: '/' })
-                    .catch(function() {});
+                  setTimeout(function() {
+                    navigator.serviceWorker.register('/sw.js', { scope: '/' })
+                      .catch(function() {});
+                  }, 100);
                 });
               }
             `,
