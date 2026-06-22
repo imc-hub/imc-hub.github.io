@@ -83,6 +83,7 @@ export default function ElectronBackground() {
     }
 
     function resize() {
+      if (!canvas) return;
       const w = window.innerWidth;
       const h = window.innerHeight;
       canvas.width = w;
@@ -94,7 +95,7 @@ export default function ElectronBackground() {
     }
 
     function animate() {
-      if (reducedMotionRef.current) return;
+      if (reducedMotionRef.current || !canvas || !ctx) return;
 
       const { w, h } = sizeRef.current;
       const particles = particlesRef.current;
@@ -181,7 +182,7 @@ export default function ElectronBackground() {
           cancelAnimationFrame(animFrameRef.current);
           animFrameRef.current = 0;
         }
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        if (ctx && canvas) ctx.clearRect(0, 0, canvas.width, canvas.height);
       } else {
         resize();
         animFrameRef.current = requestAnimationFrame(animate);
