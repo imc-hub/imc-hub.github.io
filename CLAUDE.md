@@ -67,6 +67,7 @@ public/                     # favicon.ico, favicon-16/32.png, og-image.png, imc.
 - **Footer Product:** Academy, Digital Solutions, Ecosystem, How It Works, Pricing
 - **Footer Company:** About, Contact
 - **Footer Legal:** Terms, Privacy
+- **Footer Social:** Instagram, Facebook, LinkedIn (external links, `noopener noreferrer`)
 
 ## Business Units
 
@@ -155,6 +156,38 @@ const EMAILJS_TEMPLATE_ID = "template_2d2xcc4";
 Cookie consent banner and preference center were implemented but caused page freezes due to hydration issues with Next.js static export. Removed from layout and `/cookies` page. Files remain on disk for reference but are no longer imported.
 
 ## Session Notes
+
+### 2026-06-22 — Social Media Buttons in Footer
+
+**What:** Added Instagram, Facebook, and LinkedIn icon buttons to the global footer.
+
+**Changes:** `src/components/layout/footer.tsx` (only file modified)
+
+- Added `"Follow Us"` section with 3 social icon buttons between Brand and Product columns
+- Used inline SVG icons (Lucide-style paths) — no new dependencies needed
+  - `lucide-react` v1.17.0 does **not** include `Instagram`, `Facebook`, or `Linkedin` exports
+- Footer grid expanded from `md:grid-cols-4` → `md:grid-cols-5` to accommodate new section
+
+**Design:**
+
+- 36×36px buttons (`h-9 w-9`), `rounded-lg`, dark glass style (`bg-white/[0.04]`, `ring-white/[0.08]`)
+- Hover: red accent (`hover:bg-imc-red/15`, `hover:ring-imc-red/30`, subtle red glow via `box-shadow`)
+- Icon color: `text-muted-foreground` → `group-hover:text-imc-red`, 200ms transitions
+- `strokeWidth={1.75}` matching existing Lucide icon aesthetics
+
+**Links:**
+
+- Instagram: `https://www.instagram.com/imc1hub?igsh=ZXIzcTV4c3JkcXFo`
+- Facebook: `https://www.facebook.com/share/18dYFeXKku/`
+- LinkedIn: `https://www.linkedin.com/company/imc-hub/`
+- All use `target="_blank"` + `rel="noopener noreferrer"`
+
+**Accessibility:**
+
+- `aria-label` per link: "Follow IMC on Instagram/Facebook/LinkedIn"
+- `focus-visible:ring-2 focus-visible:ring-imc-red/50` for keyboard focus
+
+**Build:** 17 routes prerendered, zero TypeScript errors, zero build errors
 
 ### 2026-06-22 — Electron Background Animation (Global)
 
