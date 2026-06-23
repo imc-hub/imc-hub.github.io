@@ -19,6 +19,8 @@ import {
   GraduationCap,
   Users,
   Star,
+  Terminal,
+  Globe,
 } from "lucide-react";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 
@@ -108,7 +110,7 @@ const benefits = [
     icon: Smartphone,
     title: "Learn Anywhere",
     description:
-      "Available on Android and Windows with cloud-synced progress — learn at your own pace, on any device.",
+      "Available on Android, Windows, Linux, and as a PWA — learn at your own pace, on any device.",
   },
 ];
 
@@ -508,26 +510,28 @@ export function RxChallengerPageContent() {
         </div>
       </section>
 
-      {/* Mobile Application Section */}
+      {/* Cross-Platform Application Section */}
       <section
-        aria-label="Mobile application"
+        aria-label="Cross-platform application"
         className="bg-dark-950/70 py-20 sm:py-28"
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
             <p className="reveal text-xs font-semibold uppercase tracking-[0.2em] text-imc-gold">
-              Mobile Application
+              Cross-Platform Application
             </p>
             <h2 className="reveal delay-100 mt-3 text-3xl font-bold tracking-tight text-white sm:text-4xl">
               Available on{" "}
-              <span className="text-gradient-gold">Android & Windows</span>
+              <span className="text-gradient-gold">
+                Android, Windows, Linux &amp; PWA
+              </span>
             </h2>
             <p className="reveal delay-200 mt-4 text-base leading-relaxed text-muted-foreground">
               Rx Challenger is a cross-platform application built for pharmacy
-              professionals on the go.
+              professionals — on any device, anywhere.
             </p>
           </div>
-          <div className="mt-16 grid grid-cols-1 gap-8 lg:grid-cols-2">
+          <div className="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2">
             <div className="reveal-left group rounded-xl border border-white/[0.06] bg-dark-800/50 p-6 backdrop-blur-sm transition-all duration-300 hover:border-imc-gold/20 hover-lift sm:p-8">
               <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-imc-gold/8 ring-1 ring-white/[0.06]">
                 <Smartphone className="h-6 w-6 text-imc-gold" />
@@ -546,6 +550,7 @@ export function RxChallengerPageContent() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 text-sm font-medium text-imc-gold transition-all duration-200 hover:gap-3"
+                  aria-label="Get Rx Challenger on Google Play"
                 >
                   <img
                     src="/rx-challenger/googleplay.png"
@@ -576,10 +581,73 @@ export function RxChallengerPageContent() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 text-sm font-medium text-sky-400 transition-all duration-200 hover:gap-3"
+                  aria-label="Download Rx Challenger for Windows"
                 >
                   <img
                     src="/rx-challenger/windows.png"
                     alt="Download for Windows"
+                    className="h-8"
+                    width={120}
+                    height={32}
+                  />
+                  <ExternalLink className="h-3.5 w-3.5" />
+                </a>
+              </div>
+            </div>
+            <div className="reveal-left group rounded-xl border border-white/[0.06] bg-dark-800/50 p-6 backdrop-blur-sm transition-all duration-300 hover:border-emerald-500/20 hover-lift sm:p-8">
+              <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-500/8 ring-1 ring-white/[0.06]">
+                <Terminal className="h-6 w-6 text-emerald-400" />
+              </div>
+              <h3 className="mt-5 text-xl font-bold text-white">
+                Linux Desktop
+              </h3>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                Linux users can run Rx Challenger natively. Download the x86_64
+                build and start mastering prescriptions on your preferred
+                distribution.
+              </p>
+              <div className="mt-6">
+                <a
+                  href="https://github.com/rxchallenger/RxChallenger/raw/refs/heads/main/builds/linux/rxchallenger.x86_64"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-sm font-medium text-emerald-400 transition-all duration-200 hover:gap-3"
+                  aria-label="Download Rx Challenger for Linux"
+                >
+                  <img
+                    src="/rx-challenger/BadgeLinux.png"
+                    alt="Download for Linux"
+                    className="h-8"
+                    width={120}
+                    height={32}
+                  />
+                  <ExternalLink className="h-3.5 w-3.5" />
+                </a>
+              </div>
+            </div>
+            <div className="reveal-right group rounded-xl border border-white/[0.06] bg-dark-800/50 p-6 backdrop-blur-sm transition-all duration-300 hover:border-violet-500/20 hover-lift sm:p-8">
+              <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-violet-500/8 ring-1 ring-white/[0.06]">
+                <Globe className="h-6 w-6 text-violet-400" />
+              </div>
+              <h3 className="mt-5 text-xl font-bold text-white">
+                Progressive Web App
+              </h3>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                No download needed. Access Rx Challenger instantly from any
+                modern browser with the Progressive Web App — installable and
+                works offline.
+              </p>
+              <div className="mt-6">
+                <a
+                  href="https://rx-challenger.vercel.app"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-sm font-medium text-violet-400 transition-all duration-200 hover:gap-3"
+                  aria-label="Open Rx Challenger Progressive Web App"
+                >
+                  <img
+                    src="/rx-challenger/PWABadge.png"
+                    alt="Open Rx Challenger PWA"
                     className="h-8"
                     width={120}
                     height={32}

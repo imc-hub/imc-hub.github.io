@@ -435,3 +435,39 @@ Cookie consent banner and preference center were implemented but caused page fre
 - `public/sw.js`: Replaced `NetworkFirst` + `setCatchHandler` with `NetworkOnly` for navigation requests. This ensures the browser always gets a fresh response from the server, and real 404/500 errors bubble up correctly. Updated precache list to use `.html` suffixes matching the actual build output.
 
 **Lesson:** When writing a postbuild cleanup script, be explicit about which directories to clean — don't glob or recurse. When using Workbox for a fully static site, `NetworkOnly` for navigation is safer than `NetworkFirst` + `setCatchHandler` because stale fallbacks can mask real errors.
+
+### 2026-06-23 — Rx Challenger: Linux & PWA Download Buttons
+
+**What:** Added Linux and PWA download buttons to the Rx Challenger product page, updated section heading to reflect all platforms.
+
+**Changes:** `src/app/digital-solutions/rx-challenger/content.tsx` (only file modified)
+
+**New Imports:** `Terminal`, `Globe` from `lucide-react`
+
+**Section renamed:** "Mobile Application" → "Cross-Platform Application"
+
+**Section heading updated:** "Available on Android & Windows" → "Available on Android, Windows, Linux & PWA"
+
+**Grid layout changed:** `lg:grid-cols-2` → `sm:grid-cols-2` for consistent 2×2 layout across all breakpoints
+
+**New Cards Added:**
+
+1. **Linux Desktop** (emerald accent):
+   - Icon: `Terminal` (emerald-400), hover border: `hover:border-emerald-500/20`
+   - Badge: `/rx-challenger/BadgeLinux.png`
+   - URL: `https://github.com/rxchallenger/RxChallenger/raw/refs/heads/main/builds/linux/rxchallenger.x86_64`
+   - `aria-label="Download Rx Challenger for Linux"`
+
+2. **Progressive Web App** (violet accent):
+   - Icon: `Globe` (violet-400), hover border: `hover:border-violet-500/20`
+   - Badge: `/rx-challenger/PWABadge.png`
+   - URL: `https://rx-challenger.vercel.app`
+   - `aria-label="Open Rx Challenger Progressive Web App"`
+
+**Accessibility improvements:** Added `aria-label` to existing Android and Windows download links (were previously missing).
+
+**Benefits section updated:** "Learn Anywhere" description now reads "Android, Windows, Linux, and as a PWA" instead of "Android and Windows".
+
+**New assets:** `public/rx-challenger/BadgeLinux.png`, `public/rx-challenger/PWABadge.png`
+
+**Build:** 17 routes prerendered, zero TypeScript errors, zero build errors
