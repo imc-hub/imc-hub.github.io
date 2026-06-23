@@ -226,9 +226,6 @@ Cookie consent banner and preference center were implemented but caused page fre
 - `"use client"` React component using Canvas 2D API
 - Zero new npm dependencies (pure Canvas 2D)
 - IMC brand colors: red (`#dc2626`), white, soft red (`#ef4444`), soft white (`#e0e0e0`)
-- Particle counts: 70 desktop / 45 tablet / 25 mobile
-- Mouse repulsion interaction (140px radius, force 0.35)
-- Connection lines: low-opacity red/white based on particle pair colors
 - `prefers-reduced-motion` support: stops animation entirely when enabled
 - `pointer-events: none` + `aria-hidden="true"` — never blocks interaction
 - Debounced resize (200ms), passive event listeners, refs for hot state (no re-renders)
@@ -249,6 +246,40 @@ Cookie consent banner and preference center were implemented but caused page fre
 - Radial gradient glows: reduced opacity by ~30-40% to work with canvas behind
 
 **Pages affected:** Home, About, Academy, Contact, Digital Solutions, Rx Challenger (all 17 routes)
+
+**Build:** 17 routes prerendered, zero TypeScript errors, zero build errors
+
+### 2026-06-23 — Electron Background Enhancement
+
+**What:** Enhanced the electron background animation to be more vibrant, interactive, and visually engaging while preserving performance, accessibility, and readability. The previous animation was too sparse and subtle.
+
+**Changes:** `src/components/effects/electron-background.tsx` (only file modified)
+
+**Configuration Changes (all centralized in `CONFIG` object):**
+
+- Particle counts: desktop 70→**120**, tablet 45→**70**, mobile 25→**40**
+- Electron radius range: 1.5-3px → **2-4px** (~30% larger)
+- Connection distance: 180→**200px**; max opacity 0.25→**0.35**
+
+**New Features:**
+
+1. **Depth layering** — each particle gets a random `depthLayer` (0=far, 1=near); far particles render smaller (×0.7) and move slower; connection opacity weighted by average depth of connected particles
+2. **Organic sinusoidal drift** — particles oscillate with unique phase offsets for natural floating movement
+3. **Per-particle speed variation** — random `speedMultiplier` (0.6-1.×) per particle
+4. **Dual mouse interaction** — gentle attraction toward cursor + soft repulsion when very close (replaced single-direction repulsion)
+5. **Connection proximity boost** — connections near the cursor strengthen temporarily (up to +0.15 alpha)
+6. **Low-power device detection** — checks `hardwareConcurrency` and `deviceMemory`; devices with ≤2 cores or ≤2 GB RAM get 60% fewer particles (min 15)
+
+**Performance Optimizations:**
+
+- Squared distance checks to skip `Math.sqrt` on pairs exceeding link distance
+- Early alpha discard (`alpha <= 0`) before canvas state changes
+- `getContext("2d", { alpha: true })` for optimal compositing
+- All hot state in refs, zero re-renders, passive event listeners
+
+**Accessibility:**
+
+- `prefers-reduced-motion` fully respected (stops loop, clears canvas, listener on media query changes)
 
 **Build:** 17 routes prerendered, zero TypeScript errors, zero build errors
 
