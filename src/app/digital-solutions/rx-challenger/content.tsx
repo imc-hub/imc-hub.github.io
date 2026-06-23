@@ -201,37 +201,71 @@ export function RxChallengerPageContent() {
                 <ArrowRight className="ml-1.5 h-4 w-4" />
               </a>
             </div>
-            <div className="reveal delay-400 mt-6 flex items-center justify-center gap-4">
-              <a
-                href="https://play.google.com/store/apps/details?id=com.pharmacycafe.goodrx&hl=en"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="transition-opacity hover:opacity-80"
-                aria-label="Get Rx Challenger on Google Play"
-              >
-                <img
-                  src="/rx-challenger/googleplay.png"
-                  alt="Get it on Google Play"
-                  className="h-10"
-                  width={140}
-                  height={40}
-                />
-              </a>
-              <a
-                href="https://github.com/rxchallenger/rxchallenger.github.io/raw/refs/heads/main/download/rxchallenger.exe"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="transition-opacity hover:opacity-80"
-                aria-label="Download Rx Challenger for Windows"
-              >
-                <img
-                  src="/rx-challenger/windows.png"
-                  alt="Download for Windows"
-                  className="h-10"
-                  width={140}
-                  height={40}
-                />
-              </a>
+            <div className="reveal delay-400 mt-6 flex flex-col items-center gap-4">
+              <div className="flex items-center justify-center gap-4">
+                <a
+                  href="https://play.google.com/store/apps/details?id=com.pharmacycafe.goodrx&hl=en"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="transition-opacity hover:opacity-80"
+                  aria-label="Get Rx Challenger on Google Play"
+                >
+                  <img
+                    src="/rx-challenger/googleplay.png"
+                    alt="Get it on Google Play"
+                    className="h-10"
+                    width={140}
+                    height={40}
+                  />
+                </a>
+                <a
+                  href="https://github.com/rxchallenger/rxchallenger.github.io/raw/refs/heads/main/download/rxchallenger.exe"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="transition-opacity hover:opacity-80"
+                  aria-label="Download Rx Challenger for Windows"
+                >
+                  <img
+                    src="/rx-challenger/windows.png"
+                    alt="Download for Windows"
+                    className="h-10"
+                    width={140}
+                    height={40}
+                  />
+                </a>
+              </div>
+              <div className="flex items-center justify-center gap-4">
+                <a
+                  href="https://github.com/rxchallenger/RxChallenger/raw/refs/heads/main/builds/linux/rxchallenger.x86_64"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="transition-opacity hover:opacity-80"
+                  aria-label="Download Rx Challenger for Linux"
+                >
+                  <img
+                    src="/rx-challenger/BadgeLinux.png"
+                    alt="Download for Linux"
+                    className="h-10"
+                    width={140}
+                    height={40}
+                  />
+                </a>
+                <a
+                  href="https://rx-challenger.vercel.app"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="transition-opacity hover:opacity-80"
+                  aria-label="Open Rx Challenger Progressive Web App"
+                >
+                  <img
+                    src="/rx-challenger/PWABadge.png"
+                    alt="Open Rx Challenger PWA"
+                    className="h-10"
+                    width={140}
+                    height={40}
+                  />
+                </a>
+              </div>
             </div>
           </div>
         </div>
