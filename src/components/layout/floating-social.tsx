@@ -100,7 +100,7 @@ export default function FloatingSocial() {
     <div
       aria-label="Social media links"
       role="group"
-      className={`fixed bottom-5 left-5 z-[9996] flex flex-col gap-2.5 transition-all duration-500 ease-out motion-reduce:transition-none ${
+      className={`fixed bottom-20 right-5 z-[9996] flex flex-col gap-2.5 transition-all duration-500 ease-out motion-reduce:transition-none sm:bottom-5 ${
         visible && !hiddenByFooter
           ? "translate-y-0 opacity-100"
           : "translate-y-4 opacity-0 pointer-events-none"
