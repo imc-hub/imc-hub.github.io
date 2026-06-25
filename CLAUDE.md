@@ -514,3 +514,50 @@ Cookie consent banner and preference center were implemented but caused page fre
 **New assets:** `public/rx-challenger/BadgeLinux.png`, `public/rx-challenger/PWABadge.png`
 
 **Build:** 17 routes prerendered, zero TypeScript errors, zero build errors
+
+### 2026-06-25 — AI for Business Course Launch (Primary Featured Course)
+
+**What:** Added "AI for Business — From Zero to Freelance Ready" as IMC's primary active training program, promoted across homepage and Academy page.
+
+**Course details:**
+
+- Instructor: Mohamed Talaat (AI & Business Strategist)
+- Price: 2000 EGP
+- Registration: Google Form (hardcoded URL in `src/app/academy/content.tsx` and `src/components/sections/featured-course.tsx`)
+- Asset: `public/AI for Business – From Zero to Freelance Ready.jpeg` (course poster image)
+
+**Course roadmap (7 modules):**
+
+1. Understanding Freelancing
+2. Local & International Platforms
+3. Professional LinkedIn Profile
+4. Prompt Engineering
+5. AI Agents
+6. Communication & Negotiation Skills
+7. Project Management Fundamentals
+
+**Schedule options:**
+
+- Weekend Track: Saturday, Monday, Wednesday
+- Weekday Track: Sunday, Tuesday, Thursday
+- Morning: 10:00 AM – 2:00 PM
+- Evening: 6:00 PM – 10:00 PM
+- 4 hours per session
+
+**Files modified:**
+
+- `src/app/academy/content.tsx` — Featured course banner, roadmap section, highlights, schedule/timing cards, updated FAQ
+- `src/app/academy/page.tsx` — Updated FAQ items and metadata
+- `src/app/page.tsx` — Added FeaturedCourseSection, updated metadata
+- `src/components/sections/featured-course.tsx` — New homepage featured course component
+- `src/components/sections/pricing.tsx` — Updated Corporate & Business Training card (price "From 2000 EGP", features list)
+- `src/components/seo/structured-data.tsx` — Added AI for Business Course schema with Offer (2000 EGP)
+
+**Changes:**
+
+- Removed 3 "Coming Soon" courses (Data Analysis & AI Skills, Corporate Soft Skills, Industry Certifications) from Academy
+- Business Readiness Track kept as "Additional Programs"
+- Free course language removed from pricing card and FAQ
+- All registration buttons: `target="_blank" rel="noopener noreferrer"`
+
+**Build:** 17 routes prerendered, zero TypeScript errors, zero build errors

@@ -7,13 +7,14 @@ import { EcosystemSection } from "@/components/sections/ecosystem";
 import { PricingSection } from "@/components/sections/pricing";
 import { HowItWorksSection } from "@/components/sections/how-it-works";
 import { TestimonialsSection } from "@/components/sections/testimonials";
+import { FeaturedCourseSection } from "@/components/sections/featured-course";
 import { CTASection } from "@/components/sections/cta";
 import { WebPageStructuredData } from "@/components/seo/structured-data";
 
 export const metadata: Metadata = {
   title: "Close the Gap Between Education & Market Reality",
   description:
-    "IMC is a tech-enabled ecosystem that builds human potential through three business units: Corporate & Business Training, Athletic Performance (OCTRI), and Digital Solutions & Technology.",
+    "IMC is a tech-enabled ecosystem with three business units. Our flagship AI for Business — From Zero to Freelance Ready course, plus Corporate & Business Training, Athletic Performance (OCTRI), and Digital Solutions & Technology.",
   alternates: {
     canonical: "/",
   },
@@ -58,6 +59,7 @@ export default function HomePage() {
         <PricingSection />
         <HowItWorksSection />
         <TestimonialsSection />
+        <FeaturedCourseSection />
         <CTASection />
       </main>
       <Footer />

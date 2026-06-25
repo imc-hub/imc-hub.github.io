@@ -10,18 +10,18 @@ const plans = [
   {
     name: "Corporate & Business Training",
     tagline: "B2C & B2B Capability Building",
-    price: "Free",
-    priceNote: "to start",
+    price: "From",
+    priceNote: "2000 EGP",
     description:
-      "Access career discovery, learning paths, and foundational skills training. Upgrade for advanced corporate programs and team development.",
+      "Access career discovery and foundational skills training. Our flagship AI for Business — From Zero to Freelance Ready program, plus the Business Readiness Track.",
     features: [
       "Career Discovery Assessment",
+      "AI for Business — From Zero to Freelance Ready",
       "Business Readiness Track",
-      "Data Analysis & AI Skills",
-      "Corporate Soft Skills",
-      "Industry Certifications",
+      "Corporate soft skills development",
+      "Professional certifications prep",
     ],
-    cta: "Start Learning",
+    cta: "Explore Training",
     href: "/academy",
     external: false,
     highlight: false,
@@ -94,8 +94,8 @@ export function PricingSection() {
             <span className="text-gradient-red">No hidden fees.</span>
           </h2>
           <p className="reveal delay-200 mt-4 text-base leading-relaxed text-muted-foreground">
-            Start free with Corporate &amp; Business Training. Scale with custom
-            corporate solutions or OCTRI athletic performance programs.
+            From our flagship AI for Business program to custom corporate
+            solutions and OCTRI athletic performance training.
           </p>
         </div>
 

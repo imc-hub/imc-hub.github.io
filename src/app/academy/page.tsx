@@ -10,12 +10,12 @@ const faqItems = [
   {
     question: "What is IMC Academy?",
     answer:
-      "IMC Academy is our Corporate & Business Training hub — offering structured learning paths in business readiness, data analysis, AI skills, corporate soft skills, and professional development. It is one of IMC's three business units, alongside Athletic Performance (OCTRI) and Digital Solutions & Technology.",
+      "IMC Academy is our Corporate & Business Training hub — home to our flagship program AI for Business — From Zero to Freelance Ready, plus the Business Readiness Track. It is one of IMC's three business units, alongside Athletic Performance (OCTRI) and Digital Solutions & Technology.",
   },
   {
     question: "What courses are available?",
     answer:
-      "Our Business Readiness Track is currently available, with Data Analysis & AI Skills, Corporate Soft Skills, and Industry Certifications tracks coming soon.",
+      "Our flagship program AI for Business — From Zero to Freelance Ready is currently enrolling. The Business Readiness Track is also available for corporate preparation.",
   },
   {
     question: "How are IMC Academy courses delivered?",
@@ -23,14 +23,14 @@ const faqItems = [
       "All courses are delivered online through our platform. Self-paced learning tracks are accessible on any device. Corporate training programs can be delivered as facilitated virtual workshops or blended learning experiences.",
   },
   {
-    question: "When will new courses launch?",
+    question: "How much does the AI for Business course cost?",
     answer:
-      "We're actively developing our Data Analysis & AI, Corporate Soft Skills, and Industry Certifications tracks. Contact us to get notified when each course becomes available.",
+      "The AI for Business — From Zero to Freelance Ready program is 2000 EGP, covering the full training from fundamentals to freelance readiness.",
   },
   {
-    question: "Is IMC Academy free to use?",
+    question: "Who is the AI for Business course for?",
     answer:
-      "Foundational content and the Business Readiness Track are available at no cost. We believe everyone deserves access to quality career preparation. Advanced corporate modules and certification tracks may have associated pricing, but core readiness tools remain free.",
+      "The course is designed for students, graduates, career changers, freelancers, and professionals interested in leveraging AI for business and building a freelance career.",
   },
   {
     question: "How do I get support?",
@@ -42,7 +42,7 @@ const faqItems = [
 export const metadata: Metadata = {
   title: "IMC Academy — Corporate & Business Training",
   description:
-    "IMC Academy is our Corporate & Business Training hub — structured learning paths in business readiness, data analysis, AI skills, corporate soft skills, and professional development.",
+    "IMC Academy is our Corporate & Business Training hub — AI for Business — From Zero to Freelance Ready, Business Readiness Track, and professional development.",
   alternates: {
     canonical: "/academy",
   },
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     siteName: "IMC — Intelligent Mastery Coaching",
     title: "IMC Academy — Corporate & Business Training",
     description:
-      "Structured learning paths in business readiness, data analysis, AI skills, corporate soft skills, and professional development.",
+      "AI for Business — From Zero to Freelance Ready, Business Readiness Track, and professional development programs.",
     images: [
       {
         url: "https://imc-hub.github.io/og-image.png",
@@ -66,7 +66,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "IMC Academy — Corporate & Business Training",
     description:
-      "Structured learning paths in business readiness, data analysis, AI skills, corporate soft skills, and professional development.",
+      "AI for Business — From Zero to Freelance Ready, Business Readiness Track, and professional development programs.",
     images: ["https://imc-hub.github.io/og-image.png"],
   },
 };
@@ -76,7 +76,7 @@ export default function AcademyPage() {
     <PageLayout>
       <WebPageStructuredData
         title="IMC Academy — Corporate & Business Training"
-        description="Structured learning paths in business readiness, data analysis, AI skills, corporate soft skills, and professional development."
+        description="AI for Business — From Zero to Freelance Ready, Business Readiness Track, and professional development programs."
         url="https://imc-hub.github.io/academy"
         breadcrumb={[
           { name: "Home", item: "https://imc-hub.github.io/" },

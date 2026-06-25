@@ -132,26 +132,53 @@ export function AcademyStructuredData() {
     url: `${SITE_URL}/academy`,
     parentOrganization: { "@id": `${SITE_URL}/#organization` },
     description:
-      "IMC Academy is our Corporate & Business Training hub — structured learning paths in business readiness, data analysis, AI skills, corporate soft skills, and professional development.",
-    course: {
-      "@type": "Course",
-      name: "Business Readiness Track",
-      description:
-        "Structured learning path covering workplace fundamentals, professional communication, and corporate culture navigation.",
-      provider: { "@id": `${SITE_URL}/#organization` },
-      educationalLevel: "Professional",
-      teaches: [
-        "Professional communication",
-        "Workplace fundamentals",
-        "Corporate culture navigation",
-        "Business readiness",
-      ],
-      hasCourseInstance: {
-        "@type": "CourseInstance",
-        courseMode: "online",
-        courseWorkload: "PT5H",
+      "IMC Academy is our Corporate & Business Training hub — home to AI for Business — From Zero to Freelance Ready, plus the Business Readiness Track.",
+    course: [
+      {
+        "@type": "Course",
+        name: "AI for Business — From Zero to Freelance Ready",
+        description:
+          "Master AI tools and build a freelance career from scratch. Practical, hands-on program for students, graduates, career changers, and professionals.",
+        provider: { "@id": `${SITE_URL}/#organization` },
+        educationalLevel: "Professional",
+        teaches: [
+          "AI tools for business",
+          "Prompt engineering",
+          "Freelance business setup",
+          "AI automation",
+        ],
+        hasCourseInstance: {
+          "@type": "CourseInstance",
+          courseMode: "online",
+          courseWorkload: "PT10H",
+        },
+        offers: {
+          "@type": "Offer",
+          price: "2000",
+          priceCurrency: "EGP",
+          availability: "https://schema.org/InStock",
+        },
       },
-    },
+      {
+        "@type": "Course",
+        name: "Business Readiness Track",
+        description:
+          "Structured learning path covering workplace fundamentals, professional communication, and corporate culture navigation.",
+        provider: { "@id": `${SITE_URL}/#organization` },
+        educationalLevel: "Professional",
+        teaches: [
+          "Professional communication",
+          "Workplace fundamentals",
+          "Corporate culture navigation",
+          "Business readiness",
+        ],
+        hasCourseInstance: {
+          "@type": "CourseInstance",
+          courseMode: "online",
+          courseWorkload: "PT5H",
+        },
+      },
+    ],
   };
   return <JsonLd data={data} />;
 }
