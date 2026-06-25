@@ -217,15 +217,12 @@ Cookie consent banner and preference center were implemented but caused page fre
 
 ### 2026-06-25 — Floating Social Media Widget (Global)
 
-**What:** Added a persistent floating social media widget visible on all pages with Instagram, Facebook, and LinkedIn links.
+**What:** Added a persistent floating social media widget visible on all pages with Instagram, Facebook, and LinkedIn links. Hides automatically when the footer is visible to avoid duplicate icons.
 
-**New Component:** `src/components/layout/floating-social.tsx`
+**Component:** `src/components/layout/floating-social.tsx`
 
 - `"use client"` component, zero new npm dependencies
-- Fixed position: `bottom-5 left-5 z-[9996]` — bottom-left chosen to avoid conflicts:
-  - PWA install prompt: `bottom-0` full-width at `z-[9999]`
-  - Update toast: `bottom-16 right-4` at `z-[9998]`
-  - Cookie banner: `bottom-0` full-width at `z-[9997]`
+- Fixed position: `right-5 z-[9996]`, bottom offset is `bottom-20` on mobile (to clear the PWA update toast at `bottom-16`) and `sm:bottom-5` on desktop
 - 3 circular buttons (40×40px), glass-morphism style (`bg-dark-950/80 ring-1 ring-white/[0.08] backdrop-blur-sm`)
 - Hover: red accent glow + subtle `scale(1.1)` scale effect
 - Fade-in animation on mount (CSS translate + opacity transition)
@@ -233,29 +230,31 @@ Cookie consent banner and preference center were implemented but caused page fre
 - All links: `target="_blank" rel="noopener noreferrer"`
 - Accessibility: `aria-label` per link ("Follow IMC on Instagram/Facebook/LinkedIn"), `role="group"` on container
 - Reuses same inline SVG icons as footer (no icon library dependency)
+- **Detection method:** Passive scroll/resize listener using `getBoundingClientRect()` — more reliable than IntersectionObserver on static export because full page navigations cause stale footer references with observers
 
 **Modified:** `src/app/layout.tsx`
 
 - Added import + `<FloatingSocial />` after `<UpdateToast />` (line 181)
 - Renders globally for all pages — no per-page changes needed
 
-**Icon approach:** Inline SVGs matching the footer's `strokeWidth={1.75}` Lucide-style aesthetic. Same URLs as footer social links.
-
 **Icon color:** Both floating widget and footer icons use `text-white` (not `text-muted-foreground`) for better visibility against the dark animated background.
 
-**Footer visibility detection:** Floating widget uses `IntersectionObserver` watching `#footer` element. When the footer scrolls into view (≥10% visible), the floating widget fades out and becomes `pointer-events-none` to avoid duplicate icons. When scrolling back to top, it reappears. The footer has `id="footer"` for this purpose.
+**Footer visibility detection:** On scroll/resize, the widget checks `footer.getBoundingClientRect().top < window.innerHeight`. When the footer enters the viewport, the floating widget fades out and becomes `pointer-events-none`. When scrolling back up, it reappears. The footer has `id="footer"` (`src/components/layout/footer.tsx`) for this purpose.
 
 **Footer changes:** `src/components/layout/footer.tsx`
 
 - Added `id="footer"` to `<footer>` element
 - Changed social icon color from `text-muted-foreground` → `text-white`
 
+**Position rationale:** Bottom-right chosen because bottom-left may conflict with scroll indicators on some platforms. Mobile offset (`bottom-20`) avoids the PWA update toast.
+
 **Design rationale:**
 
-- Bottom-left is the only viewport corner not occupied by existing fixed elements
 - Circular shape distinguishes from rectangular footer social buttons
 - Subtle red glow on hover ties to IMC brand without being aggressive
 - Small footprint (3 × 40px) ensures no content obstruction on mobile
+
+**Lesson learned:** IntersectionObserver in `useEffect` does not reliably detect across full-page navigations on static export. Scroll listeners with `getBoundingClientRect()` are simpler and more robust.
 
 **Build:** 17 routes prerendered, zero TypeScript errors, zero build errors
 
