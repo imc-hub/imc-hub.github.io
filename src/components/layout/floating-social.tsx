@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
 const socialLinks = [
   {
@@ -69,7 +69,6 @@ const socialLinks = [
 export default function FloatingSocial() {
   const [visible, setVisible] = useState(false);
   const [hiddenByFooter, setHiddenByFooter] = useState(false);
-  const footerRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
     const id = window.requestAnimationFrame(() => setVisible(true));
@@ -77,23 +76,33 @@ export default function FloatingSocial() {
   }, []);
 
   useEffect(() => {
-    footerRef.current = document.getElementById("footer");
+    let observer: IntersectionObserver | null = null;
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setHiddenByFooter(entry.isIntersecting);
-      },
-      { threshold: 0.1 },
-    );
+    const observe = () => {
+      if (observer) {
+        observer.disconnect();
+        observer = null;
+      }
 
-    const target = footerRef.current;
-    if (target) {
-      observer.observe(target);
-    }
+      const footer = document.getElementById("footer");
+      if (!footer) {
+        requestAnimationFrame(observe);
+        return;
+      }
 
-    return () => {
-      if (target) observer.unobserve(target);
+      observer = new IntersectionObserver(
+        ([entry]) => {
+          setHiddenByFooter(entry.isIntersecting);
+        },
+        { threshold: 0.1 },
+      );
+
+      observer.observe(footer);
     };
+
+    observe();
+
+    return () => observer?.disconnect();
   }, []);
 
   return (
