@@ -7,6 +7,7 @@ import {
 } from "@/components/seo/structured-data";
 import InstallPrompt from "@/components/pwa/install-prompt";
 import UpdateToast from "@/components/pwa/update-toast";
+import FloatingSocial from "@/components/layout/floating-social";
 import ElectronBackground from "@/components/effects/electron-background";
 
 const inter = Inter({
@@ -177,6 +178,7 @@ export default function RootLayout({
         </div>
         <InstallPrompt />
         <UpdateToast />
+        <FloatingSocial />
         <script
           dangerouslySetInnerHTML={{
             __html: `

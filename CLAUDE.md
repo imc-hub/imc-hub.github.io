@@ -215,6 +215,41 @@ Cookie consent banner and preference center were implemented but caused page fre
 
 **Build:** 17 routes prerendered, zero TypeScript errors, zero build errors
 
+### 2026-06-25 — Floating Social Media Widget (Global)
+
+**What:** Added a persistent floating social media widget visible on all pages with Instagram, Facebook, and LinkedIn links.
+
+**New Component:** `src/components/layout/floating-social.tsx`
+
+- `"use client"` component, zero new npm dependencies
+- Fixed position: `bottom-5 left-5 z-[9996]` — bottom-left chosen to avoid conflicts:
+  - PWA install prompt: `bottom-0` full-width at `z-[9999]`
+  - Update toast: `bottom-16 right-4` at `z-[9998]`
+  - Cookie banner: `bottom-0` full-width at `z-[9997]`
+- 3 circular buttons (40×40px), glass-morphism style (`bg-dark-950/80 ring-1 ring-white/[0.08] backdrop-blur-sm`)
+- Hover: red accent glow + subtle `scale(1.1)` scale effect
+- Fade-in animation on mount (CSS translate + opacity transition)
+- `prefers-reduced-motion` respected (disables transitions)
+- All links: `target="_blank" rel="noopener noreferrer"`
+- Accessibility: `aria-label` per link ("Follow IMC on Instagram/Facebook/LinkedIn"), `role="group"` on container
+- Reuses same inline SVG icons as footer (no icon library dependency)
+
+**Modified:** `src/app/layout.tsx`
+
+- Added import + `<FloatingSocial />` after `<UpdateToast />` (line 181)
+- Renders globally for all pages — no per-page changes needed
+
+**Icon approach:** Inline SVGs matching the footer's `strokeWidth={1.75}` Lucide-style aesthetic. Same URLs as footer social links.
+
+**Design rationale:**
+
+- Bottom-left is the only viewport corner not occupied by existing fixed elements
+- Circular shape distinguishes from rectangular footer social buttons
+- Subtle red glow on hover ties to IMC brand without being aggressive
+- Small footprint (3 × 40px) ensures no content obstruction on mobile
+
+**Build:** 17 routes prerendered, zero TypeScript errors, zero build errors
+
 ### 2026-06-22 — Electron Background Animation (Global)
 
 **What:** Replaced static black background with a dynamic animated electron particle network across all pages.
