@@ -76,33 +76,26 @@ export default function FloatingSocial() {
   }, []);
 
   useEffect(() => {
-    let observer: IntersectionObserver | null = null;
-
-    const observe = () => {
-      if (observer) {
-        observer.disconnect();
-        observer = null;
-      }
-
+    const checkFooter = () => {
       const footer = document.getElementById("footer");
       if (!footer) {
-        requestAnimationFrame(observe);
+        setHiddenByFooter(false);
         return;
       }
-
-      observer = new IntersectionObserver(
-        ([entry]) => {
-          setHiddenByFooter(entry.isIntersecting);
-        },
-        { threshold: 0.1 },
-      );
-
-      observer.observe(footer);
+      const rect = footer.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+      setHiddenByFooter(rect.top < windowHeight);
     };
 
-    observe();
+    checkFooter();
 
-    return () => observer?.disconnect();
+    window.addEventListener("scroll", checkFooter, { passive: true });
+    window.addEventListener("resize", checkFooter, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", checkFooter);
+      window.removeEventListener("resize", checkFooter);
+    };
   }, []);
 
   return (
