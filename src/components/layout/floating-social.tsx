@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const socialLinks = [
   {
@@ -68,10 +68,32 @@ const socialLinks = [
 
 export default function FloatingSocial() {
   const [visible, setVisible] = useState(false);
+  const [hiddenByFooter, setHiddenByFooter] = useState(false);
+  const footerRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
     const id = window.requestAnimationFrame(() => setVisible(true));
     return () => window.cancelAnimationFrame(id);
+  }, []);
+
+  useEffect(() => {
+    footerRef.current = document.getElementById("footer");
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setHiddenByFooter(entry.isIntersecting);
+      },
+      { threshold: 0.1 },
+    );
+
+    const target = footerRef.current;
+    if (target) {
+      observer.observe(target);
+    }
+
+    return () => {
+      if (target) observer.unobserve(target);
+    };
   }, []);
 
   return (
@@ -79,7 +101,9 @@ export default function FloatingSocial() {
       aria-label="Social media links"
       role="group"
       className={`fixed bottom-5 left-5 z-[9996] flex flex-col gap-2.5 transition-all duration-500 ease-out motion-reduce:transition-none ${
-        visible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
+        visible && !hiddenByFooter
+          ? "translate-y-0 opacity-100"
+          : "translate-y-4 opacity-0 pointer-events-none"
       }`}
     >
       {socialLinks.map(({ href, label, svg }) => (
@@ -91,7 +115,7 @@ export default function FloatingSocial() {
           aria-label={label}
           className="group flex h-10 w-10 items-center justify-center rounded-full bg-dark-950/80 ring-1 ring-white/[0.08] backdrop-blur-sm transition-all duration-200 hover:scale-110 hover:bg-imc-red/15 hover:ring-imc-red/30 hover:shadow-[0_0_16px_rgba(220,38,38,0.2)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-imc-red/60 motion-reduce:hover:scale-100"
         >
-          <span className="text-muted-foreground transition-colors duration-200 group-hover:text-imc-red">
+          <span className="text-white transition-colors duration-200 group-hover:text-imc-red">
             {svg}
           </span>
         </a>

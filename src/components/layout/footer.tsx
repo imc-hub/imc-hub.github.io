@@ -84,7 +84,10 @@ const footerLinks = {
 
 export function Footer() {
   return (
-    <footer className="relative border-t border-white/[0.06] bg-dark-950/80">
+    <footer
+      id="footer"
+      className="relative border-t border-white/[0.06] bg-dark-950/80"
+    >
       {/* Subtle top gradient line */}
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-imc-red/20 to-transparent" />
 
@@ -128,7 +131,7 @@ export function Footer() {
                   aria-label={label}
                   className="group flex h-9 w-9 items-center justify-center rounded-lg bg-white/[0.04] ring-1 ring-white/[0.08] transition-all duration-200 hover:bg-imc-red/15 hover:ring-imc-red/30 hover:shadow-[0_0_12px_rgba(220,38,38,0.15)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-imc-red/50"
                 >
-                  <span className="text-muted-foreground transition-colors duration-200 group-hover:text-imc-red">
+                  <span className="text-white transition-colors duration-200 group-hover:text-imc-red">
                     {svg}
                   </span>
                 </a>

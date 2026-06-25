@@ -241,6 +241,15 @@ Cookie consent banner and preference center were implemented but caused page fre
 
 **Icon approach:** Inline SVGs matching the footer's `strokeWidth={1.75}` Lucide-style aesthetic. Same URLs as footer social links.
 
+**Icon color:** Both floating widget and footer icons use `text-white` (not `text-muted-foreground`) for better visibility against the dark animated background.
+
+**Footer visibility detection:** Floating widget uses `IntersectionObserver` watching `#footer` element. When the footer scrolls into view (≥10% visible), the floating widget fades out and becomes `pointer-events-none` to avoid duplicate icons. When scrolling back to top, it reappears. The footer has `id="footer"` for this purpose.
+
+**Footer changes:** `src/components/layout/footer.tsx`
+
+- Added `id="footer"` to `<footer>` element
+- Changed social icon color from `text-muted-foreground` → `text-white`
+
 **Design rationale:**
 
 - Bottom-left is the only viewport corner not occupied by existing fixed elements
