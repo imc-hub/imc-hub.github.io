@@ -157,6 +157,21 @@ Cookie consent banner and preference center were implemented but caused page fre
 
 ## Session Notes
 
+### 2026-06-26 — Homepage Hero Card Navigation
+
+**What:** Made the 3 hero section business-unit cards clickable, each navigating to its relevant destination.
+
+**Changes:** `src/components/sections/hero.tsx` (only file modified)
+
+- Wrapped each card in a `<Link>` component
+- Corporate & Business Training → `/academy` (internal)
+- Athletic Performance — OCTRI → `https://www.octri-egypt.com/` (external, `noopener noreferrer`)
+- Digital Solutions & Technology → `/digital-solutions` (internal)
+- Added `href` and optional `external` fields to each card data object
+- Added `block` class to make the entire card area clickable
+
+**Build:** 17 routes prerendered, zero TypeScript errors, zero build errors
+
 ### 2026-06-22 — Cache Busting Fix (No CSS on Return Visits)
 
 **Problem:** Returning visitors got HTML with no CSS/JS. Old service worker served stale cached assets that no longer matched the new build's hashed filenames.

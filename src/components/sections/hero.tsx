@@ -68,13 +68,16 @@ export function HeroSection() {
             {
               label: "Corporate & Business Training",
               desc: "B2C & B2B capability building",
+              href: "/academy",
               gradient: "from-imc-red/10 to-transparent",
               borderHover: "hover:border-imc-red/20",
-              icon: "🎯",
+              icon: "\u{1F3AF}",
             },
             {
               label: "Athletic Performance — OCTRI",
               desc: "Mental toughness & physical endurance",
+              href: "https://www.octri-egypt.com/",
+              external: true,
               gradient: "from-emerald-500/10 to-transparent",
               borderHover: "hover:border-emerald-500/20",
               icon: "⚡",
@@ -82,21 +85,25 @@ export function HeroSection() {
             {
               label: "Digital Solutions & Technology",
               desc: "Gamified EdTech & learning platforms",
+              href: "/digital-solutions",
               gradient: "from-imc-gold/10 to-transparent",
               borderHover: "hover:border-imc-gold/20",
               icon: "🚀",
             },
           ].map((item, i) => (
-            <div
+            <Link
               key={item.label}
-              className={`reveal delay-${(i + 3) * 100} group rounded-xl border border-white/[0.06] bg-gradient-to-br ${item.gradient} p-5 text-center backdrop-blur-sm transition-all duration-300 hover-lift ${item.borderHover}`}
+              href={item.href}
+              target={item.external ? "_blank" : undefined}
+              rel={item.external ? "noopener noreferrer" : undefined}
+              className={`reveal delay-${(i + 3) * 100} group rounded-xl border border-white/[0.06] bg-gradient-to-br ${item.gradient} p-5 text-center backdrop-blur-sm transition-all duration-300 hover-lift ${item.borderHover} block`}
             >
               <span className="text-2xl">{item.icon}</span>
               <p className="mt-2 text-sm font-semibold text-foreground">
                 {item.label}
               </p>
               <p className="mt-1 text-xs text-muted-foreground">{item.desc}</p>
-            </div>
+            </Link>
           ))}
         </div>
 
