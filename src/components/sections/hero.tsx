@@ -1,8 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import { DownloadButton } from "@/components/pwa/download-button";
 
@@ -48,16 +46,6 @@ export function HeroSection() {
 
           {/* CTA */}
           <div className="reveal delay-300 mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <Button
-              size="lg"
-              className="w-full bg-imc-red text-white hover:bg-imc-red-dark glow-red font-semibold text-base h-12 px-8 sm:w-auto"
-              asChild
-            >
-              <Link href="/assessment">
-                Start Free Assessment
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
-            </Button>
             <DownloadButton />
           </div>
         </div>

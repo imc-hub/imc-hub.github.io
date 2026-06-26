@@ -39,17 +39,6 @@ export function CTASection() {
                 className="w-full bg-imc-red text-white hover:bg-imc-red-dark glow-red font-semibold h-12 px-8 sm:w-auto"
                 asChild
               >
-                <Link href="/assessment">
-                  Start Free Assessment
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="w-full border-white/[0.1] text-foreground hover:bg-white/[0.06] h-12 px-8 sm:w-auto"
-                asChild
-              >
                 <Link href="/contact">Talk to Our Team</Link>
               </Button>
             </div>

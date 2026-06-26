@@ -85,7 +85,7 @@ export function Header() {
             className="bg-imc-red text-white hover:bg-imc-red-dark glow-red font-semibold tracking-wide"
             asChild
           >
-            <Link href="/assessment">
+            <Link href="/academy">
               Get Started
               <ChevronRight className="ml-1 h-3.5 w-3.5" />
             </Link>
@@ -150,7 +150,7 @@ export function Header() {
               className="w-full bg-imc-red text-white hover:bg-imc-red-dark glow-red font-semibold"
               asChild
             >
-              <Link href="/assessment" onClick={() => setMobileOpen(false)}>
+              <Link href="/academy" onClick={() => setMobileOpen(false)}>
                 Get Started
                 <ChevronRight className="ml-1.5 h-4 w-4" />
               </Link>

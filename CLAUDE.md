@@ -157,6 +157,18 @@ Cookie consent banner and preference center were implemented but caused page fre
 
 ## Session Notes
 
+### 2026-06-27 — Academy-Focused Navigation & Assessment Removal
+
+**What:** Reoriented the site's primary navigation CTA from assessment to academy, removing the "Start Free Assessment" buttons from the hero and closing CTA sections.
+
+**Changes:**
+
+- `src/components/layout/header.tsx` — "Get Started" button now navigates to `/academy` (both desktop and mobile menus)
+- `src/components/sections/hero.tsx` — Removed "Start Free Assessment" button; "Download App" is now the sole hero CTA. Removed unused `ArrowRight` and `Button` imports.
+- `src/components/sections/cta.tsx` — Removed "Start Free Assessment" button from "Ready to close the gap?" section. "Talk to Our Team" is now the sole CTA (promoted to red primary style to fill the space).
+
+**Build:** 17 routes prerendered, zero TypeScript errors, zero build errors
+
 ### 2026-06-26 — Homepage Hero Card Navigation
 
 **What:** Made the 3 hero section business-unit cards clickable, each navigating to its relevant destination.
